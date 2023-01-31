@@ -16,6 +16,9 @@
       "moduleResolution": "node",
       // для абсолютного импорта
       "baseUrl": ".",
+      "paths": {
+        "*": ["./src/*"]
+      },
       // позваоляет работать с пакетами которые используют common js как с обычнми пакетами, используя import. common js это require() module.export 
       "esModuleInterop": true,
       // Если какая-либо библиотека не имеет default import,
