@@ -1,5 +1,11 @@
   {
     "compilerOptions": {
+      "typeRoots": [
+        // "node_modules/@types",
+        "src/app/types"
+      ],
+      // чтобы игнорировал проверки в node_modules
+      "skipLibCheck": true,
       // нерелаватное, так как юзаем вебпак
       "outDir": "./dist/",
       // "sourceMap": true,
@@ -17,7 +23,9 @@
       // для абсолютного импорта
       "baseUrl": ".",
       "paths": {
-        "*": ["./src/*"]
+        "*": [
+          "./src/*"
+        ]
       },
       // позваоляет работать с пакетами которые используют common js как с обычнми пакетами, используя import. common js это require() module.export 
       "esModuleInterop": true,
@@ -27,11 +35,17 @@
       // import * as React from 'react';
       // можно писать такой
       // import React from 'react';
-      "allowSyntheticDefaultImports": true
+      "allowSyntheticDefaultImports": true,
+      "forceConsistentCasingInFileNames": true,
     },
     "ts-node": {
       "compilerOptions": {
         "module": "CommonJS"
-      }
+      },
+      "include": [
+        // "src",
+        "src/app/types"
+        // "src/**/*.ts",
+      ]
     }
   }

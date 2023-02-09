@@ -2,15 +2,33 @@ import { BuildOptions } from './types/config';
 import webpack from "webpack"
 import HtmlWebpackPlugin from "html-webpack-plugin"
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
-export function buildPlugins({ paths }: BuildOptions): webpack.WebpackPluginInstance[] {
-  return [
-    new HtmlWebpackPlugin({
-      template: paths.html
-    }),
-    new webpack.ProgressPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash:8].css',
-      chunkFilename: 'css/[name].[contenthash:8].css'
-    })
-  ]
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin"
+const a = ''
+export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
+	return [
+		new HtmlWebpackPlugin({
+			template: paths.html
+		}),
+		new webpack.ProgressPlugin(),
+		new MiniCssExtractPlugin({
+			filename: 'css/[name].[contenthash:8].css',
+			chunkFilename: 'css/[name].[contenthash:8].css'
+		}),
+		// DefinePlugin позволяет прокидывать в само приложение глобальные переменные. Например, если я передам VERSION: JSON.stringify('1.1.9'), то потом в других частях приложения, например в конфиге i18n, я смогу обратиться к этой переменной
+		new webpack.DefinePlugin({
+			__IS_DEV__: JSON.stringify(isDev)
+		}),
+		...(isDev ?
+			[
+				new ReactRefreshWebpackPlugin(),
+				new webpack.HotModuleReplacementPlugin(),
+			]
+			: []
+		)
+		// new ReactRe,
+		// HotModuleReplacementPlugin нужен для того, чтобы HotModuleReplacementPlugin отвечает за перезагрузку страницы при изменении кода.
+		// HtmlWebpackPlugin упрощает создание HTML файлов путем подстановки в них собранных webpack’ом сборок. Это очень удобно, особенно для тех сборок, которые включают hash в название выходного файла сборки, который меняется каждую компиляцию.Работает как для js файлов, так и для стилей
+
+
+	]
 }
