@@ -2,7 +2,8 @@ module.exports = {
 	env: {
 		browser: true,
 		es2021: true,
-		node: true
+		node: true,
+		jest: true
 	},
 	extends: [
 		'eslint:recommended',
@@ -27,6 +28,7 @@ module.exports = {
 		'react/jsx-indent': [1, "tab"],
 		'react/jsx-indent-props': [1, "tab"],
 		indent: [1, "tab"],
+		"no-mixed-spaces-and-tabs": 'smart-tabs',
 		'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
 		'import/extensions': 'off',
 		'import/no-unresolved': 'off',
@@ -41,8 +43,14 @@ module.exports = {
 		'no-shadow': 'off',
 		'no-underscore-dangle': 'off',
 		"no-undef": 'warn',
-		'i18next/no-literal-string': [1, { markupOnly: true }]
-
+		'i18next/no-literal-string': [1, { markupOnly: true }],
+		'max-length': [2, {
+			"ignoreComments": true,
+			"ignoreTrailingComments": true,
+			"ignoreUrls": true,
+			"ignoreStrings": true
+		}
+		]
 	},
 	globals: {
 		__IS_DEV__: true,

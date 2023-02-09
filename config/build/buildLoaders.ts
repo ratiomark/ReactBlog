@@ -19,15 +19,33 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 					modules: {
 						auto: /\.module\.scss/,
 						localIdentName: isDev ? '[local]--[name]-[path]' : '[hash:base64:8]'
-
 					}
-
 				}
 			},
 			// Compiles Sass to CSS
 			"sass-loader",
 		]
 	}
+
+	const babelLoader =  {
+        test: /\.(js|jsx|tsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+						presets: ['@babel/preset-env'],
+						plugins: [
+							[
+								'i18next-extract',
+								{
+									locales: ['ru', 'en'],
+									keyAsDefaultValue: ['ru', 'en'],
+								}
+							]
+						]
+          }
+        }
+      }
 
 	const typescriptLoader = {
 		test: /\.tsx?$/,
@@ -74,6 +92,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 		svgLoader,
 		svgLoaderAsComponent,
 		imgLoader,
+		babelLoader,
 		typescriptLoader,
 		cssLoader,
 	]

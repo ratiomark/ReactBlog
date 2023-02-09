@@ -4,6 +4,11 @@
         // "node_modules/@types",
         "src/app/types"
       ],
+      "types": [
+        "node",
+        // "jest",
+        "@types/jest"
+      ],
       // чтобы игнорировал проверки в node_modules
       "skipLibCheck": true,
       // нерелаватное, так как юзаем вебпак
