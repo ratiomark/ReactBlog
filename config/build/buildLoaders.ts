@@ -1,51 +1,33 @@
 import { BuildOptions } from './types/config';
 import webpack from "webpack"
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
+import { buildCssLoaders } from './loaders/buildCssLoaders';
 const imageInlineSizeLimit = parseInt(
 	process.env.IMAGE_INLINE_SIZE_LIMIT || '10000'
 );
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 	const { isDev } = options
-	const cssLoader = {
-		test: /\.s[ac]ss$/,
-		use: [
-			// Creates `style` nodes from JS strings
-			// Мини Css создает отдельные файлы, но нам это не нужно в режиме разработки
-			isDev ? "style-loader" : MiniCssExtractPlugin.loader,
-			// Translates CSS into CommonJS
-			{
-				loader: "css-loader",
-				options: {
-					modules: {
-						auto: /\.module\.scss/,
-						localIdentName: isDev ? '[local]--[name]-[path]' : '[hash:base64:8]'
-					}
-				}
-			},
-			// Compiles Sass to CSS
-			"sass-loader",
-		]
-	}
+	const cssLoader = buildCssLoaders(isDev)
 
-	const babelLoader =  {
-        test: /\.(js|jsx|tsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-						presets: ['@babel/preset-env'],
-						plugins: [
-							[
-								'i18next-extract',
-								{
-									locales: ['ru', 'en'],
-									keyAsDefaultValue: ['ru', 'en'],
-								}
-							]
-						]
-          }
-        }
-      }
+	const babelLoader = {
+		test: /\.(js|jsx|tsx)$/,
+		exclude: /node_modules/,
+		use: {
+			loader: "babel-loader",
+			options: {
+				presets: ['@babel/preset-env'],
+				plugins: [
+					[
+						'i18next-extract',
+						{
+							locales: ['ru', 'en'],
+							keyAsDefaultValue: ['ru', 'en'],
+						}
+					]
+				]
+			}
+		}
+	}
 
 	const typescriptLoader = {
 		test: /\.tsx?$/,
@@ -69,7 +51,10 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 		resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
 		use: ['@svgr/webpack'],
 	}
-
+	// const imgLoader: webpack.RuleSetRule = {
+	// 	test: /\\.(png|jp(e*)g|gif)$/,
+	// 	use: ['file-loader'],
+	// }
 	const imgLoader: webpack.RuleSetRule = {
 		test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
 		type: 'asset',

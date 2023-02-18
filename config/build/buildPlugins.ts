@@ -14,13 +14,17 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
 			filename: 'css/[name].[contenthash:8].css',
 			chunkFilename: 'css/[name].[contenthash:8].css'
 		}),
+		// new MiniCssExtractPlugin({
+		// 	filename: "css/style.[hash:8].css",
+		// 	chunkFilename: "css/[id].style.[hash:8].css",
+		// }),
 		// DefinePlugin позволяет прокидывать в само приложение глобальные переменные. Например, если я передам VERSION: JSON.stringify('1.1.9'), то потом в других частях приложения, например в конфиге i18n, я смогу обратиться к этой переменной
 		new webpack.DefinePlugin({
 			__IS_DEV__: JSON.stringify(isDev)
 		}),
 		...(isDev ?
 			[
-				new ReactRefreshWebpackPlugin(),
+				// new ReactRefreshWebpackPlugin(),
 				new webpack.HotModuleReplacementPlugin(),
 			]
 			: []

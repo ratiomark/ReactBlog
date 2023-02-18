@@ -25,6 +25,15 @@ declare module '*.jpeg' {
   export default content;
 }
 
+// declare module "*.png" {
+// const value: any;
+// export = value;
+// }
+// declare module "*.png" {
+//   const path: string;
+//   export default path;
+// }
+// declare module '*.png';
 declare module '*.png' {
   const content: any;
   export default content;

@@ -47,10 +47,12 @@
       "compilerOptions": {
         "module": "CommonJS"
       },
+      // Если include не указан, то по умолчанию включаются все ts файлы, но как только я определяю что-то явно, то часть файлов теряется, поэтому нужно указывать './src/**/*.ts'
       "include": [
         // "src",
-        "src/app/types"
-        // "src/**/*.ts",
+        "./config/jest/jest.config.ts",
+        "./src/**/*.ts",
+        "./src/**/*.tsx",
       ]
     }
   }

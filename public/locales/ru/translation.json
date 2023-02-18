@@ -1,4 +1,7 @@
 {
   "t1": "Это тестирование i18n",
-  "button lang change": "Сменить язык"
+  "button lang change": "Сменить язык",
+  "error happened": "Произошла ошибка",
+  "update page": "Обновить страницу",
+  "newke": "новый ключ"
 }

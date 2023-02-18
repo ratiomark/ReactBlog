@@ -1,7 +1,24 @@
 {
 	"extends": "stylelint-config-standard-scss",
 	"rules": {
-		"indentation": 4,
-		"selector-class-pattern": null
+		"indentation": 2,
+		"selector-class-pattern": null,
+		"value-keyword-case": [
+			"lower",
+			{
+				"ignoreProperties": [
+					"/font/",
+					"--font-family-main",
+					"/\\w+font\\w+/",
+					"font-family"
+				],
+				"ignoreKeywords": [
+					"/font/",
+					"--font-family-main",
+					"/\\w+font\\w+/",
+					"font-family"
+				]
+			}
+		]
 	}
 }

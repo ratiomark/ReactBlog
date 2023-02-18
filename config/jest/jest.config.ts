@@ -3,6 +3,8 @@
  * https://jestjs.io/docs/configuration
  */
 
+import path from "path";
+
 export default {
 	// All imported modules in your tests should be mocked automatically
 	// automock: false,
@@ -20,19 +22,39 @@ export default {
 		"\\\\node_modules\\\\"
 	],
 	coverageReporters: [
-	  "json",
-	  "text",
-	  "lcov",
-	  "clover"
+		"json",
+		"text",
+		"lcov",
+		"clover"
 	],
-
+	moduleFileExtensions: [
+		"js",
+		"jsx",
+		"ts",
+		"tsx",
+		"json",
+		"node"
+	],
+	moduleNameMapper: {
+		'\\.s?css$': 'identity-obj-proxy',
+		'\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
+	},
+	setupFilesAfterEnv: ['<rootDir>config/jest/jestSetup.ts'],
+	// moduleNameMapper: {
+	// 	"@/(.*)": "<rootDir>src/$1",
+	// },
 	moduleDirectories: [
-	  "node_modules"
+		"node_modules",
+		// "src"
+	],
+	modulePaths: [
+		'<rootDir>src',
 	],
 	testMatch: [
 		'<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
 	],
-	
+
+	// тут указвается путь до корня проекта, далее можно будет достать до корневой папки с помощью <rootDir>
 	rootDir: '../../',
 	// Indicates whether the coverage information should be collected while executing the test
 	// collectCoverage: false,
@@ -44,7 +66,7 @@ export default {
 	// coverageDirectory: undefined,
 
 	// An array of regexp pattern strings used to skip coverage collection
-	
+
 
 	// Indicates which provider should be used to instrument code for coverage
 	// coverageProvider: "babel",
