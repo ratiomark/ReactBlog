@@ -17,7 +17,7 @@ export const ErrorDisplay = ({ className }: ErrorDisplayProps) => {
 		<div className={classNames(cls.ErrorDisplay, {}, [className])}>
 			<h2>{t('error happened')}</h2>
 			<Button
-				theme='outline'
+				variant='outline'
 				onClick={reloadPage}>
 				{t('update page')}
 			</Button>

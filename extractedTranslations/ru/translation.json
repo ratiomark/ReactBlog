@@ -1,6 +1,12 @@
 {
+  "button lang": "button lang",
+  "button lang  short": "button lang  short",
   "button lang change": "button lang change",
+  "button lang short": "button lang short",
+  "button short lang": "button short lang",
+  "button short lang change": "button short lang change",
   "error ": "error ",
+  "error button": "error button",
   "error ha": "error ha",
   "error happened": "error happened",
   "new": "new",

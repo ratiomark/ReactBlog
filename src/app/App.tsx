@@ -9,22 +9,9 @@ import { Sidebar } from 'widgets/Sidebar'
 import icon from 'shared/assets/icon/abyss.jpg'
 import icon2 from 'shared/assets/icon/768px-Sign-check-icon.png'
 import { useTranslation } from 'react-i18next'
-import { useTranslate } from 'features/LanguageSwitcher'
 import { LoaderWidget } from 'widgets/LoaderWidget/LoaderWidget'
 
-const Component = () => {
-	const { setLang, t, currentLang } = useTranslate()
-	const onToggleLang = () => {
-		setLang(currentLang === 'en' ? 'ru' : 'en')
-	}
 
-	return (
-		<div>
-			<button onClick={onToggleLang}>{t('button lang change')}</button>
-			{t('t1')}
-		</div>
-	)
-}
 
 export const App = () => {
 	const { theme, toggleTheme } = useTheme()
@@ -33,7 +20,6 @@ export const App = () => {
 		<div className={classNames('app', {}, [theme])}>
 			<Suspense fallback={<LoaderWidget />}>
 				<NavBar />
-				<Component />
 				<div className='content-page'>
 					<Sidebar />
 					<AppRouter />

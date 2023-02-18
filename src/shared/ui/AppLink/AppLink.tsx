@@ -27,7 +27,7 @@ import styles from "./AppLink.module.scss"
 
 export const AppLinkTheme = {
 	primary: 'primary',
-	secondary: 'secondary',
+	inverted: 'inverted',
 	red: "red"
 } as const;
 type AppLinkTheme = keyof typeof AppLinkTheme;
@@ -35,8 +35,8 @@ type AppLinkTheme = keyof typeof AppLinkTheme;
 
 
 interface AppLinkProps extends LinkProps {
-  className?: string;
-  theme?: AppLinkTheme;
+	className?: string;
+	theme?: AppLinkTheme;
 }
 
 export const AppLink: FC<AppLinkProps> = (props) => {

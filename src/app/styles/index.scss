@@ -13,9 +13,17 @@
 
 .content-page {
   display: flex;
+
+  // width: 100%;
+  // flex-grow: 1;
+  // flex-shrink: 1;
 }
 
 .page-wrapper {
   flex-grow: 1;
-  padding: 20px;
+
+  // flex-shrink: 1;
+  // padding: 20px;
+
+  // max-width: 100%;
 }

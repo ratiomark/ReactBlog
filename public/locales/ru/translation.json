@@ -3,5 +3,7 @@
   "button lang change": "Сменить язык",
   "error happened": "Произошла ошибка",
   "update page": "Обновить страницу",
-  "newke": "новый ключ"
+  "newke": "новый ключ",
+  "error button": "Кнопка с ошибкой",
+  "button lang short":"рус"
 }

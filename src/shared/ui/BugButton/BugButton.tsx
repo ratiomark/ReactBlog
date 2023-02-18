@@ -1,3 +1,4 @@
+import { useTranslate } from 'features/LanguageSwitcher'
 import { useState, useEffect } from 'react'
 import { classNames } from 'shared/lib/helpers/classNames/classNames'
 import { Button } from '../Button/Button'
@@ -7,7 +8,7 @@ interface BugButtonProps {
 }
 
 export const BugButton = ({ className }: BugButtonProps) => {
-	
+	const { t } = useTranslate()
 	const [error, setError] = useState(false)
 
 	useEffect(() => {
@@ -22,7 +23,7 @@ export const BugButton = ({ className }: BugButtonProps) => {
 
 	return (
 		<div className={classNames('', {}, [className])}>
-			<Button onClick={throwError}>Кнопка</Button>
+			<Button onClick={throwError}>{t('error button')}</Button>
 		</div>
 	)
 }
