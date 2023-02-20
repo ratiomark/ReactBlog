@@ -8,6 +8,7 @@
   "button lang short": "рус",
   "log in": "Войти",
   "About us": "О нас",
-  "Main": "Главная"
-  
+  "Main": "Главная",
+  "increment": "+",
+  "decrement": "-"
 }

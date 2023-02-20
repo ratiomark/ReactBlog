@@ -8,5 +8,7 @@
   "button lang short": "en",
   "log in": "Log in",
   "About us": "About us",
-  "Main": "Main"
+  "Main": "Main",
+  "increment": "+",
+  "decrement": "-"
 }

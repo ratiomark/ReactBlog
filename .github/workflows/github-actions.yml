@@ -6,6 +6,7 @@ on:
     branches: [main]
 jobs:
   pipeline:
+  # если запустить на ubuntu-latest, то скриншотные тесты посыпятся
     runs-on: windows-2019
     strategy:
       matrix:

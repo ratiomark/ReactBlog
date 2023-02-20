@@ -3,8 +3,10 @@
   "Main": "Main",
   "button lang change": "button lang change",
   "button lang short": "button lang short",
+  "decrement": "decrement",
   "error button": "error button",
   "error happened": "error happened",
+  "increment": "increment",
   "log in": "log in",
   "update page": "update page"
 }
