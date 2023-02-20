@@ -46,6 +46,15 @@ export const ClearDark = createButtonTemplate([
 	variantCreator(ButtonVariant.clear),
 	appThemeCreator(Theme.DARK),
 ]);
+export const ClearInvertedLight = createButtonTemplate([
+	variantCreator(ButtonVariant.clearInverted),
+	appThemeCreator(Theme.LIGHT),
+]);
+
+export const ClearInvertedDark = createButtonTemplate([
+	variantCreator(ButtonVariant.clearInverted),
+	appThemeCreator(Theme.DARK),
+]);
 
 export const ClearMediumLight = createButtonTemplate([
 	variantCreator(ButtonVariant.clear),

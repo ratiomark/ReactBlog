@@ -4,6 +4,7 @@ import cls from './Button.module.scss'
 
 export const ButtonVariant = {
 	clear: 'clear',
+	clearInverted: 'clearInverted',
 	outline: 'outline',
 	background: 'background',
 	backgroundInverted: 'backgroundInverted',

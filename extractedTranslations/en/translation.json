@@ -1,19 +1,10 @@
 {
-  "button lang": "button lang",
-  "button lang  short": "button lang  short",
-  "button lang change": "",
+  "About us": "About us",
+  "Main": "Main",
+  "button lang change": "button lang change",
   "button lang short": "button lang short",
-  "button short lang": "button short lang",
-  "button short lang change": "button short lang change",
-  "error ": "error ",
-  "error button": "",
-  "error ha": "error ha",
+  "error button": "error button",
   "error happened": "error happened",
-  "new": "new",
-  "new key": "new key",
-  "newke": "newke",
-  "t1": "",
-  "throw error": "throw error",
-  "update page": "update page",
-  "Кажется произошла ошибка": "Кажется произошла ошибка"
+  "log in": "log in",
+  "update page": "update page"
 }

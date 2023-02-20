@@ -9,15 +9,21 @@ import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { RoutePath } from 'app/providers/router/config/routeConfig/routeConfig'
 import AboutIcon from 'shared/assets/icon/order.svg'
 import MainIcon from 'shared/assets/icon/main.svg'
+import { useTranslation } from 'react-i18next'
+
 interface SidebarProps {
 	className?: string
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
+	const { t } = useTranslation();
+
 	const [collapsed, setCollapsed] = useState(false)
+	
 	const onToggle = () => {
 		setCollapsed((prev) => !prev)
 	}
+	
 	return (
 		<div data-testid='sidebar' className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
 
@@ -30,6 +36,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
 				onClick={onToggle}>
 				{collapsed ? '>' : '<'}
 			</Button>
+
 			<nav className={cls.items}>
 				<div className={cls.item}>
 					<AppLink
@@ -38,7 +45,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
 						to={RoutePath.MAIN}
 					>
 						<MainIcon className={cls.icon} />
-						<span className={cls.link}>Main</span>
+						<span className={cls.link}>{t('Main')}</span>
 					</AppLink>
 				</div>
 				<div className={cls.item}>
@@ -48,7 +55,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
 						to={RoutePath.ABOUT}
 					>
 						<AboutIcon className={cls.icon} />
-						<span className={cls.link} >About us</span>
+						<span className={cls.link}>{t('About us')}</span>
 					</AppLink>
 				</div>
 			</nav>

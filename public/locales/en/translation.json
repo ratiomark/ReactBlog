@@ -1,9 +1,12 @@
 {
   "t1": "This is test of i18n",
-  "button lang change": "Change language",
   "error happened": "error happened",
   "update page": "update page",
   "newke": "new key",
   "error button": "Error creator",
-  "button lang short": "en"
+  "button lang change": "Change language",
+  "button lang short": "en",
+  "log in": "Log in",
+  "About us": "About us",
+  "Main": "Main"
 }

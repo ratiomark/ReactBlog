@@ -8,11 +8,8 @@
 
 .toggleSidebar {
   right: -40px;
+  bottom: 40px;
   position: absolute;
-}
-
-.toggleSidebar_collapsed {
-  //   transform: translateX(0);
 }
 
 .switchers {
@@ -23,8 +20,7 @@
   padding: 15px;
   gap: 15px;
   align-items: center;
-
-  // width: calc(100% - 0px);
+  width: calc(100% - 0px);
 }
 
 // .items {
@@ -68,17 +64,11 @@
   width: var(--sidebar-collapsed);
 
   .items {
-    // gap: 0;
-
-    // align-items: center;
-    // transition: all 0.5s;
+    overflow: hidden;
   }
 
   .item {
-    // gap: 0;
-
-    // align-items: center;
-    // transition: all 0.5s;
+    // asd
   }
 
   .link {
