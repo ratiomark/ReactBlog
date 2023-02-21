@@ -14,7 +14,7 @@ import { LoaderWidget } from 'widgets/LoaderWidget/LoaderWidget'
 export const App = () => {
 	const { theme, toggleTheme } = useTheme()
 	return (
-		<div className={classNames('app', {}, [theme])}>
+		<div className={classNames('app', {}, [])}>
 			<Suspense fallback={<LoaderWidget />}>
 				<NavBar />
 				<div className='content-page'>

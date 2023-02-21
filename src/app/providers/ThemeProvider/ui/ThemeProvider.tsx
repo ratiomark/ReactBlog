@@ -1,4 +1,4 @@
-import { FC, useMemo, useState } from 'react'
+import { FC, useEffect, useMemo, useState } from 'react'
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from '../lib/ThemeContext';
 
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT
@@ -11,11 +11,15 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme =
 
 	const [theme, setTheme] = useState<Theme>(initialTheme);
 
-
 	const defaultProps = useMemo(() => ({
 		theme: theme,
 		setTheme: setTheme,
 	}), [theme])
+
+	useEffect(() => {
+		document.body.className = defaultTheme
+		// eslint-disable-next-line
+	}, [])
 
 	return (
 		<ThemeContext.Provider value={defaultProps}>
