@@ -17,9 +17,8 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme =
 	}), [theme])
 
 	useEffect(() => {
-		document.body.className = defaultTheme
-		// eslint-disable-next-line
-	}, [])
+		document.body.className = initialTheme
+	}, [initialTheme])
 
 	return (
 		<ThemeContext.Provider value={defaultProps}>

@@ -1,0 +1,14 @@
+.Input {
+  outline: none;
+  color: var(--secondary-color);
+  font: var(--font-family-main);
+  padding: 5px;
+
+  // background-color: var(--bg-color);
+
+  // outline: 1px greenyellow;
+  border: none;
+
+  &:focus {
+  }
+}

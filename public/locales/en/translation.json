@@ -7,8 +7,11 @@
   "button lang change": "Change language",
   "button lang short": "en",
   "log in": "Log in",
+  "log out": "Log out",
   "About us": "About us",
-  "Main": "Main",
+  "main page": "Main page",
   "increment": "+",
-  "decrement": "-"
+  "decrement": "-",
+  "login form in modal": "Login form",
+  "error on login": "Login or password are incorrect"
 }

@@ -5,7 +5,8 @@ export type TemplateProxy<T extends keyof JSX.IntrinsicElements | JSXElementCons
 
 export type TemplateCreator<T, K extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>> = (value: T) => TemplateProxy<K>
 
-export const createTemplate = <T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>>(templateProxies: TemplateProxy<T>[], Component: FC): ComponentStory<T> => {
+export const createTemplate = <T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>>
+	(templateProxies: TemplateProxy<T>[], Component: FC): ComponentStory<T> => {
 	let Template: ComponentStory<any> = (args) => <Component {...args} />
 	for (let i = 0; i < templateProxies.length; i++) {
 		const templateCreator = templateProxies[i]

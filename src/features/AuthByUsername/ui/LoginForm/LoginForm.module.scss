@@ -1,0 +1,22 @@
+.LoginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px 15px;
+  width: 300px;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.label {
+  margin-top: 10px;
+}
+
+.loginBtn {
+  margin-top: 15px;
+  margin-left: auto;
+}

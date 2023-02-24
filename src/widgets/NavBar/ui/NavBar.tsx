@@ -1,10 +1,12 @@
+import { getUserAuthData } from 'entities/User';
+import { LoginModal } from 'features/AuthByUsername';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/helpers/classNames/classNames'
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { Button } from 'shared/ui/Button/Button';
-import { Modal } from 'shared/ui/Modal/Modal';
 import styles from "./NavBar.module.scss"
+import { userActions } from 'entities/User'
 
 interface NavBarProps {
 	className?: string;
@@ -13,32 +15,60 @@ interface NavBarProps {
 export const NavBar = ({ className }: NavBarProps) => {
 	const { t } = useTranslation();
 	const [isAuthOpen, setIsAuthOpen] = useState(false)
-	const onToggleModal = useCallback(() => {
-		setIsAuthOpen(prev => !prev)
+	const userAuthData = useSelector(getUserAuthData)
+	const dispatch = useDispatch()
+
+	const onClose = useCallback(() => {
+		setIsAuthOpen(false)
 	}, [])
+	const onShowModal = useCallback(() => {
+		setIsAuthOpen(true)
+	}, [])
+	
+	const onLogout = () => {
+		dispatch(userActions.logout())
+	}
 
-	return (
-		<div className={classNames(styles.navBar, {}, [className])} >
+	if (userAuthData) {
+		return (
+			<div className={classNames(styles.navBar, {}, [className])} >
+				
+				<div className={styles.links} >
+					<Button
+						onClick={onLogout}
+						variant='background'
+						size='size_m'
+					>
+						{t('log out')}
+					</Button>
+				</div>
 
-			{/* <Button onClick={() => setIsOpen(true)}>{t('log in')}</Button> */}
-			<div
-				// onClick={() => setIsOpen(true)}
-				className={styles.links} >
-				<Button
-					onClick={onToggleModal}
-					variant='background'
-					size='size_m'
-				>
-					{t('log in')}
-				</Button>
+				<LoginModal
+					isOpen={isAuthOpen}
+					onClose={onClose}
+				/>
+
 			</div>
-			<Modal
-				isOpen={isAuthOpen}
-				onClose={onToggleModal}
-			>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, accusantium enim incidunt laboriosam ullam assumenda numquam blanditiis voluptatum non consequatur quaerat consequuntur, repellat, aperiam distinctio dolorem ad reprehenderit illo vitae!
-			</Modal>
+		)
+	} else {
+		return (
+			<div className={classNames(styles.navBar, {}, [className])} >
+				<div className={styles.links} >
+					<Button
+						onClick={onShowModal}
+						variant='background'
+						size='size_m'
+					>
+						{t('log in')}
+					</Button>
+				</div>
 
-		</div>
-	)
+				<LoginModal
+					isOpen={isAuthOpen}
+					onClose={onClose}
+				/>
+			</div>
+		)
+	}
+
 }

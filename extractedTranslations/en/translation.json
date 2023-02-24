@@ -1,12 +1,26 @@
 {
+  "": "",
   "About us": "About us",
   "Main": "Main",
   "button lang change": "button lang change",
   "button lang short": "button lang short",
   "decrement": "decrement",
+  "enter password": "enter password",
+  "enter userName": "enter userName",
   "error button": "error button",
   "error happened": "error happened",
+  "error on login": "",
   "increment": "increment",
   "log in": "log in",
-  "update page": "update page"
+  "log out": "",
+  "log зге": "",
+  "login form": "",
+  "login form in ": "",
+  "login form in modal": "",
+  "main page": "main page",
+  "prompt userName": "prompt userName",
+  "promuserName": "promuserName",
+  "propuserName": "propuserName",
+  "update page": "update page",
+  "userName": "userName"
 }

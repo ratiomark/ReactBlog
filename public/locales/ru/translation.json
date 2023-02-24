@@ -7,8 +7,11 @@
   "button lang change": "Сменить язык",
   "button lang short": "рус",
   "log in": "Войти",
+  "log out": "Выйти",
   "About us": "О нас",
-  "Main": "Главная",
+  "main page": "Главная страница",
   "increment": "+",
-  "decrement": "-"
+  "decrement": "-",
+  "login form in modal": "Вход в систему",
+  "error on login": "Неверный логин или пароль"
 }
