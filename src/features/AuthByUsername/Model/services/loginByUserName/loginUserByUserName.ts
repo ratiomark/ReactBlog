@@ -1,12 +1,12 @@
-import { createAsyncThunk } from "@reduxjs/toolkit"
-import axios from "axios"
-import { User, userActions } from "entities/User"
-import i18n from "shared/config/i18n/i18n"
-import { USER_LOCALSTORAGE_KEY } from "shared/const/localStorage"
+import { createAsyncThunk } from '@reduxjs/toolkit'
+import axios from 'axios'
+import { User, userActions } from 'entities/User'
+import i18n from 'shared/config/i18n/i18n'
+import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage'
 
 interface LoginByUserNameProps {
 	username: string
-	password: string
+	password: string 
 }
 
 
@@ -27,7 +27,7 @@ export const loginUserByUserName = createAsyncThunk<User, LoginByUserNameProps, 
 
 		} catch (err) {
 			// slo
-			return thunkAPI.rejectWithValue(i18n.t(`error on login`))
+			return thunkAPI.rejectWithValue(i18n.t('error on login'))
 		}
 	}
 )

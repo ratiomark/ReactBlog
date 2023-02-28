@@ -37,7 +37,8 @@ export default {
 	],
 	moduleNameMapper: {
 		'\\.s?css$': 'identity-obj-proxy',
-		'\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
+		'\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+		 "axios": "axios/dist/node/axios.cjs"
 	},
 	setupFilesAfterEnv: ['<rootDir>config/jest/jestSetup.ts'],
 	// moduleNameMapper: {

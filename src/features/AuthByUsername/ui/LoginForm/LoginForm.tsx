@@ -1,4 +1,9 @@
-import { getLoginState } from '../../Model/selectors/getLoginState/getLoginState'
+import {
+	getLoginError,
+	getLoginIsLoading,
+	getLoginPassword,
+	getLoginUsername,
+} from '../../Model/selectors/getLoginState/getLoginState'
 import { loginActions, loginReducer } from '../../Model/slice/loginSlice'
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -7,7 +12,7 @@ import { classNames } from 'shared/lib/helpers/classNames/classNames'
 import { Button } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
 import cls from './LoginForm.module.scss'
-import { loginUserByUserName } from 'features/AuthByUsername/Model/services/loginByUserName/loginByUserName'
+import { loginUserByUserName } from 'features/AuthByUsername/Model/services/loginByUserName/loginUserByUserName'
 import { Text, TextVariant } from 'shared/ui/Text/Text'
 
 import {
@@ -31,18 +36,10 @@ const LoginForm = memo(({ className, isOpen }: LoginFormProps) => {
 	const { dispatch, store } = useAsyncReducer({
 		reducers: initialReducers,
 	})
-
-	const {
-		username = '',
-		password = '',
-		error = null,
-		isLoading = false,
-	} = useSelector(getLoginState) || {
-		username: '',
-		password: '',
-		error: null,
-		isLoading: false,
-	}
+	const username = useSelector(getLoginUsername)
+	const password = useSelector(getLoginPassword)
+	const isLoading = useSelector(getLoginIsLoading)
+	const error = useSelector(getLoginError)
 
 	const onChangeUserName = useCallback(
 		(value: string) => {

@@ -14,14 +14,15 @@ export const StoreDecorator =
 		state: DeepPartial<StateSchema>,
 		asyncReducersArg?: ReducersMapObject<StateSchema>
 	) =>
-	(StoryComponent: Story) => (
-		<StoreProvider
-			initialState={state as StateSchema}
-			asyncReducers={{
-				...defaultAsyncReducers as ReducersMapObject<StateSchema>,
-				...asyncReducersArg,
-			}}
-		>
-			<StoryComponent />
-		</StoreProvider>
-	)
+	(StoryComponent: Story) =>
+		(
+			<StoreProvider
+				initialState={state as StateSchema}
+				asyncReducers={{
+					...(defaultAsyncReducers as ReducersMapObject<StateSchema>),
+					...asyncReducersArg,
+				}}
+			>
+				<StoryComponent />
+			</StoreProvider>
+		)

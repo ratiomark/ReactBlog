@@ -1,7 +1,7 @@
-import { createAsyncThunk, createSlice, PayloadAction, } from "@reduxjs/toolkit";
-import { User } from "entities/User/model/types/user";
-import { loginUserByUserName } from "../services/loginByUserName/loginByUserName";
-import { LoginSchema } from "../types/loginSchema";
+import { createAsyncThunk, createSlice, PayloadAction, } from '@reduxjs/toolkit';
+import { User } from 'entities/User/model/types/user';
+import { loginUserByUserName } from '../services/loginByUserName/loginUserByUserName';
+import { LoginSchema } from '../types/loginSchema';
 
 const initialState: LoginSchema = {
 	isLoading: false,
@@ -11,7 +11,7 @@ const initialState: LoginSchema = {
 
 
 export const loginSlice = createSlice({
-	name: "loginSlice",
+	name: 'loginSlice',
 	initialState: initialState,
 	reducers: {
 		setUserName: (state, action: PayloadAction<string>) => {
@@ -21,8 +21,8 @@ export const loginSlice = createSlice({
 			state.password = action.payload
 		}
 	},
-	extraReducers: (builer) => {
-		builer
+	extraReducers: (builder) => {
+		builder
 			.addCase(
 				loginUserByUserName.pending,
 				(state, action) => {
