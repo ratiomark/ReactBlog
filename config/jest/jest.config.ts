@@ -3,7 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
-import path from "path";
+import path from 'path';
 
 export default {
 	// All imported modules in your tests should be mocked automatically
@@ -17,35 +17,35 @@ export default {
 
 	// Automatically clear mock calls, instances and results before every test
 	clearMocks: true,
-	testEnvironment: "jsdom",
+	testEnvironment: 'jsdom',
 	coveragePathIgnorePatterns: [
-		"\\\\node_modules\\\\"
+		'\\\\node_modules\\\\'
 	],
 	coverageReporters: [
-		"json",
-		"text",
-		"lcov",
-		"clover"
+		'json',
+		'text',
+		'lcov',
+		'clover'
 	],
 	moduleFileExtensions: [
-		"js",
-		"jsx",
-		"ts",
-		"tsx",
-		"json",
-		"node"
+		'js',
+		'jsx',
+		'ts',
+		'tsx',
+		'json',
+		'node'
 	],
 	moduleNameMapper: {
 		'\\.s?css$': 'identity-obj-proxy',
 		'\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
-		 "axios": "axios/dist/node/axios.cjs"
+		 'axios': 'axios/dist/node/axios.cjs'
 	},
 	setupFilesAfterEnv: ['<rootDir>config/jest/jestSetup.ts'],
 	// moduleNameMapper: {
 	// 	"@/(.*)": "<rootDir>src/$1",
 	// },
 	moduleDirectories: [
-		"node_modules",
+		'node_modules',
 		// "src"
 	],
 	modulePaths: [
@@ -57,7 +57,7 @@ export default {
 
 	// тут указвается путь до корня проекта, далее можно будет достать до корневой папки с помощью <rootDir>
 	rootDir: '../../',
-	globals: { "__IS_DEV__": true }
+	globals: { '__IS_DEV__': true }
 	// Indicates whether the coverage information should be collected while executing the test
 	// collectCoverage: false,
 

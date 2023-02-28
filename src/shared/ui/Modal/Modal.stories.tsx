@@ -11,7 +11,7 @@ export default {
 	},
 	args: {
 		isOpen: true,
-		children: "Lorem ipsum dolor sit amet consectetu",
+		children: 'Lorem ipsum dolor sit amet consectetu',
 	}
 } as ComponentMeta<typeof Modal>
 

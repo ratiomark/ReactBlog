@@ -4,7 +4,7 @@ import { classNames } from 'shared/lib/helpers/classNames/classNames'
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Modal } from 'shared/ui/Modal/Modal';
 import { LoginForm } from '../LoginForm/LoginForm.lazy';
-import cls from "./LoginModal.module.scss"
+import cls from './LoginModal.module.scss'
 
 interface LoginModalProps {
 	className?: string;
@@ -28,7 +28,7 @@ export const LoginModal = (props: LoginModalProps) => {
 			onClose={onClose}
 		>
 			<Suspense fallback={<Loader/>}>
-				<LoginForm isOpen={isOpen} />
+				<LoginForm onSuccess={onClose} isOpen={isOpen} />
 			</Suspense>
 		</Modal>
 	)

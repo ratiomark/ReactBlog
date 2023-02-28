@@ -1,6 +1,6 @@
 import { ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames/classNames'
-import cls from "./Input.module.scss"
+import cls from './Input.module.scss'
 
 
 // Omit позволяет сконструировать тип, который будет включять в себя все пропсы, кроме некоторых указанных отдельно

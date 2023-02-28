@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit'
 import { CounterSchema } from '../../types/counterSchema';
-import { getCounter } from "../getCounter/getCounter";
+import { getCounter } from '../getCounter/getCounter';
 
 // const selectShopItems = state => state.shop.items
 // const selectTaxPercent = state => state.shop.taxPercent

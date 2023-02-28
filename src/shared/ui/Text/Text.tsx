@@ -1,10 +1,10 @@
 import { classNames } from 'shared/lib/helpers/classNames/classNames'
-import cls from "./Text.module.scss"
+import cls from './Text.module.scss'
 
 
 export const TextVariant = {
-	primary: "primary",
-	error: "error",
+	primary: 'primary',
+	error: 'error',
 } as const;
 
 export type TextVariant = keyof typeof TextVariant

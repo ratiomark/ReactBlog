@@ -1,7 +1,7 @@
-import { lazy, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames/classNames'
 import { Portal } from '../Portal/Portal';
-import cls from "./Modal.module.scss"
+import cls from './Modal.module.scss'
 
 interface ModalProps {
 	className?: string;

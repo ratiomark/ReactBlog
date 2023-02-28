@@ -7,7 +7,7 @@ import {
 import { loginActions, loginReducer } from '../../Model/slice/loginSlice'
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useSelector, useStore } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { classNames } from 'shared/lib/helpers/classNames/classNames'
 import { Button } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
@@ -23,6 +23,7 @@ import {
 export interface LoginFormProps {
 	className?: string
 	isOpen?: boolean
+	onSuccess: () => void;
 }
 
 // Отдельно выносим редьюсеры от комопнента, чтобы лишний раз не создавать объект с редьюсерами, если так не сделать, то каждый раз при монтировании компонента LoginForm будет создаваться новый объект с редьюсерами и передаваться в хук, лучше сделать такой объект один раз
@@ -31,7 +32,7 @@ const initialReducers: ReducersList = {
 }
 
 // eslint-disable-next-line
-const LoginForm = memo(({ className, isOpen }: LoginFormProps) => {
+const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 	const { t } = useTranslation()
 	const { dispatch, store } = useAsyncReducer({
 		reducers: initialReducers,
@@ -55,9 +56,12 @@ const LoginForm = memo(({ className, isOpen }: LoginFormProps) => {
 		[dispatch]
 	)
 
-	const onClickLoginButton = useCallback(() => {
-		dispatch(loginUserByUserName({ username, password }))
-	}, [dispatch, username, password])
+	const onClickLoginButton = useCallback(async () => {
+		const result = await dispatch(loginUserByUserName({ username, password }))
+		if (result.meta.requestStatus === 'fulfilled') {
+			onSuccess()
+		}
+	}, [onSuccess, dispatch, username, password])
 
 	return (
 		<div className={classNames(cls.LoginForm, {}, [className])}>

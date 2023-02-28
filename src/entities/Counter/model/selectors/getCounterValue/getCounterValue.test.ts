@@ -1,8 +1,8 @@
-import { DeepPartial } from "@reduxjs/toolkit"
-import { StateSchema } from "app/providers/StoreProvider"
-import { CounterSchema } from "../../types/counterSchema"
-import { getCounter } from "../getCounter/getCounter"
-import { getCounterValue } from "./getCounterValue"
+import { DeepPartial } from '@reduxjs/toolkit'
+import { StateSchema } from 'app/providers/StoreProvider'
+import { CounterSchema } from '../../types/counterSchema'
+import { getCounter } from '../getCounter/getCounter'
+import { getCounterValue } from './getCounterValue'
 
 
 describe('getCounterValue', () => {

@@ -42,38 +42,10 @@
 //     align-items: center;
 // }
 
-.item {
-  display: flex;
-  max-height: var(--font-line-l);
-  align-items: center;
-  gap: 10px;
-  margin-top: 10px;
-  white-space: nowrap;
-}
-
-.link {
-  margin-left: 10px;
-  opacity: 1;
-}
-
-.icon {
-  fill: var(--inverted-primary-color);
-}
-
 .collapsed {
   width: var(--sidebar-collapsed);
 
   .items {
     overflow: hidden;
-  }
-
-  .item {
-    // asd
-  }
-
-  .link {
-    opacity: 0;
-    width: 0;
-    transition: opacity 0.2s;
   }
 }

@@ -1,6 +1,6 @@
 import { BuildOptions } from './types/config';
-import webpack from "webpack"
-import MiniCssExtractPlugin from "mini-css-extract-plugin"
+import webpack from 'webpack'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { buildCssLoaders } from './loaders/buildCssLoaders';
 const imageInlineSizeLimit = parseInt(
 	process.env.IMAGE_INLINE_SIZE_LIMIT || '10000'
@@ -13,7 +13,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 		test: /\.(js|jsx|tsx)$/,
 		exclude: /node_modules/,
 		use: {
-			loader: "babel-loader",
+			loader: 'babel-loader',
 			options: {
 				presets: ['@babel/preset-env'],
 				plugins: [

@@ -1,8 +1,8 @@
-import { BuildPaths } from "../build/types/config"
-import { buildCssLoaders } from "../build/loaders/buildCssLoaders"
-import { Configuration, RuleSetRule } from "webpack"
-import webpack from "webpack"
-import path from "path"
+import { BuildPaths } from '../build/types/config'
+import { buildCssLoaders } from '../build/loaders/buildCssLoaders'
+import { Configuration, RuleSetRule } from 'webpack'
+import webpack from 'webpack'
+import path from 'path'
 
 export default ({ config }: { config: Configuration }) => {
 	const paths: BuildPaths = {

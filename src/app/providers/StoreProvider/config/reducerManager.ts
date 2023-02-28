@@ -1,5 +1,5 @@
-import { AnyAction, CombinedState, combineReducers, Reducer, ReducersMapObject } from "@reduxjs/toolkit"
-import { StateSchema, StateSchemaReducersKeys } from "./StateSchema"
+import { AnyAction, CombinedState, combineReducers, Reducer, ReducersMapObject } from '@reduxjs/toolkit'
+import { StateSchema, StateSchemaReducersKeys } from './StateSchema'
 
 
 export interface IReducerManager {

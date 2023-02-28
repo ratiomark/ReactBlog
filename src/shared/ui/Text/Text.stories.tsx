@@ -10,8 +10,8 @@ export default {
 		backgroundColor: { control: 'color' },
 	},
 	args: {
-		title: "This is Title",
-		text: "This is Text"
+		title: 'This is Title',
+		text: 'This is Text'
 	}
 } as ComponentMeta<typeof Text>
 

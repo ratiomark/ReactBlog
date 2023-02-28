@@ -1,4 +1,4 @@
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export function buildCssLoaders(isDev: boolean){
 	return {
@@ -6,10 +6,10 @@ export function buildCssLoaders(isDev: boolean){
 		use: [
 			// Creates `style` nodes from JS strings
 			// Мини Css создает отдельные файлы, но нам это не нужно в режиме разработки
-			isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+			isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
 			// Translates CSS into CommonJS
 			{
-				loader: "css-loader",
+				loader: 'css-loader',
 				options: {
 					modules: {
 						auto: /\.module\.scss/,
@@ -18,7 +18,7 @@ export function buildCssLoaders(isDev: boolean){
 				}
 			},
 			// Compiles Sass to CSS
-			"sass-loader",
+			'sass-loader',
 		]
 	}
 }

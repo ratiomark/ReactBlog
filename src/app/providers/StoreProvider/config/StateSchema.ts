@@ -1,8 +1,8 @@
-import { EnhancedStore } from "@reduxjs/toolkit";
-import { CounterSchema } from "entities/Counter";
-import { UserSchema } from "entities/User";
-import { LoginSchema } from "features/AuthByUsername";
-import { IReducerManager } from "./reducerManager";
+import { EnhancedStore } from '@reduxjs/toolkit';
+import { CounterSchema } from 'entities/Counter';
+import { UserSchema } from 'entities/User';
+import { LoginSchema } from 'features/AuthByUsername';
+import { IReducerManager } from './reducerManager';
 
 
 // loginForm делаю не обязательным, таким образом я могу подружать его позже с помощью асинхронна и ТС не будет ругаться на то что я не объявил его в rootReducers

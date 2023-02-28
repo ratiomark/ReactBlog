@@ -2,7 +2,8 @@ import { Reducer } from '@reduxjs/toolkit'
 import { ReduxStoreWithReducerManager } from 'app/providers/StoreProvider'
 import { StateSchemaReducersKeys } from 'app/providers/StoreProvider/config/StateSchema'
 import { useEffect } from 'react'
-import { useDispatch, useStore } from 'react-redux'
+import { useStore } from 'react-redux'
+import { useAppDispatch } from './useAppDispatch'
 
 export type ReducersList = {
 	[reducerName in StateSchemaReducersKeys]?: Reducer
@@ -17,7 +18,7 @@ interface useAsyncReducerProps {
 export const useAsyncReducer = (props: useAsyncReducerProps) => {
 	const { reducers, removeAfterUnmount = true } = props
 
-	const dispatch = useDispatch()
+	const dispatch = useAppDispatch()
 	const store = useStore() as ReduxStoreWithReducerManager
 
 	useEffect(() => {

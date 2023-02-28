@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { createPortal } from 'react-dom'
 import { classNames } from 'shared/lib/helpers/classNames/classNames'
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
 
 interface PortalProps {
@@ -24,7 +24,7 @@ export const Portal = ({ children, element = document.body }: PortalProps) => {
 	const [mounted, setMounted] = useState(false);
 
 	useEffect(() => {
-		console.log("Portal отработал");
+		console.log('Portal отработал');
 		ref.current = document.body
 		// ref.current = document.querySelector("#root") || undefined;
 		// ref.current = document.querySelector("#root") || undefined;

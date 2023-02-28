@@ -55,6 +55,14 @@ module.exports = {
 		'no-undef': 'warn',
 		// 'eslint quotes': ["warn", "single"],
 		'quotes': [2, 'single', { 'avoidEscape': true }],
+		'@typescript-eslint/quotes': [
+			2,
+			'single',
+			{
+				'avoidEscape': true,
+				'allowTemplateLiterals': true
+			}
+		],
 		'i18next/no-literal-string': [
 			1,
 			{
