@@ -57,7 +57,10 @@ export default {
 
 	// тут указвается путь до корня проекта, далее можно будет достать до корневой папки с помощью <rootDir>
 	rootDir: '../../',
-	globals: { '__IS_DEV__': true }
+	globals: {
+		'__IS_DEV__': true,
+		'__API__': '',
+	}
 	// Indicates whether the coverage information should be collected while executing the test
 	// collectCoverage: false,
 

@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
+import { ThunkExtraArg } from 'app/providers/StoreProvider'
 import axios from 'axios'
 import { User, userActions } from 'entities/User'
 import i18n from 'shared/config/i18n/i18n'
@@ -6,23 +7,27 @@ import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage'
 
 interface LoginByUserNameProps {
 	username: string
-	password: string 
+	password: string
 }
 
-
-export const loginUserByUserName = createAsyncThunk<User, LoginByUserNameProps, { rejectValue: string }>(
+// createAsyncThunk третьим аргументом принимает конфиг и там я могу описать поле extra и теперь обращаясь в thunkAPI.extra ТС подхватит то, что я описал в ThunkExtraArg
+export const loginUserByUserName = createAsyncThunk<User, LoginByUserNameProps, { rejectValue: string, extra: ThunkExtraArg }>(
 	'login/loginByUserName',
 	async ({ username, password }, thunkAPI) => {
 
 		try {
-			const response = await axios.post('http://localhost:8000/login', { username, password })
-
+			// const response = await axios.post('http://localhost:8000/login', { username, password })
+			// делаю тоже самое. но через кастомное апи
+			const response = await thunkAPI.extra.api.post<User>('/login', { username, password })
+			
 			if (!response.data) {
 				throw new Error()
 			}
 			const responseData = response.data
+
 			localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(responseData))
 			thunkAPI.dispatch(userActions.setAuthData(responseData))
+
 			return responseData
 
 		} catch (err) {

@@ -1,12 +1,13 @@
-import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
+import { configureStore, getDefaultMiddleware, ReducersMapObject } from '@reduxjs/toolkit';
 import { StateSchema } from './StateSchema';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { createReducerManager } from './reducerManager';
+import { $api } from 'shared/api/api';
 
 export function createReduxStore(
 	initialState?: StateSchema,
-	asyncReducers?:  ReducersMapObject<StateSchema>) {
+	asyncReducers?: ReducersMapObject<StateSchema>) {
 	// передавая схему стейта в ReducersMapObject я сообщаю TS какие редьюсеры должны быть.
 	const rootReducers: ReducersMapObject<StateSchema> = {
 		...asyncReducers,
@@ -16,10 +17,17 @@ export function createReduxStore(
 
 	const reducerManager = createReducerManager(rootReducers)
 
-	const store = configureStore<StateSchema>({
+	const store = configureStore({
 		reducer: reducerManager.reduce,
 		devTools: __IS_DEV__,
 		preloadedState: initialState,
+		middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+			thunk: {
+				extraArgument: {
+					api: $api
+				}
+			}
+		})
 	})
 
 	//@ts-ignore

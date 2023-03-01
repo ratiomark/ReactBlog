@@ -1,4 +1,5 @@
 import { EnhancedStore } from '@reduxjs/toolkit';
+import { AxiosInstance } from 'axios';
 import { CounterSchema } from 'entities/Counter';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
@@ -25,4 +26,9 @@ export type StateSchemaReducersKeys = keyof StateSchema
 // тип  reducerManager, чтобы добавить его в стор
 export interface ReduxStoreWithReducerManager extends EnhancedStore<StateSchema> {
 	reducerManager: IReducerManager
+}
+
+// этот тип описывает аргумент для экстра параметра у Thunk
+export interface ThunkExtraArg {
+	api?: AxiosInstance
 }
