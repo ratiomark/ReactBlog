@@ -1,6 +1,6 @@
 import { getUserAuthData } from 'entities/User'
 import { LoginModal } from 'features/AuthByUsername'
-import { useCallback, useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { classNames } from 'shared/lib/helpers/classNames/classNames'
@@ -12,7 +12,7 @@ interface NavBarProps {
 	className?: string
 }
 
-export const NavBar = ({ className }: NavBarProps) => {
+export const NavBar = memo(({ className }: NavBarProps) => {
 	const { t } = useTranslation()
 	const [isAuthOpen, setIsAuthOpen] = useState(false)
 	const userAuthData = useSelector(getUserAuthData)
@@ -54,4 +54,4 @@ export const NavBar = ({ className }: NavBarProps) => {
 			</div>
 		)
 	}
-}
+})

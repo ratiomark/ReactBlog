@@ -1,15 +1,15 @@
 import { useTranslation } from 'react-i18next';
 
-export const langs = {
+export const Langs = {
 	en: 'en',
 	ru: 'ru'
 } as const;
 
-export type langs = keyof typeof langs;
+export type Langs = keyof typeof Langs;
 
-export const useTranslate = () => {
+export const useCustomTranslate = () => {
 	const { t, i18n } = useTranslation()
-	const setLang = (lang: langs) => i18n.changeLanguage(lang)
+	const setLang = (lang: Langs) => i18n.changeLanguage(lang)
 	const currentLang = i18n.language
 	return { setLang, t , currentLang}
 }

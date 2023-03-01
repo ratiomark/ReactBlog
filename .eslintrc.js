@@ -50,6 +50,7 @@ module.exports = {
 		'react/jsx-max-props-per-line': [1, { maximum: 1, when: 'multiline' }],
 		'react-hooks/rules-of-hooks': 'error',
 		'react-hooks/exhaustive-deps': 'error',
+		'react/display-name': 'off',
 		'no-shadow': 'off',
 		'no-underscore-dangle': 'off',
 		'no-undef': 'warn',

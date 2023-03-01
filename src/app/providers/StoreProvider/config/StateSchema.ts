@@ -1,5 +1,6 @@
 import { EnhancedStore } from '@reduxjs/toolkit';
 import { CounterSchema } from 'entities/Counter';
+import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { IReducerManager } from './reducerManager';
@@ -9,10 +10,11 @@ import { IReducerManager } from './reducerManager';
 export interface StateSchema {
 	counter: CounterSchema,
 	user: UserSchema,
-	
-	
+
+
 	// async reducers
-	loginForm?: LoginSchema
+	loginForm?: LoginSchema,
+	profile?: ProfileSchema,
 }
 
 // достаю ключи редьюсеров, чтобы передать их reducerManager, там где требуются ключи

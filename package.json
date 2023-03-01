@@ -55,6 +55,7 @@
     "@typescript-eslint/parser": "^5.12.1",
     "babel-loader": "^8.2.3",
     "babel-plugin-i18next-extract": "^0.8.3",
+    "clsx": "^1.2.1",
     "css-loader": "^6.6.0",
     "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.6.0",

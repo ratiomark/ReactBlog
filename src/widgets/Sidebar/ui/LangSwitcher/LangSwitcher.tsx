@@ -1,11 +1,12 @@
-import { useTranslate } from 'features/LanguageSwitcher'
-import { FC } from 'react'
+import { useCustomTranslate } from 'features/LanguageSwitcher'
+import { Langs } from 'features/LanguageSwitcher/ui/LanguageSwitcher'
+import { FC, memo } from 'react'
 import { Button } from 'shared/ui/Button/Button'
 
 export const LangSwitcher: FC = ({ children }) => {
-	const { setLang, t, currentLang } = useTranslate()
+	const { setLang, t, currentLang } = useCustomTranslate()
 	const onToggleLang = () => {
-		setLang(currentLang === 'en' ? 'ru' : 'en')
+		setLang(currentLang === Langs.en ? Langs.ru : Langs.en)
 	}
 	return (
 		<Button

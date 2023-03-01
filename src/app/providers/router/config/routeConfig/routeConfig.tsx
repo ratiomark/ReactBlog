@@ -1,6 +1,6 @@
 import { AboutPage } from 'pages/AboutPage';
 import { MainPage} from 'pages/MainPage';
-import { ProfilePageLazy } from 'pages/ProfilePage';
+import { ProfilePage } from 'pages/ProfilePage';
 import { RouteProps } from 'react-router-dom';
 
 
@@ -31,6 +31,6 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
 	},
 	profile: {
 		path: RoutePath.profile,
-		element: <ProfilePageLazy/>
+		element: <ProfilePage/>
 	}
 }
