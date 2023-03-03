@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit'
 import { StateSchema } from 'app/providers/StoreProvider'
 import {
 	getLoginError,
@@ -16,6 +15,7 @@ describe('getLoginState.test ', () => {
 		}
 		expect(getLoginError(state as StateSchema)).toEqual('Error')
 	}),
+
 	test('getLoginError: should work with ampty state', () => {
 		const state: DeepPartial<StateSchema> = {}
 		expect(getLoginError(state as StateSchema)).toEqual(undefined)
@@ -28,12 +28,12 @@ describe('getLoginState.test ', () => {
 		}
 		expect(getLoginIsLoading(state as StateSchema)).toEqual(true)
 	}),
-		
+
 	test('getLoginIsLoading: should work with empty state return false', () => {
 		const state: DeepPartial<StateSchema> = {}
 		expect(getLoginIsLoading(state as StateSchema)).toEqual(false)
 	}),
-		
+
 	test('getLoginUsername: should return "admin"', () => {
 		const state: DeepPartial<StateSchema> = {
 			loginForm: {
@@ -42,12 +42,12 @@ describe('getLoginState.test ', () => {
 		}
 		expect(getLoginUsername(state as StateSchema)).toEqual('admin')
 	}),
-		
+
 	test('getLoginUsername: should work with empty state', () => {
 		const state: DeepPartial<StateSchema> = {}
 		expect(getLoginUsername(state as StateSchema)).toEqual('')
 	}),
-		
+
 	test('getLoginPassword: should return "123"', () => {
 		const state: DeepPartial<StateSchema> = {
 			loginForm: {
@@ -56,7 +56,7 @@ describe('getLoginState.test ', () => {
 		}
 		expect(getLoginPassword(state as StateSchema)).toEqual('123')
 	}),
-	
+
 	test('getLoginPassword: should work with empty state', () => {
 		const state: DeepPartial<StateSchema> = {}
 		expect(getLoginPassword(state as StateSchema)).toEqual('')

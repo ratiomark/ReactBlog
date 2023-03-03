@@ -23,8 +23,8 @@ export const useAsyncReducer = (props: useAsyncReducerProps) => {
 
 	useEffect(() => {
 		Object.entries(reducers).forEach(
-			([reducerName, reducer]: ReducersListEntry) => {
-				store.reducerManager.add(reducerName, reducer)
+			([reducerName, reducer]) => {
+				store.reducerManager.add(reducerName as StateSchemaReducersKeys, reducer)
 				dispatch({ type: `@INIT ${reducerName} reducer` })
 			}
 		)
@@ -32,8 +32,8 @@ export const useAsyncReducer = (props: useAsyncReducerProps) => {
 		return () => {
 			if (removeAfterUnmount) {
 				Object.entries(reducers).forEach(
-					([reducerName, reducer]: ReducersListEntry) => {
-						store.reducerManager.remove(reducerName)
+					([reducerName, reducer]) => {
+						store.reducerManager.remove(reducerName as StateSchemaReducersKeys)
 						dispatch({ type: `@DESTROY ${reducerName} reducer` })
 					}
 				)

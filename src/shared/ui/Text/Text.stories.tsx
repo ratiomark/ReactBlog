@@ -20,21 +20,21 @@ const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />
 export const TextPrimary = Template.bind({})
 
 export const OnlyTitle = Template.bind({})
-OnlyTitle.args = { text: null }
+OnlyTitle.args = { text: undefined }
 
 export const OnlyText = Template.bind({})
-OnlyText.args = { title: null }
+OnlyText.args = { title: undefined }
 
 export const TextPrimaryDark = Template.bind({})
 TextPrimaryDark.decorators = [ThemeDecorator(Theme.DARK)]
 
 
 export const OnlyTitleDark = Template.bind({})
-OnlyTitleDark.args = { text: null }
+OnlyTitleDark.args = { text: undefined }
 OnlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const OnlyTextDark = Template.bind({})
-OnlyTextDark.args = { title: null }
+OnlyTextDark.args = { title: undefined }
 OnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)]
 
 

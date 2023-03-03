@@ -7,9 +7,9 @@ export const Langs = {
 
 export type Langs = keyof typeof Langs;
 
-export const useCustomTranslate = () => {
-	const { t, i18n } = useTranslation()
+export const useCustomTranslate = (nameSpaceTranslation?: string) => {
+	const { t, i18n } = useTranslation(nameSpaceTranslation)
 	const setLang = (lang: Langs) => i18n.changeLanguage(lang)
 	const currentLang = i18n.language
-	return { setLang, t , currentLang}
+	return { setLang, t, currentLang }
 }

@@ -16,10 +16,10 @@ export const loginUserByUserName = createAsyncThunk<User, LoginByUserNameProps, 
 	async ({ username, password }, thunkAPI) => {
 
 		try {
-			// const response = await axios.post('http://localhost:8000/login', { username, password })
+			// const response = await axios.post('http://localhost:8000/login', { 	username, password })
 			// делаю тоже самое. но через кастомное апи
-			const response = await thunkAPI.extra.api.post<User>('/login', { username, password })
-			
+			const response = await thunkAPI.extra!.api!.post<User>('/login', { username, password })
+
 			if (!response.data) {
 				throw new Error()
 			}

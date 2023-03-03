@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { MutableRefObject, ReactNode } from 'react'
 import { createPortal } from 'react-dom'
 import { classNames } from 'shared/lib/helpers/classNames/classNames'
 import { useEffect, useRef, useState } from 'react';
@@ -20,7 +20,7 @@ interface PortalProps {
 // };
 
 export const Portal = ({ children, element = document.body }: PortalProps) => {
-	const ref = useRef(null);
+	const ref = useRef() as MutableRefObject<HTMLElement>
 	const [mounted, setMounted] = useState(false);
 
 	useEffect(() => {

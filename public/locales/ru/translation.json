@@ -8,11 +8,11 @@
   "button lang short": "рус",
   "log in": "Войти",
   "log out": "Выйти",
-  "PROFILE PAGE":"Профиль",
+  "PROFILE PAGE": "Страница профиля",
   "About us": "О нас",
   "main page": "Главная страница",
   "increment": "+",
   "decrement": "-",
   "login form in modal": "Вход в систему",
-  "error on login": "Неверный логин или пароль"
+  "error on login": "Логин или пароль неверны"
 }

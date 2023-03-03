@@ -53,7 +53,7 @@ module.exports = {
 		'react/display-name': 'off',
 		'no-shadow': 'off',
 		'no-underscore-dangle': 'off',
-		'no-undef': 'warn',
+		'no-undef': 'off',
 		// 'eslint quotes': ["warn", "single"],
 		'quotes': [2, 'single', { 'avoidEscape': true }],
 		'@typescript-eslint/quotes': [

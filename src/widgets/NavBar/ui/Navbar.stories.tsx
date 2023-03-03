@@ -27,11 +27,11 @@ DarkLogin.decorators = [
 
 export const LightLogout = Template.bind({})
 LightLogout.args = {}
-LightLogout.decorators = [StoreDecorator({ user: { authData: {} } })]
+LightLogout.decorators = [StoreDecorator({ user: { authData: { 'id': '1', 'username': 'admin' } } })]
 
 
 export const DarkLogout = Template.bind({})
 DarkLogout.args = {}
 DarkLogout.decorators = [
 	ThemeDecorator(Theme.DARK),
-	StoreDecorator({ user: { authData: {} } })]
+	StoreDecorator({ user: { authData: { 'id': '1', 'username': 'admin' } } })]

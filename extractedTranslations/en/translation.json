@@ -3,9 +3,11 @@
   "About us": "About us",
   "Main": "Main",
   "PROFILE PAGE": "",
+  "about": "about",
   "button lang change": "button lang change",
   "button lang short": "button lang short",
   "decrement": "decrement",
+  "edit": "edit",
   "enter password": "enter password",
   "enter userName": "enter userName",
   "error button": "error button",
@@ -19,9 +21,14 @@
   "login form in ": "",
   "login form in modal": "",
   "main page": "main page",
+  "profile": "profile",
   "prompt userName": "prompt userName",
   "promuserName": "promuserName",
   "propuserName": "propuserName",
   "update page": "update page",
-  "userName": "userName"
+  "userName": "userName",
+  "Ваше имя": "Ваше имя",
+  "Профиль": "Профиль",
+  "Редактировать": "Редактировать",
+  "Шапка профиля": "Шапка профиля"
 }
