@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider'
+	import { StateSchema } from 'app/providers/StoreProvider'
 import { CounterSchema } from '../types/counterSchema'
 import { counterActions, counterReducer } from './counterSlice'
 
