@@ -1,5 +1,7 @@
 {
   "profile": "Профиль",
   "edit": "Редактировать",
-  "Шапка профиля": "Profile form header"
+  "Шапка профиля": "Profile form header",
+  "save profile": "Сохранить",
+  "cancel changes in profile": "Отменить"
 }

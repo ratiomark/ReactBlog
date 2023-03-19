@@ -6,8 +6,10 @@ export const ButtonVariant = {
 	clear: 'clear',
 	clearInverted: 'clearInverted',
 	outline: 'outline',
+	outline_red: 'outline_red',
 	background: 'background',
 	backgroundInverted: 'backgroundInverted',
+	backgroundInverted_border: 'backgroundInverted_border',
 } as const
 
 export const ButtonSize = {
@@ -15,6 +17,7 @@ export const ButtonSize = {
 	size_l: 'size_l',
 	size_xl: 'size_xl',
 } as const
+
 
 export type ButtonVariant = keyof typeof ButtonVariant
 export type ButtonSize = keyof typeof ButtonSize
@@ -57,6 +60,7 @@ export const Button = memo((props: ButtonProps) => {
 					cls[variant],
 					size ? cls[size] : '',
 				])}
+			// disabled={disabled}
 			{...otherProps}
 		>
 			{children}

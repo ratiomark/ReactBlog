@@ -1,9 +1,15 @@
 .Sidebar {
-  height: calc(100vh - var(--navbar-height));
-  width: 300px;
+  height: 100%;
+  padding-top: var(--navbar-height);
+  z-index: 100;
+
+  // height: calc(100vh - var(--navbar-height));
+  width: var(--side-bar-width);
   background: var(--inverted-bg-color);
-  position: relative;
+
+  // position: relative;
   transition: all 0.3s;
+  position: fixed;
 }
 
 .toggleSidebar {
@@ -30,7 +36,7 @@
 //   padding: 15px;
 // }
 .items {
-  margin-top: 20px;
+  // margin-top: 20px;
   margin-left: 30px;
   display: flex;
   flex-direction: column;

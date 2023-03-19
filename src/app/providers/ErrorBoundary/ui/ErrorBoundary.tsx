@@ -1,4 +1,4 @@
-import React, { Component, ErrorInfo, ReactNode, Suspense } from 'react'
+import { Component, ErrorInfo, ReactNode, Suspense } from 'react'
 import { ErrorDisplay } from 'widgets/ErrorDisplay'
 
 interface Props {

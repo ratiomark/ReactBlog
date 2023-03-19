@@ -25,4 +25,9 @@ export const SidebarItemsList: SideBarItemType[] = [
 		text: 'PROFILE PAGE',
 		Icon: MainIconCopy,
 	},
+	{
+		path: RoutePath.articles,
+		text: 'ARTICLES',
+		Icon: MainIconCopy,
+	},
 ]

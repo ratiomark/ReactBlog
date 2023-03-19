@@ -8,6 +8,12 @@
   color: var(--secondary-color);
 }
 
+.text_s {
+  font-size: 16px;
+  line-height: 1;
+  color: var(--secondary-color);
+}
+
 .error {
   .title {
     color: var(--red-light);
@@ -16,4 +22,20 @@
   .text {
     color: var(--red-dark);
   }
+
+  .text_s {
+    color: var(--red-dark);
+  }
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
 }

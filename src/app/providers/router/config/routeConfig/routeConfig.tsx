@@ -1,13 +1,21 @@
 import { AboutPage } from 'pages/AboutPage';
-import { MainPage} from 'pages/MainPage';
+import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
+import { ArticlesPage } from 'pages/ArticlesPage';
+import { MainPage } from 'pages/MainPage';
 import { ProfilePage } from 'pages/ProfilePage';
 import { RouteProps } from 'react-router-dom';
 
+export type AppRouteProps = RouteProps & {
+	authOnly?: boolean
+}
 
 export const AppRoutes = {
 	MAIN: 'main',
 	ABOUT: 'about',
-	profile: 'profile'
+	profile: 'profile',
+	articles: 'articles',
+	articles_details: 'articles_details',
+	PAGE_NOT_FOUND: 'PAGE_NOT_FOUND'
 } as const;
 
 // В варианте ниже я получаю type AppRoutes = "MAIN" | "ABOUT"
@@ -17,20 +25,38 @@ export type AppRoutes = keyof typeof AppRoutes;
 export const RoutePath: Record<AppRoutes, string> = {
 	MAIN: '/',
 	ABOUT: '/about',
-	profile: '/profile'
+	profile: '/profile',
+	articles: '/articles',
+	articles_details: '/articles/', // + :id
+	PAGE_NOT_FOUND: '*'
 }
 
-export const routeConfig: Record<AppRoutes, RouteProps> = {
+export const routeConfig: Record<AppRoutes, AppRouteProps> = {
 	MAIN: {
 		path: RoutePath.MAIN,
 		element: <MainPage />
 	},
 	ABOUT: {
 		path: RoutePath.ABOUT,
-		element: <AboutPage/>
+		element: <AboutPage />
 	},
 	profile: {
 		path: RoutePath.profile,
-		element: <ProfilePage/>
+		element: <ProfilePage />,
+		authOnly: true
+	},
+	articles: {
+		path: RoutePath.articles,
+		element: <ArticlesPage />,
+		authOnly: true
+	},
+	articles_details: {
+		path: RoutePath.articles_details + ':id',
+		element: <ArticleDetailsPage />,
+		authOnly: true
+	},
+	PAGE_NOT_FOUND: {
+		path: RoutePath.PAGE_NOT_FOUND,
+		element: <span>No Page Here!</span>
 	}
 }

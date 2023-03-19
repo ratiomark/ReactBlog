@@ -6,15 +6,18 @@ import { Sidebar } from 'widgets/Sidebar'
 import icon from 'shared/assets/icon/abyss.jpg'
 import icon2 from 'shared/assets/icon/768px-Sign-check-icon.png'
 import { LoaderWidget } from 'widgets/LoaderWidget/LoaderWidget'
-import { useDispatch } from 'react-redux'
 import { userActions } from 'entities/User'
+import { useAppDispatch } from 'shared/lib/helpers/hooks/useAppDispatch'
+import { useSelector } from 'react-redux'
+import { getUserMounted } from 'entities/User'
 
 
 
 
 export const App = () => {
-	const dispatch = useDispatch()
-
+	const dispatch = useAppDispatch()
+	const userMounted = useSelector(getUserMounted)
+	
 	useEffect(() => {
 		dispatch(userActions.initAuthData())
 	}, [dispatch])
@@ -25,7 +28,10 @@ export const App = () => {
 				<NavBar />
 				<div className='content-page'>
 					<Sidebar />
-					<AppRouter />
+					{userMounted
+						? <AppRouter />
+						: null
+					}
 				</div>
 			</Suspense>
 		</div>

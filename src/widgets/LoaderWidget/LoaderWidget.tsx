@@ -8,8 +8,10 @@ interface LoaderWidgetProps {
 
 export const LoaderWidget = ({ className }: LoaderWidgetProps) => {
 	return (
-		<div className={classNames(cls.LoaderWidget, {}, [className])} >
-			<Loader/>
+		<div className="page-wrapper">
+			<div className={classNames(cls.LoaderWidget, {}, [className])} >
+				<Loader />
+			</div>
 		</div>
 	)
 }

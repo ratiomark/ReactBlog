@@ -1,71 +1,98 @@
-import { ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, FocusEvent, InputHTMLAttributes, KeyboardEvent, memo, useEffect, useRef, useState } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames/classNames'
+import { ValidationErrorText } from 'shared/lib/helpers/validation/validationErrorTexts';
+import { Text } from '../Text/Text';
 import cls from './Input.module.scss'
 
 
 // Omit позволяет сконструировать тип, который будет включять в себя все пропсы, кроме некоторых указанных отдельно
 // Это нужно для того, чтобы в InputProps можно было без проблем определить пропсы которые уже существуют в InputHTMLAttributes<HTMLInputElement>
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'onBlur'>
 
 // Расширяю стандартные пропсы которые принимает инпут, тут использую результат Omit с выпилиенными value, onChange
 interface InputProps extends HTMLInputProps {
 	className?: string;
 	value?: string;
 	autoFocus?: boolean;
-	onChange?: (value: string) => void;
+	readonly?: boolean;
+	inputErrors?: ValidationErrorText[]
+	// onChange?: (value: string | ChangeEvent<HTMLInputElement>) => void;
+	onChangeEvent?: (event: ChangeEvent<HTMLInputElement>) => void;
+	onChangeString?: (value: string) => void;
+	onBlur?: (value: string) => void;
+	onValidate?: (value: any) => void
+	onKeyPress?: (event: KeyboardEvent<HTMLInputElement>) => void;
 }
 //eslint-disable-next-line
 export const Input = memo((props: InputProps) => {
 	const {
 		className,
 		value,
-		onChange,
+		// onChange,
+		onChangeEvent,
+		onChangeString,
+		onBlur,
+		onValidate,
+		onKeyPress,
 		type = 'text',
-		// autoFocus,
+		readonly,
+		inputErrors = [],
 		...otherProps
+		// autoFocus,
 	} = props
 
 	const [isFocus, setIsFocus] = useState(false)
-	const myRef = useRef<HTMLInputElement>(null)
+	const isBlurHappened = useRef<boolean>(false)
+
 	const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-		onChange?.(e.target.value)
+		if (isBlurHappened.current) {
+			onValidate?.(e.target.value)
+		}
+		if (onChangeEvent) {
+			onChangeEvent(e)
+			return
+		}
+		onChangeString?.(e.target.value)
 	}
+
 	const onFocus = () => {
 		setIsFocus(true)
 	}
-	const onBlur = () => {
+	const onBlurHandler = (e: FocusEvent<HTMLInputElement>) => {
+		isBlurHappened.current = true
 		setIsFocus(false)
+		onValidate?.(e.target.value)
+		onBlur?.(e.target.value)
 	}
 
-	// useEffect(() => {
-	// 	if (autoFocus) {
-	// 		setIsFocus(true)
-	// 		myRef.current?.focus()
-	// 	}
-	// }, [autoFocus])
-	// const callbackRef = useCallback(inputElement => {
-	// 	if (inputElement) {
-	// 		inputElement.focus();
-	// console.log(autoFocus, 'автофокус')
-	// 	}
-	// }, []);
-
-
 	return (
-		<input
-			// ref={myRef}
-			// autoFocus
-			className={classNames(cls.Input, {}, [className])}
-			type={type}
-			onChange={onChangeHandler}
-			value={value}
-			onFocus={onFocus}
-			onBlur={onBlur}
-			{...otherProps}
-		/>
+		<>
+			<input
+				// ref={myRef}
+				// autoFocus
+				className={classNames(cls.Input,
+					{ [cls.hasErrors]: inputErrors.length > 0 },
+					[className])
+				}
+				type={type}
+				onChange={onChangeHandler}
+				value={value}
+				onFocus={onFocus}
+				onBlur={onBlurHandler}
+				disabled={readonly}
+				onKeyPress={onKeyPress}
+				{...otherProps}
+			/>
+			{/* {validationErrors} */}
+			{inputErrors.length > 0 && inputErrors.map(i =>
+				<Text
+					text_s={i}
+					align='left'
+					key={i}
+					variant='error'
+				/>)}
+		</>
 	)
 })
+Input.displayName = 'Input Component'
 
-function useCallback(arg0: (inputElement: any) => void, arg1: undefined[]) {
-	throw new Error('Function not implemented.');
-}

@@ -69,6 +69,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 
 			<div className={cls.inputWrapper}>
 				{error && <Text text={error} variant={TextVariant.error} />}
+
 				<label className={cls.label} htmlFor='userName'>
 					{t('enter userName')}
 				</label>
@@ -77,7 +78,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 					type='text'
 					id='userName'
 					value={username}
-					onChange={onChangeUserName}
+					onChangeString={onChangeUserName}
 				/>
 				<label className={cls.label} htmlFor='password'>
 					{t('enter password')}
@@ -86,7 +87,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 					type='text'
 					id='password'
 					value={password}
-					onChange={onChangePassword}
+					onChangeString={onChangePassword}
 				/>
 				<Button
 					variant='outline'

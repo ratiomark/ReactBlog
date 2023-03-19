@@ -2,32 +2,17 @@ import { BuildOptions } from './types/config';
 import webpack from 'webpack'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { buildCssLoaders } from './loaders/buildCssLoaders';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
+
 const imageInlineSizeLimit = parseInt(
 	process.env.IMAGE_INLINE_SIZE_LIMIT || '10000'
 );
+
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 	const { isDev } = options
 	const cssLoader = buildCssLoaders(isDev)
 
-	const babelLoader = {
-		test: /\.(js|jsx|tsx)$/,
-		exclude: /node_modules/,
-		use: {
-			loader: 'babel-loader',
-			options: {
-				presets: ['@babel/preset-env'],
-				plugins: [
-					[
-						'i18next-extract',
-						{
-							locales: ['ru', 'en'],
-							keyAsDefaultValue: ['ru', 'en'],
-						}
-					]
-				]
-			}
-		}
-	}
+	const babelLoader = buildBabelLoader(isDev)
 
 	const typescriptLoader = {
 		test: /\.tsx?$/,

@@ -5,6 +5,12 @@
   padding: 6px 10px;
   white-space: nowrap;
 
+  &:hover {
+    opacity: 0.75;
+    fill-opacity: 0.75;
+    stroke-opacity: 0.75;
+  }
+
   // border: 1px solid red;
 }
 
@@ -32,9 +38,21 @@
   border: none;
 }
 
+.backgroundInverted_border {
+  background: var(--inverted-bg-color);
+  color: var(--inverted-primary-color);
+  border: 1px solid var(--inverted-bg-color);
+}
+
 .outline {
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
+  background: none;
+}
+
+.outline_red {
+  border: 1px solid var(--red-light);
+  color: var(--red-light);
   background: none;
 }
 
@@ -44,8 +62,12 @@
 
 .disabled {
   opacity: 0.4;
-  cursor: wait;
 }
+
+// .disabled_loading {
+//   opacity: 0.4;
+//   cursor: wait;
+// }
 
 .square.size_m {
   width: 200px;

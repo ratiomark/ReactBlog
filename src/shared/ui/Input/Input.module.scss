@@ -8,7 +8,9 @@
 
   // outline: 1px greenyellow;
   border: none;
+}
 
-  &:focus {
-  }
+.hasErrors {
+  margin-bottom: 5px;
+  margin-top: 10px;
 }

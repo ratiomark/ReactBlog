@@ -30,6 +30,7 @@ export const AppLinkTheme = {
 	inverted: 'inverted',
 	red: 'red'
 } as const;
+
 type AppLinkTheme = keyof typeof AppLinkTheme;
 // console.log(AppLinkTheme.PRIMARY)
 
@@ -51,9 +52,9 @@ export const AppLink = memo((props: AppLinkProps) => {
 
 	return (
 		<Link
-			{...otherProps}
-			to={to}
 			className={classNames(styles.AppLink, {}, [className, styles[theme]])}
+			to={to}
+			{...otherProps}
 		>
 			{children}
 		</Link>

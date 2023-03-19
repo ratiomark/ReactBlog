@@ -3,6 +3,9 @@
 
   /* Запрещаем перенос слов */
   // overflow: hidden;
+  &:hover {
+    opacity: 0.75;
+  }
 }
 
 .primary {

@@ -1,0 +1,5 @@
+{
+  "MANDATORY_INPUT": "This field is required",
+  "HAS_TO_BE_MORE_THAN_3": "Minimum 4 symbols",
+  "STOP_LYING_ABOUT_AGE": "Please, write your actual age"
+}

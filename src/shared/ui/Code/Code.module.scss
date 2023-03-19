@@ -1,0 +1,13 @@
+.Code {
+  border: 1px solid var(--primary-color);
+  padding: 20px;
+  margin: 20px 0;
+  position: relative;
+  background-color: var(--code-bg);
+}
+
+.button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}

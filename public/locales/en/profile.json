@@ -1,5 +1,7 @@
 {
   "profile": "Profile",
   "edit": "Edit",
-  "Шапка профиля": "Шапка профиля"
+  "Шапка профиля": "Шапка профиля",
+  "save profile": "Save",
+  "cancel changes in profile": "Cancel"
 }

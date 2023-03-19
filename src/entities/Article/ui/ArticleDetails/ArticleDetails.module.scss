@@ -1,0 +1,33 @@
+.ArticleDetails {
+  min-height: 100%;
+  max-width: 1200px;
+
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+}
+
+.avatarWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.avatar {
+  margin: 0 auto;
+}
+
+.title {
+  margin-top: 20px;
+}
+
+.skeleton {
+  margin-top: 15px;
+}
+
+.dataWrapper {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding: 5px;
+}

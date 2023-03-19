@@ -1,0 +1,34 @@
+.ProfileCard {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid var(--inverted-bg-color);
+  transition: all 0.6s;
+  min-height: 250px;
+}
+
+.isLoading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  margin-bottom: 5px;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+
+  // gap: 15px;
+
+  /* margin-right: auto; */
+  max-width: 310px;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+}

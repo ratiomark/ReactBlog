@@ -7,5 +7,8 @@ export function buildDevServer(option: BuildOptions): DevServerConfiguration {
 		// Опция нужна чтобы при перезагрузки страницы не было cannot get
 		historyApiFallback: true,
 		hot: true,
+		client: {
+			overlay: true,
+		},
 	}
 }

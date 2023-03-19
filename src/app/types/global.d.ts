@@ -1,28 +1,28 @@
 declare module '*.scss' {
-  interface IClassNames {
-    [className: string]: string
-  }
-  const classNames: IClassNames;
-  export = classNames;
+	interface IClassNames {
+		[className: string]: string
+	}
+	const classNames: IClassNames;
+	export = classNames;
 }
 declare module '*.svg' {
-  import React from 'react';
-  const SVG: React.VFC<React.SVGProps<SVGSVGElement>>;
-  export default SVG;
+	import React from 'react';
+	const SVG: React.VFC<React.SVGProps<SVGSVGElement>>;
+	export default SVG;
 }
 declare module '*.svg?url' {
-  const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
-  export default content;
+	const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
+	export default content;
 }
 
-declare module '*.jpg' {
-  const content: any;
-  export default content;
-}
-
+// declare module '*.jpg' {
+//   const content: any;
+//   export default content;
+// }
+declare module '*.jpg';
 declare module '*.jpeg' {
-  const content: any;
-  export default content;
+	const content: any;
+	export default content;
 }
 
 // declare module "*.png" {
@@ -35,12 +35,13 @@ declare module '*.jpeg' {
 // }
 // declare module '*.png';
 declare module '*.png' {
-  const content: any;
-  export default content;
+	const content: any;
+	export default content;
 }
 
 declare const __IS_DEV__: boolean;
 declare const __API__: string;
+declare const __PROJECT__: 'storybook' | 'jest' | 'frontend'
 
 type DeepPartial<T> = T extends object ? {
 	[P in keyof T]?: DeepPartial<T[P]>;

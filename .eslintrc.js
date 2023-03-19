@@ -15,6 +15,7 @@ module.exports = {
 		// "plugin:prettier/recommended",
 		// 'prettier',
 	],
+	ignorePatterns: ['.fttemplates/**/*'],
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		ecmaVersion: 'latest',
@@ -29,7 +30,7 @@ module.exports = {
 		// 'code': [1, 80],
 		'react/jsx-indent': [1, 'tab'],
 		'react/jsx-indent-props': [1, 'tab'],
-		indent: [1, 'tab'],
+		indent: [1, 'tab', { 'SwitchCase': 1 }],
 		'no-mixed-spaces-and-tabs': [1, 'smart-tabs'],
 		'react/jsx-filename-extension': [
 			2,
@@ -85,6 +86,7 @@ module.exports = {
 	globals: {
 		__IS_DEV__: true,
 		__API__: true,
+		__PROJECT__: true,
 	},
 	overrides: [
 		{

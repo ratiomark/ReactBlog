@@ -26,8 +26,6 @@ export const Portal = ({ children, element = document.body }: PortalProps) => {
 	useEffect(() => {
 		console.log('Portal отработал');
 		ref.current = document.body
-		// ref.current = document.querySelector("#root") || undefined;
-		// ref.current = document.querySelector("#root") || undefined;
 		setMounted(true);
 		// return () => {
 		// 	setMounted(false)

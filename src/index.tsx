@@ -8,7 +8,7 @@ import 'app/styles/index.scss'
 
 import 'shared/config/i18n/i18n'
 
-
+// stopReportingRuntimeErrors();
 render(
 	<BrowserRouter>
 		<StoreProvider>

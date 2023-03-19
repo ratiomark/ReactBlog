@@ -1,0 +1,22 @@
+.CommentCard_skeleton {
+  padding: 10px;
+}
+
+.CommentCard {
+  padding: 10px;
+  border: 1px solid var(--primary-color);
+}
+
+.commentHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.commentUserName{
+
+}
+
+.commentText {
+  margin-top: 10px;
+}
