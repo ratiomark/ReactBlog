@@ -2,8 +2,10 @@ import clsx from 'clsx'
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { ProfileCard } from 'entities/Profile';
+import { getUserAuthData } from 'entities/User';
 import { ChangeEvent, KeyboardEvent, useCallback, useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { ReducersList, useAsyncReducer } from 'shared/lib/helpers/hooks/useAsyncReducer';
 import { validateAge } from 'shared/lib/helpers/validation/validateAge';
 import { validateFirstName } from 'shared/lib/helpers/validation/validateFirstName';
@@ -56,18 +58,21 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 	} = props
 	// const { t } = useTranslation()
 	const { dispatch } = useAsyncReducer({ reducers: reducers, removeAfterUnmount: false })
-	useEffect(() => {
-		if (__PROJECT__ !== 'storybook') {
-			dispatch(fetchProfileData())
-		}
-	}, [dispatch])
-
+	const { id: profileId } = useParams<{ id: string }>()
+	const authData = useSelector(getUserAuthData)
+	const canEdit = profileId === authData?.id
 	const profileForm = useSelector(getProfileForm)
 	const profileError = useSelector(getProfileError)
 	const profileIsLoading = useSelector(getProfileIsLoading)
 	const profileReadonly = useSelector(getProfileReadonly)
 	const profileHasInputErrors = useSelector(getInputErrorsState)
 	const profileInputErrorsData = useSelector(getInputErrorsData)
+
+	useEffect(() => {
+		if (__PROJECT__ !== 'storybook') {
+			profileId && dispatch(fetchProfileData(profileId))
+		}
+	}, [dispatch, profileId])
 
 
 	const onValidateFirstname = useCallback((inputValue: string) => {
@@ -87,10 +92,6 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 		dispatch(profileActions.setInputErrors({ 'lastname': errors }))
 		dispatch(profileActions.checkInputErrors())
 	}, [dispatch])
-
-	const onChangeAge = useCallback(() => {
-
-	}, [])
 
 	const onChangeCurrency = useCallback((value: Currency) => {
 		dispatch(profileActions.updateProfileForm({ currency: value }))
@@ -146,12 +147,12 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 	}, [dispatch])
 
 	const onSaveProfile = useCallback(() => {
-		if (profileHasInputErrors) {
+		if (profileHasInputErrors || !profileId) {
 			return
 		}
 		dispatch(profileActions.setReadonly(true))
-		dispatch(updateProfileData())
-	}, [dispatch, profileHasInputErrors])
+		dispatch(updateProfileData(profileId))
+	}, [dispatch, profileHasInputErrors, profileId])
 
 	const onCancelProfileChanges = useCallback(() => {
 		dispatch(profileActions.cancelEditProfileData())
@@ -171,6 +172,7 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 				onChangeCountry={onChangeCountry}
 				countryValue={profileForm?.country}
 				readonly={profileReadonly}
+				canEdit={canEdit}
 				onEditProfile={onEditProfile}
 				onSaveProfile={onSaveProfile}
 				onCancelProfileChanges={onCancelProfileChanges}

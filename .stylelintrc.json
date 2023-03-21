@@ -1,24 +1,25 @@
 {
-	"extends": "stylelint-config-standard-scss",
-	"rules": {
-		"indentation": 2,
-		"selector-class-pattern": null,
-		"value-keyword-case": [
-			"lower",
-			{
-				"ignoreProperties": [
-					"/font/",
-					"--font-family-main",
-					"/\\w+font\\w+/",
-					"font-family"
-				],
-				"ignoreKeywords": [
-					"/font/",
-					"--font-family-main",
-					"/\\w+font\\w+/",
-					"font-family"
-				]
-			}
-		]
-	}
+  "extends": "stylelint-config-standard-scss",
+  "rules": {
+    "indentation": 2,
+    "selector-class-pattern": null,
+    "block-no-empty": null,
+    "value-keyword-case": [
+      "lower",
+      {
+        "ignoreProperties": [
+          "/font/",
+          "--font-family-main",
+          "/\\w+font\\w+/",
+          "font-family"
+        ],
+        "ignoreKeywords": [
+          "/font/",
+          "--font-family-main",
+          "/\\w+font\\w+/",
+          "font-family"
+        ]
+      }
+    ]
+  }
 }

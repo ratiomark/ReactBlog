@@ -6,14 +6,14 @@ import { Profile } from '../types/profile'
 
 
 // createAsyncThunk третьим аргументом принимает конфиг и там я могу описать поле extra и теперь обращаясь в thunkAPI.extra ТС подхватит то, что я описал в ThunkExtraArg
-export const updateProfileData = createAsyncThunk<Profile, void, { rejectValue: string, state: StateSchema, extra: ThunkExtraArg }>(
+export const updateProfileData = createAsyncThunk<Profile, string, { rejectValue: string, state: StateSchema, extra: ThunkExtraArg }>(
 	'profile/updateProfileData',
-	async (_, thunkAPI) => {
+	async (profileId, thunkAPI) => {
 		// const { readonly } = 
 			
 		const formData = getProfileForm(thunkAPI.getState())
 		try {
-			const response = await thunkAPI.extra.api!.put<Profile>('/profile', formData)
+			const response = await thunkAPI.extra.api!.put<Profile>(`/profile/${profileId}`, formData)
 			if (!response.data) {
 				throw new Error()
 			}

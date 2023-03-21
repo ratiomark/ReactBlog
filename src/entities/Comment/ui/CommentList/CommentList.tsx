@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import cls from './CommentList.module.scss';
 import { Text } from 'shared/ui/Text/Text';
 import { CommentCard } from '../CommentCard/CommentCard';
+import { memo } from 'react';
 
 interface CommentListProps {
 	className?: string
@@ -20,7 +21,7 @@ const renderComments = (comment: Comment, isLoading: boolean) => (
 	/>
 )
 
-export const CommentList = (props: CommentListProps) => {
+export const CommentList = memo((props: CommentListProps) => {
 	const {
 		className,
 		comments,
@@ -40,4 +41,5 @@ export const CommentList = (props: CommentListProps) => {
 			}
 		</div>
 	)
-}
+})
+CommentList.displayName = 'CommentList'

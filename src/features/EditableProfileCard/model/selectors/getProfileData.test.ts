@@ -20,6 +20,7 @@ describe('getProfileData.test ', () => {
 
 	test('getProfileData: should data object', () => {
 		const data: Profile = {
+			id: '1',
 			firstname: 'Alex',
 			lastname: 'Johns',
 			username: 'admin of God',

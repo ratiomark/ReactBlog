@@ -8,6 +8,8 @@ import { LangSwitcher } from '../LangSwitcher/LangSwitcher'
 import { SidebarItemsList } from '../../model/items'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
 import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
+import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems'
 
 interface SidebarProps {
 	className?: string
@@ -17,19 +19,20 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 	// const { t, currentLang } = useCustomTranslate();
 	const { t, i18n } = useTranslation()
 	const [collapsed, setCollapsed] = useState(false)
-
+	const sidebarItemsList = useSelector(getSidebarItems)
 	const onToggle = () => {
 		setCollapsed((prev) => !prev)
 	}
 
-	const SideBarItemsRendered = SidebarItemsList.map(item => (
-		<SidebarItem
-			item={item}
-			collapsed={collapsed}
-			key={item.path}
-		/>
-		// eslint-disable-next-line
-	))
+	const SideBarItemsRendered = useMemo(() => {
+		return sidebarItemsList.map(item => (
+			<SidebarItem
+				item={item}
+				collapsed={collapsed}
+				key={item.path}
+			/>
+		))
+	}, [sidebarItemsList, collapsed])
 	// const SideBarItemsRendered = useMemo(() => SidebarItemsList.map(item => (
 	// 	<SidebarItem
 	// 		item={item}
@@ -54,7 +57,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 
 			<nav className={cls.items}>
 				{SideBarItemsRendered}
-				
+
 			</nav>
 
 			<div className={classNames(cls.switchers, { [cls.switchers_collapsed]: collapsed })}>

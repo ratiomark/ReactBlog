@@ -5,6 +5,7 @@ import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ProfileSchema } from 'features/EditableProfileCard';
+import { AddNewCommentSchema } from 'features/ArticleDetailsComment';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { IReducerManager } from './reducerManager';
 
@@ -19,6 +20,7 @@ export interface StateSchema {
 	profile?: ProfileSchema
 	articleDetails?: ArticleDetailsSchema
 	articleDetailsComments?: ArticleDetailsCommentsSchema
+	addNewComment?: AddNewCommentSchema
 }
 
 // достаю ключи редьюсеров, чтобы передать их reducerManager, там где требуются ключи

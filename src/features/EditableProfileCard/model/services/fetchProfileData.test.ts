@@ -24,7 +24,7 @@ describe('fetchProfileData.test', () => {
 		// замокал ответ от сервера
 		const thunkEntity = new TestAsyncThunk(fetchProfileData)
 		thunkEntity.api.get.mockReturnValue(Promise.resolve({ data: data }))
-		const result = await thunkEntity.callThunk()
+		const result = await thunkEntity.callThunk('1')
 		expect(thunkEntity.api.get).toHaveBeenCalled()
 		expect(result.meta.requestStatus).toBe('fulfilled')
 		expect(result.payload).toEqual(data)
@@ -32,7 +32,7 @@ describe('fetchProfileData.test', () => {
 	test('fetch failed(TestAsyncThunk class)', async () => {
 		const thunk = new TestAsyncThunk(fetchProfileData)
 		thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }))
-		const result = await thunk.callThunk()
+		const result = await thunk.callThunk('1')
 		expect(result.meta.requestStatus).toBe('rejected')
 		// expect(result.payload).toEqual(403)
 

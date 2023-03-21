@@ -1,4 +1,7 @@
+import { RoutePath } from 'app/providers/router/config/routeConfig/routeConfig';
 import clsx from 'clsx';
+import { memo } from 'react';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Text } from 'shared/ui/Text/Text';
@@ -11,14 +14,14 @@ interface CommentCardProps {
 	isLoading?: boolean
 }
 
-export const CommentCard = (props: CommentCardProps) => {
+export const CommentCard = memo((props: CommentCardProps) => {
 	const {
 		className,
 		comment,
 		isLoading,
 	} = props
 
-	
+
 
 
 	let content;
@@ -32,10 +35,10 @@ export const CommentCard = (props: CommentCardProps) => {
 		</>)
 	} else {
 		content = (<>
-			<div className={cls.commentHeader}>
+			<AppLink to={RoutePath.profile + comment.user.id} className={cls.commentHeader}>
 				<Avatar size={50} src={comment.user.avatar} />
 				<Text text={comment.user.username} className={cls.commentUserName} />
-			</div>
+			</AppLink>
 			<Text text={comment.text} className={cls.commentText} />
 		</>)
 	}
@@ -53,4 +56,5 @@ export const CommentCard = (props: CommentCardProps) => {
 			<Text text={comment.text} className={cls.commentText} /> */}
 		</div>
 	);
-}
+})
+CommentCard.displayName = 'CommentCard'

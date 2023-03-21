@@ -3,6 +3,7 @@ import { Currency } from 'entities/Currency'
 import { InputErrorData } from 'shared/lib/helpers/validation/validationErrorTexts'
 
 export interface Profile {
+	id: string
 	firstname?: string
 	lastname?: string
 	username?: string

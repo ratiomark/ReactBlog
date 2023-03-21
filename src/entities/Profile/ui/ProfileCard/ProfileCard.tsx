@@ -19,6 +19,7 @@ interface ProfileCardProps {
 	profileError?: string
 	profileIsLoading?: boolean
 	readonly?: boolean
+	canEdit?: boolean
 	hasInputErrors?: boolean
 	onChangeHandler?: (e: ChangeEvent<HTMLInputElement>) => void
 	onChangeCurrency?: (value: Currency) => void
@@ -58,6 +59,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 		onSaveProfile,
 		onCancelProfileChanges,
 		readonly = true,
+		canEdit,
 		inputData,
 	} = props
 	const { t } = useTranslation('profile')
@@ -81,7 +83,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 		)
 	}
 	let profileContent
-	if (inputData) {
+	if (inputData && canEdit) {
 		profileContent = <>
 			<div className={cls.inputsWrapper}>
 				{inputData.map(item => <Input
@@ -135,7 +137,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 		<div className={clsx(cls.ProfileCard, [className])} >
 			<Text title={t('Шапка профиля')} />
 			<div className={cls.buttons}>
-				{readonly && !inputData
+				{!canEdit
 					? null
 					:
 					<Button

@@ -1,4 +1,7 @@
-type ArticleBlockType = 'CODE' | 'IMAGE' | 'TEXT'
+type ArticleBlockType =
+	| 'CODE'
+	| 'IMAGE'
+	| 'TEXT'
 
 export interface ArticleBase {
 	id: string
@@ -27,7 +30,8 @@ export type ArticleBlock = ArticleTextBlock
 	| ArticleImageBlock
 	| ArticleCodeBlock
 
-export type ArticleType = 'IT'
+export type ArticleType =
+	| 'IT'
 	| 'SCIENCE'
 	| 'ECONOMICS'
 
@@ -41,3 +45,7 @@ export interface Article {
 	type: ArticleType[]
 	blocks: ArticleBlock[]
 }
+
+export type ArticleListView =
+	| 'grid'
+	| 'list'

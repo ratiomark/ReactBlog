@@ -1,3 +1,4 @@
+import { ArticleList } from 'entities/Article';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -7,6 +8,7 @@ const ArticlesPage = memo(() => {
 	return (
 		<div>
 			{t('about')}
+			<ArticleList />
 		</div>
 	)
 })
