@@ -5,6 +5,8 @@
   "Main": "Main",
   "No comments in article": "No comments in article",
   "PROFILE PAGE": "",
+  "Read": "Read",
+  "Read more": "Read more",
   "Send comment": "Send comment",
   "about": "about",
   "button lang change": "button lang change",
@@ -22,6 +24,11 @@
   "error happened": "error happened",
   "error on login": "",
   "increment": "increment",
+  "inputs": {
+    "HAS_TO_BE_MORE_THAN_3": "",
+    "MANDATORY_INPUT": "",
+    "STOP_LYING_ABOUT_AGE": ""
+  },
   "log in": "log in",
   "log out": "",
   "log зге": "",

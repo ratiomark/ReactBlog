@@ -3,6 +3,7 @@ import { Article, ArticleListView } from '../../model/types/article';
 import { useTranslation } from 'react-i18next';
 import cls from './ArticleList.module.scss';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
 interface ArticleListProps {
 	className?: string
@@ -10,6 +11,17 @@ interface ArticleListProps {
 	view?: ArticleListView
 	isLoading?: boolean
 }
+
+const getSkeletons = (view: ArticleListView) => (
+	new Array(view === 'grid' ? 9 : 3)
+		.fill(0)
+		.map((item, index) => (
+			<ArticleListItemSkeleton
+				view={view}
+				key={index}
+			/>
+		))
+)
 
 export const ArticleList = (props: ArticleListProps) => {
 	const {
@@ -24,11 +36,24 @@ export const ArticleList = (props: ArticleListProps) => {
 		<ArticleListItem
 			article={article}
 			view={view}
+			key={article.id}
 		/>
 	)
+
+	if (isLoading) {
+		return <div className={clsx(
+			// cls.ArticleList,
+			cls[view],
+			[className])}
+		>
+			{getSkeletons(view)}
+		</div>
+	}
+
 	return (
 		<div className={clsx(
-			cls.ArticleList,
+			// cls.ArticleList,
+			cls[view],
 			[className])}
 		>
 			{articles.length > 0

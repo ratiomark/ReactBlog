@@ -17,12 +17,13 @@ import { Icon } from 'shared/ui/Icon/Icon';
 import { ArticleTextComponent } from '../ArticleTextComponent/ArticleTextComponent';
 import { ArticleImageComponent } from '../ArticleImageComponent/ArticleImageComponent';
 import { ArticleCodeComponent } from '../ArticleCodeComponent/ArticleCodeComponent';
-import { CommentList, CommentType } from 'entities/Comment';
+import { RoutePath } from 'app/providers/router/config/routeConfig/routeConfig';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 
 interface ArticleDetailsProps {
 	className?: string
 	id: string
-	
+
 }
 
 const reducers: ReducersList = {
@@ -46,7 +47,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 	const {
 		className,
 		id,
-		
+
 	} = props
 	const articleData = useSelector(getArticleDetailsData)
 	const isLoading = useSelector(getArticleDetailsIsLoading)
@@ -81,6 +82,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 			cls.ArticleDetails,
 			[className])}
 		>
+			<AppLink to={RoutePath.articles} >Back to articles</AppLink>
 			<div className={cls.avatarWrapper}>
 				<Avatar size={200} src={articleData?.img} alt={'avatar'} className={cls.avatar} />
 			</div>
@@ -97,7 +99,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 				<Text text_s={String(articleData?.createdAt)} />
 			</div>
 			{/* {articleData?.blocks.map(renderBlocks)} */}
-			
+
 		</div>
 	);
 })

@@ -15,7 +15,11 @@ const ArticleDetailsPage = memo(() => {
 
 	return (
 		<div>
-			<span>{t('ARTICLES')}</span>
+			{/* <span>{t('ARTICLES')}</span> */}
+			{/* <Button */}
+
+			{/* // >Назад к списку</Button> */}
+
 			<ArticleDetails
 				id={id}
 			/>

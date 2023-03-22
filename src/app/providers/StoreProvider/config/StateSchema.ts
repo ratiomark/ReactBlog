@@ -8,6 +8,7 @@ import { ProfileSchema } from 'features/EditableProfileCard';
 import { AddNewCommentSchema } from 'features/ArticleDetailsComment';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { IReducerManager } from './reducerManager';
+import { ArticlesPageSchema } from 'pages/ArticlesPage';
 
 
 // loginForm делаю не обязательным, таким образом я могу подружать его позже с помощью асинхронна и ТС не будет ругаться на то что я не объявил его в rootReducers
@@ -21,6 +22,7 @@ export interface StateSchema {
 	articleDetails?: ArticleDetailsSchema
 	articleDetailsComments?: ArticleDetailsCommentsSchema
 	addNewComment?: AddNewCommentSchema
+	articlesPage?: ArticlesPageSchema
 }
 
 // достаю ключи редьюсеров, чтобы передать их reducerManager, там где требуются ключи

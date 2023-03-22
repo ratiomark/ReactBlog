@@ -1,3 +1,19 @@
 .ArticleList {
+  // display: flex;
+}
 
+// SMALL
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+// BIG
+.list {
+  // display: flex;
+
+  .card {
+    // margin-bottom: 30px;
+  }
 }

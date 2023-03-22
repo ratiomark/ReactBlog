@@ -1,22 +1,19 @@
-import { useCustomTranslate } from 'features/LanguageSwitcher'
 import { ThemeSwitcher } from 'features/ThemeSwitcher'
 import { memo, useMemo, useState } from 'react'
 import { classNames } from 'shared/lib/helpers/classNames/classNames'
 import { Button } from 'shared/ui/Button/Button'
 import cls from './Sidebar.module.scss'
 import { LangSwitcher } from '../LangSwitcher/LangSwitcher'
-import { SidebarItemsList } from '../../model/items'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems'
+import { getSidebarItems } from '../../model/selectors/getSidebarItems'
 
 interface SidebarProps {
 	className?: string
 }
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
-	// const { t, currentLang } = useCustomTranslate();
 	const { t, i18n } = useTranslation()
 	const [collapsed, setCollapsed] = useState(false)
 	const sidebarItemsList = useSelector(getSidebarItems)

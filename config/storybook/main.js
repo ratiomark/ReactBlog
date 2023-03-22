@@ -9,7 +9,8 @@ module.exports = {
 	],
 	'framework': '@storybook/react',
 	'core': {
-		'builder': '@storybook/builder-webpack5'
+		// builder: '@storybook/builder-webpack5'
+		builder: 'webpack5',
 	},
 	'staticDirs': ['../../public', '../../public/locales']
 }

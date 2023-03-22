@@ -20,5 +20,5 @@ export const [FTName] = (props: [FTName]Props) => {
 		>
 
 		</div>
-	);
+	)
 }
