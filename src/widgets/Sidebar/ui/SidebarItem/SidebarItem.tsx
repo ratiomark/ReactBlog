@@ -4,7 +4,7 @@ import { t } from 'i18next';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { SideBarItemType } from 'widgets/Sidebar/model/items';
+import { SideBarItemType } from 'widgets/Sidebar/model/types/items';
 import cls from './SidebarItem.module.scss'
 
 interface SidebarItemProps {

@@ -1,15 +1,15 @@
 .Sidebar {
-  height: 100%;
+  height: calc(100vh - var(--navbar-height));
   padding-top: var(--navbar-height);
   z-index: 100;
 
   // height: calc(100vh - var(--navbar-height));
   width: var(--side-bar-width);
   background: var(--inverted-bg-color);
-
-  // position: relative;
+  position: relative;
   transition: all 0.3s;
-  position: fixed;
+
+  // position: fixed;
 }
 
 .toggleSidebar {

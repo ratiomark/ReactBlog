@@ -22,10 +22,16 @@ export const useAsyncReducer = (props: useAsyncReducerProps) => {
 	const store = useStore() as ReduxStoreWithReducerManager
 
 	useEffect(() => {
+		const mountedReducers = store.reducerManager.getMountedReducers()
+
 		Object.entries(reducers).forEach(
 			([reducerName, reducer]) => {
-				store.reducerManager.add(reducerName as StateSchemaReducersKeys, reducer)
-				dispatch({ type: `@INIT ${reducerName} reducer` })
+				const mounted = mountedReducers[reducerName as StateSchemaReducersKeys]
+				// добавляем редьюсер, только если он еще не вмонтирован
+				if (!mounted) {
+					store.reducerManager.add(reducerName as StateSchemaReducersKeys, reducer)
+					dispatch({ type: `@INIT ${reducerName} reducer` })
+				}
 			}
 		)
 

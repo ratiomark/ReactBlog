@@ -16,7 +16,8 @@ i18n
 
 		fallbackLng: 'en',
 		// дебаг будет спамить в консоль подрузку переводов, отсутсвующие ключи
-		debug: __IS_DEV__,
+		debug: false,
+		// debug: __IS_DEV__,
 		interpolation: {
 			escapeValue: false,
 		},

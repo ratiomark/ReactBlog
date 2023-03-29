@@ -40,15 +40,15 @@ export const ArticleList = (props: ArticleListProps) => {
 		/>
 	)
 
-	if (isLoading) {
-		return <div className={clsx(
-			// cls.ArticleList,
-			cls[view],
-			[className])}
-		>
-			{getSkeletons(view)}
-		</div>
-	}
+	// if (isLoading) {
+	// 	return <div className={clsx(
+	// 		// cls.ArticleList,
+	// 		cls[view],
+	// 		[className])}
+	// 	>
+	// 		{getSkeletons(view)}
+	// 	</div>
+	// }
 
 	return (
 		<div className={clsx(
@@ -60,6 +60,13 @@ export const ArticleList = (props: ArticleListProps) => {
 				? articles.map(renderArticle)
 				: null
 			}
+			{isLoading && <div className={clsx(
+				// cls.ArticleList,
+				cls[view],
+				[className])}
+			>
+				{getSkeletons(view)}
+			</div>}
 		</div>
 	);
 }

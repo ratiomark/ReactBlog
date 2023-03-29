@@ -98,7 +98,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 				<Icon className={cls.icon} Svg={IconCalendar} />
 				<Text text_s={String(articleData?.createdAt)} />
 			</div>
-			{/* {articleData?.blocks.map(renderBlocks)} */}
+			{articleData?.blocks.map(renderBlocks)}
 
 		</div>
 	);

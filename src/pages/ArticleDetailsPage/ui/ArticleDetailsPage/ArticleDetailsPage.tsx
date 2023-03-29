@@ -3,6 +3,7 @@ import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { ArticleDetailsComment } from 'features/ArticleDetailsComment';
+import { Page } from 'widgets/Page/Page';
 
 
 const ArticleDetailsPage = memo(() => {
@@ -14,7 +15,7 @@ const ArticleDetailsPage = memo(() => {
 	}
 
 	return (
-		<div>
+		<>
 			{/* <span>{t('ARTICLES')}</span> */}
 			{/* <Button */}
 
@@ -30,7 +31,7 @@ const ArticleDetailsPage = memo(() => {
 			<CommentList111
 				isLoading={commentsIsLoading}
 				comments={comments} /> */}
-		</div>
+		</>
 	)
 })
 

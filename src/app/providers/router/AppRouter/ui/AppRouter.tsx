@@ -2,19 +2,20 @@ import { Suspense, useCallback, useMemo } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { AppRouteProps, routeConfig } from 'app/providers/router/config/routeConfig/routeConfig'
 import { LoaderWidget } from 'widgets/LoaderWidget/LoaderWidget'
-import { useSelector } from 'react-redux'
-import { getUserAuthData } from 'entities/User'
 import { ProtectedRoute } from './ProtectedRoute'
 
 export const AppRouter = () => {
 
 	const renderWithWrapper = useCallback((route: AppRouteProps) => {
-		const { path, authOnly, element } = route
+		const { path, authOnly, element, wrapper: Wrapper } = route
+		// const Wrapper = wrapper
 		const finalElement = (
 			<Suspense fallback={<LoaderWidget />}>
-				<div className="page-wrapper">
-					{element}
-				</div>
+				{Wrapper
+					// ? element
+					? <Wrapper>{element}</Wrapper>
+					: element
+				}
 			</Suspense>
 		)
 		return (

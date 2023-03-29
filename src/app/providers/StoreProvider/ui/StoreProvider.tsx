@@ -18,11 +18,11 @@ export const StoreProvider = (props: StoreProviderProps) => {
 	} = props
 
 	const store = createReduxStore(initialState, asyncReducers)
-
+	console.log('render!!!!!!')
 	return (
 		<Provider store={store}>
 			{children}
 		</Provider>
-		
+
 	)
 }

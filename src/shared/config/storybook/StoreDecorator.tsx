@@ -5,6 +5,9 @@ import { profileReducer } from 'features/EditableProfileCard'
 import { loginReducer } from 'features/AuthByUsername/Model/slice/loginSlice'
 import { ReducersList } from 'shared/lib/helpers/hooks/useAsyncReducer'
 import { articleDetailsReducer } from 'entities/Article'
+import { addNewCommentReducer } from 'features/ArticleDetailsComment/model/slice/addNewCommentSlice'
+import { articleDetailsCommentsReducer } from 'features/ArticleDetailsComment/model/slice/articleDetailsCommentsSlice'
+import { articlesPageReducer } from 'pages/ArticlesPage/model/slice/articlePageSlice'
 /* eslint-disable*/
 
 // Сюда добавляю асинхронные редьюсеры, чтобы можно было сторибукать компоненты в которых они используются
@@ -13,6 +16,9 @@ const defaultAsyncReducers: ReducersList = {
 	loginForm: loginReducer,
 	profile: profileReducer,
 	articleDetails: articleDetailsReducer,
+	addNewComment: addNewCommentReducer,
+	articleDetailsComments: articleDetailsCommentsReducer,
+	articlesPage: articlesPageReducer
 }
 
 export const StoreDecorator =

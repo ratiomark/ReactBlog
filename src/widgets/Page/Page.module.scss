@@ -1,0 +1,25 @@
+.Page {
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 20px;
+
+  // padding: calc(20px + var(--navbar-height)) 20px 20px calc(20px + var(--side-bar-width));
+  height: calc(100vh - var(--navbar-height));
+
+  // height: 5000px;
+  overflow-y: auto;
+
+  // display: flex;
+  // justify-content: center;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.trigger {
+  height: 10px;
+  background-color: red;
+  margin: 10px;
+}

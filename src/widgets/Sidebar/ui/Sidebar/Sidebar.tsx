@@ -8,6 +8,7 @@ import { SidebarItem } from '../SidebarItem/SidebarItem'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { getSidebarItems } from '../../model/selectors/getSidebarItems'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 interface SidebarProps {
 	className?: string
@@ -40,7 +41,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 	// )), [collapsed, currentLang])
 
 	return (
-		<div data-testid='sidebar' className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+		<menu data-testid='sidebar' className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
 
 			<Button
 				data-testid='toggle-sidebar'
@@ -61,6 +62,6 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 				<ThemeSwitcher />
 				<LangSwitcher>{collapsed ? 'button lang short' : 'button lang change'}</LangSwitcher>
 			</div>
-		</div>
+		</menu>
 	)
 })

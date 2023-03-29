@@ -6,7 +6,7 @@ import {
 import { StateSchema } from 'app/providers/StoreProvider'
 import { Article, ArticleListView } from 'entities/Article'
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localStorage'
-import { fetchArticleList } from '../services/fetchArticleList'
+import { fetchArticleList } from '../services/fetchArticleList/fetchArticleList'
 import { ArticlesPageSchema } from '../types/articlesPageSchema'
 
 
@@ -30,15 +30,26 @@ const articlesPageSlice = createSlice({
 		error: undefined,
 		entities: {},
 		ids: [],
-		view: 'grid'
+		view: 'grid',
+		page: 1,
+		hasMore: true,
+		_inited: false
 	}),
 	reducers: {
 		setView: (state, action: PayloadAction<ArticleListView>) => {
 			state.view = action.payload
+			state.limit = action.payload === 'grid' ? 8 : 3
 			localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, action.payload)
 		},
+		setPage: (state, action: PayloadAction<number>) => {
+			state.page = action.payload
+		},
+
 		initState: (state) => {
-			state.view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleListView
+			const view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleListView
+			state.view = view ?? 'grid'
+			state.limit = view === 'grid' ? 8 : 3
+			state._inited = true
 		}
 	},
 	extraReducers: (builder) => {
@@ -53,7 +64,11 @@ const articlesPageSlice = createSlice({
 				fetchArticleList.fulfilled,
 				(state, action: PayloadAction<Article[]>) => {
 					state.isLoading = false
-					articlesAdapter.setAll(state, action.payload)
+					// if (state._inited) {
+						articlesAdapter.addMany(state, action.payload)
+						state.hasMore = action.payload.length >= (state.limit ?? (state.view === 'grid' ? 8 : 3))
+					// }
+
 				})
 			.addCase(
 				fetchArticleList.rejected,
