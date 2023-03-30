@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { Article, ArticleListView } from '../../model/types/article';
 import { useTranslation } from 'react-i18next';
-import cls from './ArticleList.module.scss';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
 	className?: string

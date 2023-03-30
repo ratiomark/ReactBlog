@@ -11,8 +11,8 @@ export const AppRouter = () => {
 		// const Wrapper = wrapper
 		const finalElement = (
 			<Suspense fallback={<LoaderWidget />}>
+				{/* {element} */}
 				{Wrapper
-					// ? element
 					? <Wrapper>{element}</Wrapper>
 					: element
 				}

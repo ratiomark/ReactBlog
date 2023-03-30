@@ -1,5 +1,6 @@
 .ArticleList {
   // display: flex;
+  // margin-top: 16px;
 }
 
 // SMALL
@@ -7,10 +8,14 @@
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
+  justify-content: space-between;
+  margin-top: 16px;
 }
 
 // BIG
 .list {
+  margin-top: 16px;
+
   // display: flex;
 
   .card {

@@ -1,0 +1,13 @@
+.Tabs {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.tabItem {
+  cursor: pointer;
+}
+
+// .tabActive {
+//   background-color: var(--inverted-bg-color);
+// }

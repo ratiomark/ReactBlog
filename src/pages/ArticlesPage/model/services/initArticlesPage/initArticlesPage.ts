@@ -1,5 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { StateSchema, ThunkExtraArg } from 'app/providers/StoreProvider'
+import { ArticleSortFieldType, ArticleType } from 'entities/Article'
+import { SortOrderType } from 'shared/types/SortOrderType'
+import { URLSearchParams } from 'url'
 import { getArticlesPageInited } from '../../selectors/articlesPageSelectors'
 import { articlesPageActions } from '../../slice/articlePageSlice'
 import { fetchArticleList } from '../fetchArticleList/fetchArticleList'
@@ -7,17 +10,37 @@ import { fetchArticleList } from '../fetchArticleList/fetchArticleList'
 // createAsyncThunk третьим аргументом принимает конфиг и там я могу описать поле extra и теперь обращаясь в thunkAPI.extra ТС подхватит то, что я описал в ThunkExtraArg
 export const initArticlesPage = createAsyncThunk<
 	void,
-	void,
+	URLSearchParams,
 	{ extra: ThunkExtraArg, state: StateSchema }
 >(
 	'articlePage/initArticlesPage',
-	async (_, thunkAPI) => {
+	async (searchParams, thunkAPI) => {
 		const { dispatch, getState } = thunkAPI
 		const _inited = getArticlesPageInited(getState())
 
 		if (!_inited) {
+
+			['sort', 'order', 'search', 'type'].forEach(filter => {
+				const resultFromSearchParams = searchParams.get(filter)
+				if (resultFromSearchParams) {
+					switch (filter) {
+						case 'sort':
+							dispatch(articlesPageActions.setSort(resultFromSearchParams as ArticleSortFieldType))
+							break;
+						case 'order':
+							dispatch(articlesPageActions.setOrder(resultFromSearchParams as SortOrderType))
+							break
+						case 'search':
+							dispatch(articlesPageActions.setSearch(resultFromSearchParams))
+							break
+						case 'type':
+							dispatch(articlesPageActions.setType(resultFromSearchParams as ArticleType))
+					}
+				}
+			})
+
 			dispatch(articlesPageActions.initState())
-			dispatch(fetchArticleList({ page: 1 }))
+			dispatch(fetchArticleList({}))
 		}
 	}
 )

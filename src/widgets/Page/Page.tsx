@@ -68,4 +68,5 @@ export const Page = memo((props: PageProps) => {
 		</section>
 	)
 })
-Page.displayName = 'Page Component'
+Page.displayName = 'Page_Component'
+// Page.displayName = 'Page_Component'

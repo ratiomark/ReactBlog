@@ -1,5 +1,12 @@
 import { User } from 'entities/User'
 
+export const ArticleSortField = {
+	views: 'views',
+	createdAt: 'createdAt',
+	title: 'title',
+} as const 
+export type ArticleSortFieldType = keyof typeof ArticleSortField 
+
 type ArticleBlockType =
 	| 'CODE'
 	| 'IMAGE'
@@ -33,6 +40,7 @@ export type ArticleBlock = ArticleTextBlock
 	| ArticleCodeBlock
 
 export type ArticleType =
+	| 'ALL'
 	| 'IT'
 	| 'SCIENCE'
 	| 'ECONOMICS'

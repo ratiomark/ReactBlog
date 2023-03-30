@@ -4,8 +4,10 @@ import {
 	PayloadAction,
 } from '@reduxjs/toolkit'
 import { StateSchema } from 'app/providers/StoreProvider'
-import { Article, ArticleListView } from 'entities/Article'
+import { Article, ArticleListView, ArticleType } from 'entities/Article'
+import { ArticleSortFieldType } from 'entities/Article'
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localStorage'
+import { SortOrderType } from 'shared/types/SortOrderType'
 import { fetchArticleList } from '../services/fetchArticleList/fetchArticleList'
 import { ArticlesPageSchema } from '../types/articlesPageSchema'
 
@@ -28,12 +30,20 @@ const articlesPageSlice = createSlice({
 	initialState: articlesAdapter.getInitialState<ArticlesPageSchema>({
 		isLoading: false,
 		error: undefined,
-		entities: {},
 		ids: [],
-		view: 'grid',
+		entities: {},
+
+		limit: 3,
 		page: 1,
 		hasMore: true,
-		_inited: false
+
+		_inited: false,
+
+		view: 'grid',
+		order: 'asc',
+		sort: 'createdAt',
+		search: '',
+		type: 'ALL'
 	}),
 	reducers: {
 		setView: (state, action: PayloadAction<ArticleListView>) => {
@@ -41,8 +51,25 @@ const articlesPageSlice = createSlice({
 			state.limit = action.payload === 'grid' ? 8 : 3
 			localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, action.payload)
 		},
+
 		setPage: (state, action: PayloadAction<number>) => {
 			state.page = action.payload
+		},
+
+		setSort: (state, action: PayloadAction<ArticleSortFieldType>) => {
+			state.sort = action.payload
+		},
+
+		setSearch: (state, action: PayloadAction<string>) => {
+			state.search = action.payload
+		},
+
+		setOrder: (state, action: PayloadAction<SortOrderType>) => {
+			state.order = action.payload
+		},
+		
+		setType: (state, action: PayloadAction<ArticleType>) => {
+			state.type = action.payload
 		},
 
 		initState: (state) => {
@@ -52,23 +79,30 @@ const articlesPageSlice = createSlice({
 			state._inited = true
 		}
 	},
+
 	extraReducers: (builder) => {
 		builder
 			.addCase(
 				fetchArticleList.pending,
-				(state) => {
+				(state, action) => {
 					state.error = undefined
 					state.isLoading = true
+					if (action.meta.arg.replace) {
+						articlesAdapter.removeAll(state)
+					}
 				})
 			.addCase(
 				fetchArticleList.fulfilled,
-				(state, action: PayloadAction<Article[]>) => {
+				(state, action) => {
 					state.isLoading = false
-					// if (state._inited) {
+					state.hasMore = action.payload.length >= state.limit
+					// Чтобы были поля meta.arg.replace, у fetchArticleList должно быть поле replace и action, который сюда прилетает нельзя типизировать как
+					// PayloadAction<Article[]>. Все это нужно, чтобы при запросе можно было определить делаю ли я подгрузку(тогда addMany), либо я загружаю данные по новой, например при изменении сортировки
+					if (action.meta.arg.replace) {
+						articlesAdapter.setAll(state, action.payload)
+					} else {
 						articlesAdapter.addMany(state, action.payload)
-						state.hasMore = action.payload.length >= (state.limit ?? (state.view === 'grid' ? 8 : 3))
-					// }
-
+					}
 				})
 			.addCase(
 				fetchArticleList.rejected,

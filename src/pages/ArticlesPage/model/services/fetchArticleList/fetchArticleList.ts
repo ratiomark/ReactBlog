@@ -1,12 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { StateSchema, ThunkExtraArg } from 'app/providers/StoreProvider'
 import { Article } from 'entities/Article'
-import { getArticlesPageLimit } from '../../selectors/articlesPageSelectors'
+import { addQueryParams } from 'shared/lib/helpers/url/addQueryParams/addQueryParams'
+import { getArticlesPageLimit, getArticlesPageNum, getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort, getArticlesPageType } from '../../selectors/articlesPageSelectors'
 
 
 
 interface fetchArticleListProps {
-	page?: number
+	replace?: boolean
 }
 
 // createAsyncThunk третьим аргументом принимает конфиг и там я могу описать поле extra и теперь обращаясь в thunkAPI.extra ТС подхватит то, что я описал в ThunkExtraArg
@@ -16,17 +17,27 @@ export const fetchArticleList = createAsyncThunk<
 	{ rejectValue: string, extra: ThunkExtraArg, state: StateSchema }
 >(
 	'articlePage/fetchArticleList',
-	async (args, thunkAPI) => {
-		const { page } = args
+	async (_, thunkAPI) => {
 		const { getState } = thunkAPI
+		const page = getArticlesPageNum(getState())
 		const limit = getArticlesPageLimit(getState())
-
+		const sort = getArticlesPageSort(getState())
+		const order = getArticlesPageOrder(getState())
+		const search = getArticlesPageSearch(getState())
+		const type = getArticlesPageType(getState())
 		try {
+			addQueryParams({
+				sort, order, search, type
+			})
 			const response = await thunkAPI.extra!.api!.get<Article[]>('/articles', {
 				params: {
 					_expand: 'user',
 					_limit: limit,
 					_page: page,
+					_sort: sort,
+					_order: order,
+					type: type === 'ALL' ? undefined : type,
+					q: search
 				}
 			})
 			const responseData = response.data
