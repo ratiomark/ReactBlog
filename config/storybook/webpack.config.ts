@@ -9,7 +9,9 @@ export default ({ config }: { config: Configuration }) => {
 		build: '',
 		html: '',
 		entry: '',
-		src: path.resolve(__dirname, '..', '..', 'src')
+		src: path.resolve(__dirname, '..', '..', 'src'),
+		locales: '',
+		buildLocales: ''
 	}
 
 	config!.resolve!.modules!.push(paths.src)

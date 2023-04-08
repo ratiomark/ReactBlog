@@ -47,7 +47,7 @@ describe('loginByUserName.test', () => {
 	// });
 	// создал отдельный класс для инкапсуляции всей движухи и dry
 	// Из-за того, что я использовал в extraArg api, тесты выше не будут работать, потому что они были написаны под случай, когда axios создавался внутри createAsyncThunk, теперь же это отдельный класс, который лежит внутри extra.
-	test('should login success (TestAsyncThunk class)', async () => {
+	test('should-login-success-testasyncthunk-class', async () => {
 		const userData = { username: 'admin', id: '1' }
 		// замокал ответ от сервера
 		const thunkEntity = new TestAsyncThunk(loginUserByUserName)
@@ -59,7 +59,7 @@ describe('loginByUserName.test', () => {
 		expect(thunkEntity.api.post).toHaveBeenCalled()
 		expect(result.meta.requestStatus).toBe('fulfilled')
 	});
-	test('should login failed(TestAsyncThunk class)', async () => {
+	test('should-login-failed-testasyncthunk-class', async () => {
 		const thunk = new TestAsyncThunk(loginUserByUserName)
 		thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }))
 		const result = await thunk.callThunk({ username: 'admin', password: '123' })

@@ -55,3 +55,4 @@ export const NavBar = memo(({ className }: NavBarProps) => {
 		)
 	}
 })
+NavBar.displayName = 'NavBar'

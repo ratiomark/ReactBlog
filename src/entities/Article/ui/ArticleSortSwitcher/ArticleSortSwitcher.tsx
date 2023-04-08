@@ -10,10 +10,8 @@ interface ArticleSortSwitcherProps {
 	className?: string
 	sort: ArticleSortFieldType
 	order: SortOrderType
-	// searchValue: string
 	onOrderChange: (newOrder: SortOrderType) => void
 	onSortChange: (newSort: ArticleSortFieldType) => void
-	// onSearchChange: (searchValue: string) => void
 }
 
 export const ArticleSortSwitcher = (props: ArticleSortSwitcherProps) => {
@@ -80,9 +78,6 @@ export const ArticleSortSwitcher = (props: ArticleSortSwitcherProps) => {
 				value={order}
 				onChange={onOrderChangeHandler}
 			/>
-			{/* <Card className={cls.search} >
-				<Input placeholder={t('search placehoder')} />
-			</Card> */}
 		</div>
 	)
 }

@@ -94,5 +94,5 @@ export const Input = memo((props: InputProps) => {
 		</>
 	)
 })
-Input.displayName = 'Input Component'
+Input.displayName = 'Input'
 

@@ -67,3 +67,4 @@ export const Button = memo((props: ButtonProps) => {
 		</button>
 	)
 })
+Button.displayName = 'Button'

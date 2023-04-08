@@ -4,8 +4,8 @@ export const ArticleSortField = {
 	views: 'views',
 	createdAt: 'createdAt',
 	title: 'title',
-} as const 
-export type ArticleSortFieldType = keyof typeof ArticleSortField 
+} as const
+export type ArticleSortFieldType = keyof typeof ArticleSortField
 
 type ArticleBlockType =
 	| 'CODE'
@@ -60,3 +60,4 @@ export interface Article {
 export type ArticleListView =
 	| 'grid'
 	| 'list'
+	| 'recommendations'

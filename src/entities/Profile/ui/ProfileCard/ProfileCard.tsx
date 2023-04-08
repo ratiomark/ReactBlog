@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, ButtonSize, ButtonVariant } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { Text } from 'shared/ui/Text/Text';
 import cls from './ProfileCard.module.scss'
 
@@ -160,9 +161,16 @@ export const ProfileCard = (props: ProfileCardProps) => {
 					</Button>
 				}
 			</div>
-			<div className={cls.data}>
+			{/* display: flex;
+			flex-direction: column;
+			align-items: left;
+			justify-content: center; */}
+			<VStack className={cls.data}
+				justify='center'
+				align='left'
+			>
 				{profileContent}
-			</div>
-		</div>
+			</VStack>
+		</div >
 	)
 }

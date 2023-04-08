@@ -17,7 +17,7 @@ import { getUserMounted } from 'entities/User'
 export const App = () => {
 	const dispatch = useAppDispatch()
 	const userMounted = useSelector(getUserMounted)
-	
+
 	useEffect(() => {
 		dispatch(userActions.initAuthData())
 	}, [dispatch])

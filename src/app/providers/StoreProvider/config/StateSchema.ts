@@ -6,11 +6,11 @@ import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ProfileSchema } from 'features/EditableProfileCard';
 import { AddNewCommentSchema } from 'features/ArticleDetailsComment';
-import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { IReducerManager } from './reducerManager';
-import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { ArticlesPageSchema } from 'features/ArticleList';
 import { UISchema } from 'features/ScrollSave';
-
+import { ArticleDetailsCommentsSchema } from 'features/ArticleDetailsComment'
+import { ArticleDetailsRecommendationSchema } from 'features/ArticleRecommendation';
 
 // loginForm делаю не обязательным, таким образом я могу подружать его позже с помощью асинхронна и ТС не будет ругаться на то что я не объявил его в rootReducers
 export interface StateSchema {
@@ -22,9 +22,14 @@ export interface StateSchema {
 	// async reducers
 	loginForm?: LoginSchema
 	profile?: ProfileSchema
+	
 	articleDetails?: ArticleDetailsSchema
+	
+	articleRecommendations?: ArticleDetailsRecommendationSchema
+	
 	articleDetailsComments?: ArticleDetailsCommentsSchema
 	addNewComment?: AddNewCommentSchema
+
 	articlesPage?: ArticlesPageSchema
 }
 

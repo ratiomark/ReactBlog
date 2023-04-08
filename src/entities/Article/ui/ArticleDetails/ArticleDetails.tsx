@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { ArticleBlock } from '../../model/types/article';
@@ -27,7 +27,7 @@ interface ArticleDetailsProps {
 }
 
 const reducers: ReducersList = {
-	articleDetails: articleDetailsReducer
+	articleDetails: articleDetailsReducer,
 }
 
 const renderBlocks = (block: ArticleBlock) => {

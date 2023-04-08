@@ -52,7 +52,7 @@ export const ArticleDetailsComment = memo((props: ArticleDetailsCommentProps) =>
 	}, [dispatch])
 
 	if (commentError) {
-		return <p>ошибка ошибка ошибка В комментариях</p>
+		return <p>{t('oshibka-oshibka-oshibka-v-kommentariyakh')}</p>
 	}
 
 	return (

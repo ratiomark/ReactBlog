@@ -1,7 +1,8 @@
 
 export const Country = {
 	USA: 'USA',
-	Russia: 'Russia'
+	Russia: 'Russia',
+	Germany: 'Germany'
 } as const
 
 // export type Country = 'USA'| 'Russia'

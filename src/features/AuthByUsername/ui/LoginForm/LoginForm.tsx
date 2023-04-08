@@ -12,7 +12,7 @@ import { classNames } from 'shared/lib/helpers/classNames/classNames'
 import { Button } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
 import cls from './LoginForm.module.scss'
-import { loginUserByUserName } from 'features/AuthByUsername/Model/services/loginByUserName/loginUserByUserName'
+import { loginUserByUserName } from '../../Model/services/loginByUserName/loginUserByUserName'
 import { Text, TextVariant } from 'shared/ui/Text/Text'
 
 import {

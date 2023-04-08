@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ArticleImageBlock } from 'entities/Article/model/types/article';
+import { ArticleImageBlock } from '../../model/types/article';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';

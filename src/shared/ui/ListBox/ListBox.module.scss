@@ -1,0 +1,41 @@
+.ListBox {
+  position: relative;
+}
+
+.trigger {
+  all: unset;
+}
+
+.ListBoxButton {
+
+}
+
+.ListBoxListOptions {
+  position: absolute;
+  z-index: 10000;
+  background-color: var(--list-box-bg);
+  min-width: fit-content;
+}
+
+.ListBoxOption,
+.ListBoxOption_active {
+  padding: 8px 16px;
+  white-space: nowrap;
+}
+
+.ListBoxOption_disabled {
+  opacity: 0.4;
+}
+
+.ListBoxOption_active {
+  background-color: var(--list-box-option-active);
+}
+
+.labelPosition_top {
+  // position: absolute;
+  // z-index: 10000;
+}
+
+.labelPosition_left {
+  padding-right: 8px;
+}

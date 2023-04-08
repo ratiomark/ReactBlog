@@ -65,3 +65,4 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 		</menu>
 	)
 })
+Sidebar.displayName = 'Sidebar'

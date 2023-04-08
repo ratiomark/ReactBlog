@@ -48,3 +48,4 @@ export const Text = memo((props: TextProps) => {
 		</div>
 	)
 })
+Text.displayName = 'Text'

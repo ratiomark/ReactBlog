@@ -63,3 +63,4 @@ export const Select = memo((props: SelectProps) => {
 		</div>
 	)
 })
+Select.displayName = 'Select'

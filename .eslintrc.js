@@ -10,6 +10,7 @@ module.exports = {
 		'plugin:react/recommended',
 		'plugin:@typescript-eslint/recommended',
 		'plugin:i18next/recommended',
+		// 'custom-fsd-checker-plugin'
 		// 'prettier/@typescript-eslint',
 		// 'prettier',
 		// "plugin:prettier/recommended",
@@ -24,8 +25,16 @@ module.exports = {
 			jsx: true,
 		},
 	},
-	plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+	plugins: [
+		'react',
+		'@typescript-eslint',
+		'i18next',
+		'react-hooks',
+		'custom-fsd-checker-plugin'
+	],
 	rules: {
+
+		'custom-fsd-checker-plugin/path-checker': 'error',
 		// "prettier/prettier": [2], // Means error
 		// 'code': [1, 80],
 		'react/jsx-indent': [1, 'tab'],

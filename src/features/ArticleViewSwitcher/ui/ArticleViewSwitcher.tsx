@@ -1,4 +1,3 @@
-// import clsx from 'clsx'
 import clsx from 'clsx';
 import { ArticleListView } from 'entities/Article';
 import cls from './ArticleViewSwitcher.module.scss'
