@@ -2,11 +2,11 @@ import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 import cls from './ListBox.module.scss';
 import { Listbox as HListbox } from '@headlessui/react'
-import { ElementType, Fragment, ReactNode, useState } from 'react';
+import { ElementType, Fragment, ReactNode, } from 'react';
 import { Button } from '../Button/Button';
 import { VStack, HStack } from '../Stack';
-import { t } from 'i18next';
-import { FlexAlign, FlexDirection, FlexGap } from '../Stack/Flex/Flex';
+import { FlexAlign, FlexGap } from '../Stack/Flex/Flex';
+import { AbsoluteListDirection } from 'shared/types/ui';
 
 
 
@@ -24,6 +24,7 @@ interface ListBoxProps {
 	defaultValue?: string
 	onChange: (value: string) => void
 	readonly?: boolean
+	listDirection?: AbsoluteListDirection
 	label?: string
 	labelPosition?: 'top' | 'left'
 	listBoxPosition?: FlexAlign
@@ -37,6 +38,7 @@ export const ListBox = (props: ListBoxProps) => {
 		className,
 		value,
 		defaultValue = 'Заглушка',
+		listDirection = 'bottom_right',
 		onChange,
 		readonly,
 		label,
@@ -46,11 +48,15 @@ export const ListBox = (props: ListBoxProps) => {
 	} = props
 
 	const Stack = labelPosition === 'top' ? VStack : HStack
-	// const [selectedPerson, setSelectedPerson] = useState(people[0])
 
 	return (
-		<Stack className={className} gap={labelPadding} align={listBoxPosition}>
-			{label && <span className={(cls.label)}>
+		<Stack
+			className={className}
+			gap={labelPadding}
+			align={listBoxPosition}
+		>
+
+			{label && <span className={clsx(cls.label, { [cls.textDisabled]: readonly })}>
 				{label}
 			</span>}
 			<HListbox
@@ -70,7 +76,7 @@ export const ListBox = (props: ListBoxProps) => {
 					</Button>
 				</HListbox.Button>
 				<HListbox.Options
-					className={cls.ListBoxListOptions}
+					className={clsx(cls.ListBoxListOptions, listDirection)}
 				>
 					{
 						items?.map(item => (

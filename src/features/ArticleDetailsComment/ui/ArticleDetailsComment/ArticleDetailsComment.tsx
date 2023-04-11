@@ -11,6 +11,7 @@ import { articleDetailsCommentsReducer, getArticleComments } from '../../model/s
 import { addNewCommentToArticle } from '../../model/services/addNewCommentToArticle';
 import clsx from 'clsx';
 import cls from './ArticleDetailsComment.module.scss';
+import { Text } from 'shared/ui/Text/Text';
 
 interface ArticleDetailsCommentProps {
 	className?: string
@@ -60,6 +61,7 @@ export const ArticleDetailsComment = memo((props: ArticleDetailsCommentProps) =>
 			cls.addNewComment,
 			[className])}
 		>
+			<Text title='Комментарии' className={cls.commentTitle} />
 			<AddNewComment
 				text={commentText}
 				onChange={onChange}

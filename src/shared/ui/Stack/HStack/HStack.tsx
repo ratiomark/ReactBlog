@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Flex, FlexProps } from '../Flex/Flex';
+import { Flex, FlexOwnProps, } from '../Flex/Flex';
 
-interface HStackProps extends Omit<FlexProps, 'direction'> {
+interface HStackProps extends Omit<FlexOwnProps, 'direction'> {
 	className?: string
 	children: ReactNode
 }

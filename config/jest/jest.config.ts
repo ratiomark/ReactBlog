@@ -38,7 +38,7 @@ export default {
 	moduleNameMapper: {
 		'\\.s?css$': 'identity-obj-proxy',
 		'\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
-		 'axios': 'axios/dist/node/axios.cjs'
+		'axios': 'axios/dist/node/axios.cjs'
 	},
 	setupFilesAfterEnv: ['<rootDir>config/jest/jestSetup.ts'],
 	// moduleNameMapper: {
@@ -61,7 +61,23 @@ export default {
 		'__IS_DEV__': true,
 		'__API__': '',
 		'__PROJECT__': 'jest',
-	}
+	},
+	// список репортеров
+	reporters: [
+		// дефолтный в консоли
+		'default',
+		// репортер из npm 
+		['jest-html-reporters',
+			{
+				// место сохранения отчета
+				'publicPath': '<rootDir>/reports/unit-test',
+				'filename': 'report.html',
+				'openReport': true,
+				// опция делает так, что в папке оказывается только один html файл
+				// 'inlineSource': true,
+			}
+		]
+	]
 	// Indicates whether the coverage information should be collected while executing the test
 	// collectCoverage: false,
 

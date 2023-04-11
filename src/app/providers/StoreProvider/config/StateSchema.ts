@@ -11,9 +11,11 @@ import { ArticlesPageSchema } from 'features/ArticleList';
 import { UISchema } from 'features/ScrollSave';
 import { ArticleDetailsCommentsSchema } from 'features/ArticleDetailsComment'
 import { ArticleDetailsRecommendationSchema } from 'features/ArticleRecommendation';
+import { rtkApi } from 'shared/api/rtkApi';
 
 // loginForm делаю не обязательным, таким образом я могу подружать его позже с помощью асинхронна и ТС не будет ругаться на то что я не объявил его в rootReducers
 export interface StateSchema {
+	[rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 	counter: CounterSchema
 	user: UserSchema
 

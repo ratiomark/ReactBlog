@@ -5,7 +5,6 @@ import { memo, MutableRefObject, ReactNode, useRef, UIEvent, useEffect } from 'r
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/helpers/hooks/useAppDispatch';
-import { useDebounce } from 'shared/lib/helpers/hooks/useDebounce';
 import { useInfiniteScroll } from 'shared/lib/helpers/hooks/useInfiniteScroll';
 import { useInitialEffect } from 'shared/lib/helpers/hooks/useInitialEffect';
 import { useThrottle } from 'shared/lib/helpers/hooks/useThrottle';

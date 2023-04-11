@@ -48,7 +48,6 @@ const articlesPageSlice = createSlice({
 	reducers: {
 		setView: (state, action: PayloadAction<ArticleListView>) => {
 			state.view = action.payload
-			state.limit = action.payload === 'grid' ? 8 : 3
 			localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, action.payload)
 		},
 
@@ -67,7 +66,7 @@ const articlesPageSlice = createSlice({
 		setOrder: (state, action: PayloadAction<SortOrderType>) => {
 			state.order = action.payload
 		},
-		
+
 		setType: (state, action: PayloadAction<ArticleType>) => {
 			state.type = action.payload
 		},

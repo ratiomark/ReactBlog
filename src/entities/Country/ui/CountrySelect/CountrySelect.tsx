@@ -1,9 +1,8 @@
 import clsx from 'clsx'
 import { Country } from '../../model/types/country';
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Select } from 'shared/ui/Select/Select';
-import { ListBox, ListBoxItems } from 'shared/ui/ListBox/ListBox';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 
 interface CountrySelectProps {
 	className?: string
@@ -44,15 +43,6 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
 			labelPosition='left'
 			listBoxPosition='center'
 		/>
-		// <Select
-		// 	className={className}
-		// 	label={t('country')}
-		// 	value={value}
-		// 	onChange={onChangeHandler}
-		// 	options={options}
-		// 	readonly={readonly}
-		// />
-
 	)
 })
-CountrySelect.displayName = 'Country Select'
+CountrySelect.displayName = 'CountrySelect'

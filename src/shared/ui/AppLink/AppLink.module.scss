@@ -1,8 +1,18 @@
 .AppLink {
-  // color: red;
+  text-decoration: none;
+}
 
-  /* Запрещаем перенос слов */
-  // overflow: hidden;
+//   // color: red;
+
+//   /* Запрещаем перенос слов */
+//   // overflow: hidden;
+//   &:hover {
+//     opacity: 0.75;
+//   }
+// }
+.withOpacity {
+  transition: 0.2s all;
+
   &:hover {
     opacity: 0.75;
   }

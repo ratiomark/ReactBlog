@@ -4,6 +4,7 @@ import { memo } from 'react';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { HStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text/Text';
 import { Comment } from '../../model/types/comment';
 import cls from './CommentCard.module.scss';
@@ -27,10 +28,10 @@ export const CommentCard = memo((props: CommentCardProps) => {
 	let content;
 	if (isLoading) {
 		content = (<>
-			<div className={cls.commentHeader}>
+			<HStack gap='gap_12' align='center'>
 				<Skeleton width={50} height={50} borderRadius={'50%'} />
 				<Skeleton height={16} width={120} className={cls.commentUserName} />
-			</div>
+			</HStack>
 			<Skeleton width={'100%'} height={50} className={cls.commentText} />
 		</>)
 	} else {

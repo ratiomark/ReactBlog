@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Flex, FlexProps } from '../Flex/Flex';
+import { Flex, FlexOwnProps} from '../Flex/Flex';
 
-interface VStackProps extends Omit<FlexProps, 'direction'> {
+interface VStackProps extends Omit<FlexOwnProps, 'direction'> {
 	className?: string
 	children: ReactNode
 }
@@ -14,8 +14,6 @@ export const VStack = (props: VStackProps) => {
 		children,
 		...otherProps
 	} = props
-
-	const { t } = useTranslation()
 
 	return (
 		<Flex

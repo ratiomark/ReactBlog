@@ -43,6 +43,7 @@
       // import React from 'react';
       "allowSyntheticDefaultImports": true,
       "forceConsistentCasingInFileNames": true,
+      "isolatedModules": true,
     },
     "ts-node": {
       "compilerOptions": {

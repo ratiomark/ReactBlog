@@ -60,13 +60,9 @@ export const ArticleListUi = (props: ArticleListProps) => {
 				? articles.map(renderArticle)
 				: null
 			}
-			{isLoading && <div className={clsx(
-				// cls.ArticleList,
-				cls[view],
-				[className])}
-			>
+			{isLoading && <>
 				{getSkeletons(view)}
-			</div>}
+			</>}
 		</div>
 	);
 }

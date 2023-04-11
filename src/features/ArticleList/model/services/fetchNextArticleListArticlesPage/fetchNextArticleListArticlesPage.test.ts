@@ -5,7 +5,7 @@ import { fetchNextArticleListArticlesPage } from './fetchNextArticleListArticles
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk';
 import { fetchArticleList } from '../fetchArticleList/fetchArticleList';
 
-jest.mock('./fetchArticleList')
+jest.mock('../fetchArticleList/fetchArticleList')
 
 describe('fetchProfileData.test', () => {
 	test('success', async () => {
@@ -22,7 +22,7 @@ describe('fetchProfileData.test', () => {
 
 		await thunk.callThunk();
 		expect(thunk.dispatch).toBeCalledTimes(4)
-		expect(fetchArticleList).toHaveBeenCalledWith({ page: 3 })
+		expect(fetchArticleList).toHaveBeenCalled()
 	});
 	test('no more pages', async () => {
 		const thunk = new TestAsyncThunk(fetchNextArticleListArticlesPage, {

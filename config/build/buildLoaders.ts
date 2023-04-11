@@ -12,13 +12,15 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 	const { isDev } = options
 	const cssLoader = buildCssLoaders(isDev)
 
-	const babelLoader = buildBabelLoader(isDev)
+	const codeBabelLoader = buildBabelLoader({ ...options, isTSX: false })
+	const tsxBabelLoader = buildBabelLoader({ ...options, isTSX: true })
 
-	const typescriptLoader = {
-		test: /\.tsx?$/,
-		use: 'ts-loader',
-		exclude: /node_modules/,
-	}
+	// отключаю ts лоадер в пользу Babel
+	// const typescriptLoader = {
+	// 	test: /\.tsx?$/,
+	// 	use: 'ts-loader',
+	// 	exclude: /node_modules/,
+	// }
 	const fontLoader = {
 		test: /\.(woff(2)?|ttf|woff|eot)(\?v=\d+\.\d+\.\d+)?$/,
 		type: 'asset/resource',
@@ -62,8 +64,10 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 		svgLoader,
 		svgLoaderAsComponent,
 		imgLoader,
-		babelLoader,
-		typescriptLoader,
+		codeBabelLoader,
+		tsxBabelLoader,
+		// babelLoader,
+		// typescriptLoader,
 		cssLoader,
 	]
 }

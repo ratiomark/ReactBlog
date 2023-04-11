@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames/classNames'
 import { Loader } from 'shared/ui/Loader/Loader';
+import { Page } from 'widgets/Page/Page';
 import cls from './LoaderWidget.module.scss'
 
 interface LoaderWidgetProps {
@@ -9,11 +10,11 @@ interface LoaderWidgetProps {
 
 export const LoaderWidget = memo((props: LoaderWidgetProps) => {
 	return (
-		<div className="page-wrapper">
+		<Page>
 			<div className={classNames(cls.LoaderWidget, {}, [props.className])} >
 				<Loader />
 			</div>
-		</div>
+		</Page>
 	)
 })
 LoaderWidget.displayName = 'LoaderWidget'

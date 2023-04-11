@@ -4,8 +4,4 @@ export const Currency = {
 	eur: 'eur',
 } as const
 
-// export type Currency =
-// 	| 'rub'
-// 	| 'usd'
-// 	| 'eur'
 export type Currency = keyof typeof Currency

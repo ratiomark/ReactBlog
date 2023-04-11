@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 // import { fetchProfileData, profileReducer } from 'entities/Profile';
 import { ProfileCard } from 'entities/Profile/ui/ProfileCard/ProfileCard';
-import { EditableProfileCard } from 'features/EditableProfileCard/ui/EditableProfileCard';
+import { EditableProfileCard } from 'features/EditableProfileCard';
 import { t } from 'i18next';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -11,8 +11,6 @@ import cls from './ProfilePage.module.scss'
 interface ProfilePageProps {
 	className?: string;
 }
-
-
 
 const ProfilePage = (props: ProfilePageProps) => {
 	const {

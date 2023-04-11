@@ -30,9 +30,6 @@ export const Text = memo((props: TextProps) => {
 		align = 'left'
 	} = props
 
-	// const mods = {
-	// 	[cls.error]:  
-	// }
 
 	return (
 		<div className={clsx(

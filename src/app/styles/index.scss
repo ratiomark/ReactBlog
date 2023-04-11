@@ -20,22 +20,28 @@ li {
 
 .content-page {
   display: flex;
-
-  // width: 100%;
-  // flex-grow: 1;
-  // flex-shrink: 1;
 }
 
-// .page-wrapper {
-//   flex-grow: 1;
+.bottom_left {
+  top: 100%;
+  right: 0;
+}
 
-//   // flex-shrink: 1;
-//   padding: calc(20px + var(--navbar-height)) 20px 20px calc(20px + var(--side-bar-width));
-//   height: calc(100% - var(--navbar-height));
-//   overflow-y: auto;
-//   max-width: 1200px;
-//   margin: 0 auto;
-// }
+.bottom_right {
+  top: 100%;
+  left: 0;
+}
+
+.top_right {
+  bottom: 100%;
+  left: 0;
+}
+
+.top_left {
+  right: 0;
+  bottom: 100%;
+}
+
 *::-webkit-scrollbar {
   width: 12px;               /* ширина scrollbar */
   height: 8px;

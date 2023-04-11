@@ -56,12 +56,12 @@ export const ArticleListItemSkeleton = (props: ArticleListItemProps) => {
 			<Card
 			>
 				<div className={cls.imageWrapper}>
-					<Skeleton width={200} height={200} className={cls.articleImage} />
+					<Skeleton width={220} height={220} className={cls.articleImage} />
 				</div>
 				<div className={cls.infoWrapper}>
-					<Skeleton width={130} height={16} />
+					<Skeleton width={130} height={25} />
 				</div>
-				<Skeleton width={150} height={16} className={cls.articleTitle} />
+				<Skeleton width={150} height={25} className={cls.articleTitle} />
 			</Card>
 		</div>
 	)

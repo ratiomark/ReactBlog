@@ -26,8 +26,9 @@ export const ArticlesPageViewPanel = memo((props: ArticlesPageSearchPanelProps) 
 
 	const onChangeView = useCallback((view) => {
 		dispatch(articlesPageActions.setView(view))
-		fetchArticles()
-	}, [dispatch, fetchArticles])
+		// dispatch(articlesPageActions.setPage(1))
+		// fetchArticles()
+	}, [dispatch])
 
 
 

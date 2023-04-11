@@ -1,8 +1,9 @@
+import clsx from 'clsx';
 import { FC, memo, ReactNode } from 'react';
 import { LinkProps } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { classNames } from 'shared/lib/helpers/classNames/classNames'
-import styles from './AppLink.module.scss'
+import cls from './AppLink.module.scss'
 
 // export enum AppLinkTheme {
 //   PRIMARY = 'primary',
@@ -39,6 +40,7 @@ interface AppLinkProps extends LinkProps {
 	className?: string;
 	theme?: AppLinkTheme;
 	children: ReactNode;
+	withoutOpacity?: boolean
 }
 
 export const AppLink = memo((props: AppLinkProps) => {
@@ -47,12 +49,18 @@ export const AppLink = memo((props: AppLinkProps) => {
 		className,
 		children,
 		theme = AppLinkTheme.primary,
+		withoutOpacity = false,
 		...otherProps
 	} = props
 
 	return (
 		<Link
-			className={classNames(styles.AppLink, {}, [className, styles[theme]])}
+			className={clsx(
+				cls.AppLink,
+				className,
+				{ [cls.withOpacity]: !withoutOpacity },
+				cls[theme])
+			}
 			to={to}
 			{...otherProps}
 		>

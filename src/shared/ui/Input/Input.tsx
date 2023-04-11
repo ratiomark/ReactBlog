@@ -28,7 +28,6 @@ export const Input = memo((props: InputProps) => {
 	const {
 		className,
 		value,
-		// onChange,
 		onChangeEvent,
 		onChangeString,
 		onBlur,
@@ -41,7 +40,7 @@ export const Input = memo((props: InputProps) => {
 		// autoFocus,
 	} = props
 
-	const [isFocus, setIsFocus] = useState(false)
+	// const [isFocus, setIsFocus] = useState(false)
 	const isBlurHappened = useRef<boolean>(false)
 
 	const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -55,12 +54,12 @@ export const Input = memo((props: InputProps) => {
 		onChangeString?.(e.target.value)
 	}
 
-	const onFocus = () => {
-		setIsFocus(true)
-	}
+	// const onFocus = () => {
+	// 	setIsFocus(true)
+	// }
 	const onBlurHandler = (e: FocusEvent<HTMLInputElement>) => {
 		isBlurHappened.current = true
-		setIsFocus(false)
+		// setIsFocus(false)
 		onValidate?.(e.target.value)
 		onBlur?.(e.target.value)
 	}
@@ -77,7 +76,7 @@ export const Input = memo((props: InputProps) => {
 				type={type}
 				onChange={onChangeHandler}
 				value={value}
-				onFocus={onFocus}
+				// onFocus={onFocus}
 				onBlur={onBlurHandler}
 				disabled={readonly}
 				onKeyPress={onKeyPress}

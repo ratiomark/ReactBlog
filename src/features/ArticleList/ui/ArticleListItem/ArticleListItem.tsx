@@ -4,9 +4,6 @@ import { Text } from 'shared/ui/Text/Text';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Card } from 'shared/ui/Card/Card';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Button } from 'shared/ui/Button/Button';
-
-
 import IconEye from 'shared/assets/icon/eye-20-20.svg'
 import { HTMLAttributeAnchorTarget } from 'react';
 import { RoutePath } from 'app/providers/router/config/routeConfig/routeConfig';
@@ -15,6 +12,7 @@ import { ArticleTextBlock } from 'entities/Article'
 import { ArticleTextComponent } from 'entities/Article'
 import cls from './ArticleListItem.module.scss';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { HStack } from 'shared/ui/Stack';
 
 interface ArticleListItemProps {
 	className?: string
@@ -30,11 +28,6 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
 		view,
 		target
 	} = props
-	const { t } = useTranslation()
-	// const navigate = useNavigate()
-	// const onOpenArticle = useCallback(() => {
-	// 	navigate(RoutePath.articles_details + article.id)
-	// }, [article.id, navigate])
 
 	const types = <Text text={article.type.join(', ')} className={cls.articleTypes} />
 
@@ -49,6 +42,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
 		const textBlock = article.blocks.find(block => block.type === 'TEXT') as ArticleTextBlock
 		return (
 			<AppLink
+				withoutOpacity
 				className={clsx(
 					cls.ArticleListItem,
 					cls[view],
@@ -57,11 +51,11 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
 				target={target}
 			>
 				<Card className={cls.card}>
-					<div className={cls.header}>
-						<Avatar size={30} src={article.img} />
+					<HStack>
+						<Avatar size={30} src={article.user.avatar} />
 						<Text text={article.user.username} className={cls.userName} />
 						<Text text={article.createdAt} className={cls.articleDateCreation} />
-					</div>
+					</HStack>
 					<Text text={article.title} className={cls.articleTitle} />
 					{types}
 					<img src={article.img} alt={article.title} className={cls.articleImage} />
@@ -78,6 +72,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
 
 	return (
 		<AppLink
+			withoutOpacity
 			className={clsx(
 				cls.ArticleListItem,
 				cls[view],

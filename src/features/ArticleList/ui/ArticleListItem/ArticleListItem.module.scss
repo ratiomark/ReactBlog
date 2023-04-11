@@ -8,17 +8,12 @@
     margin-bottom: 10px;
   }
 
-  .header {
-    display: flex;
-    align-items: center;
-  }
-
   .userName {
     margin-left: 9px;
   }
 
-  .articleDateCreation{
-
+  .articleDateCreation {
+    margin-left: auto;
   }
 
   .textBlock {
@@ -51,13 +46,13 @@
 
 .grid,
 .recommendations {
-  width: 230px;
+  width: 100%;
   transition: all 0.2s;
   cursor: pointer;
 
   .imageWrapper {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
     position: relative;
   }
 
@@ -73,23 +68,15 @@
     right: 0;
     opacity: 0;
     transition: opacity 0.2s;
+    padding: 0 5px;
+    background-color: white;
 
-    // padding: 0 5px;
-    // background-color: grey;
     // color: red;
     // border-radius: 3px;
   }
 
-  &:hover {
-    transform: scale(1.1);
-
-    .articleDateCreation {
-      opacity: 1;
-    }
-  }
-
   .infoWrapper {
-    padding-top: 5px;
+    padding-top: 8px;
     padding-bottom: 5px;
     display: flex;
     align-items: center;
@@ -115,5 +102,32 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+}
+
+.recommendations {
+  width: auto;
+
+  .imageWrapper {
+    width: 200px;
+    height: 200px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+
+    .articleDateCreation {
+      opacity: 1;
+    }
+  }
+}
+
+.grid {
+  &:hover {
+    transform: scale(1.1);
+
+    .articleDateCreation {
+      opacity: 1;
+    }
   }
 }

@@ -1,8 +1,8 @@
 import clsx from 'clsx'
 import { Currency } from '../../model/types/currency';
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Select } from 'shared/ui/Select/Select';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 
 interface CurrencySelectProps {
 	className?: string
@@ -29,16 +29,35 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
 		onChange?.(value as Currency)
 	}, [onChange])
 
+
+	// 	<ListBox
+	// 		className={className}
+	// 		defaultValue={t('country')}
+	// 		value={value}
+	// 		onChange={onChangeHandler}
+	// 		items={options}
+	// 		readonly={readonly}
+	// label = { t('currency') }
+	// 		labelPadding='gap_8'
+	// 		labelPosition='left'
+	// 		listBoxPosition='center'
+	// 	/>
+
 	return (
-		<Select
+		<ListBox
 			className={className}
-			label={t('currency')}
+			defaultValue={t('country')}
 			value={value}
 			onChange={onChangeHandler}
-			options={options}
+			items={options}
 			readonly={readonly}
+			label={t('currency')}
+			labelPadding='gap_8'
+			labelPosition='left'
+			listBoxPosition='center'
 		/>
+
 
 	)
 })
-CurrencySelect.displayName = 'Currency Select'
+CurrencySelect.displayName = 'CurrencySelect'

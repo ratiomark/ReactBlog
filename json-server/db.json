@@ -595,6 +595,48 @@
       "userId": "1",
       "text": "python!!!",
       "id": "p5rMadd"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "asfsaf",
+      "id": "KaMjqi0"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "asfsaf",
+      "id": "2m9KOUL"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "as",
+      "id": "QGt83AR"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "dafds",
+      "id": "Ez6ftoO"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "afsd",
+      "id": "u4Yc36l"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "asfaefwefw",
+      "id": "cjJSNVI"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "asfaefwefw",
+      "id": "l_TRCXX"
     }
   ],
   "users": [
@@ -603,7 +645,7 @@
       "username": "admin",
       "password": "123",
       "role": "ADMIN",
-      "avatar": "https://avatars.mds.yandex.net/get-zen_doc/3413519/pub_5ff887b2fe4e686f6ae6ba3f_5ff887d7f906b16872a69755/scale_1200"
+      "avatar": "https://icon-library.com/images/avatar-icon-png/avatar-icon-png-15.jpg"
     },
     {
       "id": "2",
@@ -618,13 +660,13 @@
       "id": "1",
       "first": "jghwer",
       "lastname": "asfewr",
-      "age": 465,
-      "currency": "RUB",
-      "country": "Germany",
+      "age": "12",
+      "currency": "eur",
+      "country": "USA",
       "city": "Moscow",
       "username": "admin213",
-      "avatar": "https://avatars.mds.yandex.net/get-zen_doc/3413519/pub_5ff887b2fe4e686f6ae6ba3f_5ff887d7f906b16872a69755/scale_1200",
-      "firstname": "Mafin"
+      "avatar": "https://icon-library.com/images/avatar-icon-png/avatar-icon-png-15.jpg",
+      "firstname": "Mafisdfnd"
     },
     {
       "id": "2",

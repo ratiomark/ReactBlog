@@ -5,6 +5,7 @@ import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { uiReducer } from 'features/ScrollSave';
 import { $api } from 'shared/api/api';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export function createReduxStore(
 	initialState?: StateSchema,
@@ -14,7 +15,10 @@ export function createReduxStore(
 		...asyncReducers,
 		counter: counterReducer,
 		user: userReducer,
-		ui: uiReducer
+		ui: uiReducer,
+		// а это редьюсер, который создает RTKQuery с помощь createApi, чтобы ТС не ругался, но добавить в схему
+		// [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
+		[rtkApi.reducerPath]: rtkApi.reducer
 	}
 
 	const reducerManager = createReducerManager(rootReducers)
@@ -31,6 +35,8 @@ export function createReduxStore(
 				}
 			}
 		})
+			// нужно добавить мидлварину, чтобы подключить RTK api
+			.concat(rtkApi.middleware)
 	})
 
 	//@ts-ignore

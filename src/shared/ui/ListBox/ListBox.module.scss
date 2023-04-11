@@ -6,8 +6,8 @@
   all: unset;
 }
 
-.ListBoxButton {
-
+.textDisabled {
+  opacity: var(--opacity-disabled);
 }
 
 .ListBoxListOptions {
@@ -29,13 +29,4 @@
 
 .ListBoxOption_active {
   background-color: var(--list-box-option-active);
-}
-
-.labelPosition_top {
-  // position: absolute;
-  // z-index: 10000;
-}
-
-.labelPosition_left {
-  padding-right: 8px;
 }

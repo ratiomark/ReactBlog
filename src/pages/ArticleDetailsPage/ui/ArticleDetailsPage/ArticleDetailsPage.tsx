@@ -6,7 +6,8 @@ import { ArticleDetailsComment } from 'features/ArticleDetailsComment';
 import { Page } from 'widgets/Page/Page';
 // import { ArticleRecommendation } from 'features/ArticleRecommendation';
 // import { ArticleListRecommendation } from 'features/ArticleList';
-import { ArticleRecommendation } from 'features/ArticleRecommendation';
+// import { ArticleRecommendation } from 'features/ArticleRecommendation';
+import { ArticleRecommendations } from 'features/ArticleRecommendations';
 
 
 const ArticleDetailsPage = memo(() => {
@@ -19,23 +20,9 @@ const ArticleDetailsPage = memo(() => {
 
 	return (
 		<>
-			{/* <span>{t('ARTICLES')}</span> */}
-			{/* <Button */}
-
-			{/* // >Назад к списку</Button> */}
-
-			<ArticleDetails
-				id={id}
-			/>
-			<ArticleRecommendation />
-			{/* <ArticleListRecommendation /> */}
-			<ArticleDetailsComment
-				id={id}
-			/>
-			{/* <AddNewComment />
-			<CommentList111
-				isLoading={commentsIsLoading}
-				comments={comments} /> */}
+			<ArticleDetails id={id} />
+			<ArticleRecommendations />
+			<ArticleDetailsComment id={id} />
 		</>
 	)
 })

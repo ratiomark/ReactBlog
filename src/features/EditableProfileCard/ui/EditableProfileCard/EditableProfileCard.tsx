@@ -3,6 +3,15 @@ import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { ProfileCard } from 'entities/Profile';
 import { getUserAuthData } from 'entities/User';
+import { getInputErrorsState } from '../../model/selectors/getInputErrors';
+import { getInputErrorsData } from '../../model/selectors/getInputErrorsData';
+import { getProfileError } from '../../model/selectors/getProfileError';
+import { getProfileForm } from '../../model/selectors/getProfileForm';
+import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly';
+import { fetchProfileData } from '../../model/services/fetchProfileData';
+import { updateProfileData } from '../../model/services/updateProfileData';
+import { profileReducer, profileActions } from '../../model/slice/profileSlice';
 import { ChangeEvent, KeyboardEvent, useCallback, useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -10,35 +19,29 @@ import { ReducersList, useAsyncReducer } from 'shared/lib/helpers/hooks/useAsync
 import { validateAge } from 'shared/lib/helpers/validation/validateAge';
 import { validateFirstName } from 'shared/lib/helpers/validation/validateFirstName';
 import { validateLastName } from 'shared/lib/helpers/validation/validateLastName';
-import { InputErrorData, ValidationErrorText } from 'shared/lib/helpers/validation/validationErrorTexts';
-import { getInputErrorsState } from '../model/selectors/getInputErrors';
-import { getInputErrorsData } from '../model/selectors/getInputErrorsData';
-import { getProfileError } from '../model/selectors/getProfileError';
-import { getProfileForm } from '../model/selectors/getProfileForm';
-import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading';
-import { getProfileReadonly } from '../model/selectors/getProfileReadonly';
-import { fetchProfileData } from '../model/services/fetchProfileData';
-import { updateProfileData } from '../model/services/updateProfileData';
-import { profileActions, profileReducer } from '../model/slice/profileSlice';
-import { Profile } from '../model/types/profile';
+import { EditableProfileCardButtons } from '../EditableProfileCardButtons/EditableProfileCardButtons';
+import { inputData } from 'entities/Profile';
 import cls from './EditableProfileCard.module.scss'
 
-export type ProfileKeys =
-	| 'firstname'
-	| 'lastname'
-	| 'age'
-	| 'city'
-	| 'username'
-	| 'avatar'
-type OnValidate1 = (value: string) => void
-type OnValidate2 = (inputValue: number) => void
-export interface inputData {
-	name: ProfileKeys
-	type?: string
-	inputErrors?: ValidationErrorText[]
-	onValidate?: OnValidate1 | OnValidate2
-	onKeyPress?: (event: KeyboardEvent<HTMLInputElement>) => void;
-}
+// export type ProfileKeys =
+// 	| 'firstname'
+// 	| 'lastname'
+// 	| 'age'
+// 	| 'city'
+// 	| 'username'
+// 	| 'avatar'
+
+// type OnValidate1 = (value: string) => void
+// type OnValidate2 = (inputValue: number) => void
+
+// export interface inputData {
+// 	name: ProfileKeys
+// 	type?: string
+// 	inputErrors?: ValidationErrorText[]
+// 	onValidate?: OnValidate1 | OnValidate2
+// 	onKeyPress?: (event: KeyboardEvent<HTMLInputElement>) => void;
+// }
+
 const onKeyPressInputAge = (event: KeyboardEvent<HTMLInputElement>) => {
 	if (isNaN(Number(event.key)) && event.key !== 'Backspace') {
 		event.preventDefault();
@@ -56,7 +59,7 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 	const {
 		className,
 	} = props
-	// const { t } = useTranslation()
+
 	const { dispatch } = useAsyncReducer({ reducers: reducers, removeAfterUnmount: false })
 	const { id: profileId } = useParams<{ id: string }>()
 	const authData = useSelector(getUserAuthData)
@@ -158,6 +161,16 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 		dispatch(profileActions.cancelEditProfileData())
 	}, [dispatch])
 
+	const ProfileEditButtons = (
+		<EditableProfileCardButtons
+			canEdit={canEdit}
+			readonly={profileReadonly}
+			hasInputErrors={profileHasInputErrors}
+			onEditProfile={onEditProfile}
+			onSaveProfile={onSaveProfile}
+			onCancelProfileChanges={onCancelProfileChanges}
+		/>)
+
 	return (
 		<div className={clsx(cls.EditableProfileCard, [className])} >
 			<ProfileCard
@@ -176,6 +189,7 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 				onEditProfile={onEditProfile}
 				onSaveProfile={onSaveProfile}
 				onCancelProfileChanges={onCancelProfileChanges}
+				ProfileEditButtons={ProfileEditButtons}
 			/>
 		</div>
 	)

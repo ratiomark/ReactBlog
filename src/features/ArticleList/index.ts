@@ -17,5 +17,5 @@ export { initArticleListArticlesPage } from './model/services/initArticleListArt
 
 export { getArticleListArticlesPageError, getArticleListArticlesPageIsLoading } from './model/selectors/articleListArticlesPageSelectors';
 
-export { ArticleListRecommendation } from './ui/ArticleListRecommendation/ArticleListArticlesPage';
-export { ArticlesPageSchema } from './model/types/articlesPageSchema'
+export { ArticleListRecommendation } from './ui/ArticleListRecommendation/ArticleListRecommendation';
+export type { ArticlesPageSchema } from './model/types/articlesPageSchema'

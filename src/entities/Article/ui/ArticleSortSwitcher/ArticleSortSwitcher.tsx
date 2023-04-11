@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ArticleSortField, ArticleSortFieldType } from 'entities/Article';
+import { ArticleSortField, ArticleSortFieldType } from '../../model/types/article'
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { SortOrderType } from 'shared/types/SortOrderType';
