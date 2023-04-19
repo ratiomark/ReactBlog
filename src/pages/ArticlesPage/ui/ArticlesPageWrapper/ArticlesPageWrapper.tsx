@@ -4,11 +4,11 @@ import {
 	getArticleListArticlesPageIsLoading,
 	initArticleListArticlesPage,
 	fetchNextArticleListArticlesPage,
-} from 'features/ArticleList'
+} from '@/features/ArticleList'
 import { useSearchParams } from 'react-router-dom';
-import { useAppDispatch } from 'shared/lib/helpers/hooks/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/helpers/hooks/useInitialEffect';
-import { Page } from 'widgets/Page/Page';
+import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/helpers/hooks/useInitialEffect';
+import { Page } from '@/widgets/Page/Page';
 import cls from './ArticlesPageWrapper.module.scss'
 
 interface ArticlesPageWrapperProps {

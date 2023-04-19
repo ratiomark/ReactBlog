@@ -1,11 +1,7 @@
 import clsx from 'clsx'
-// import { fetchProfileData, profileReducer } from 'entities/Profile';
-import { ProfileCard } from 'entities/Profile/ui/ProfileCard/ProfileCard';
-import { EditableProfileCard } from 'features/EditableProfileCard';
-import { t } from 'i18next';
-import { useEffect } from 'react';
+import { EditableProfileCard } from '@/features/EditableProfileCard';
 import { useTranslation } from 'react-i18next';
-import { ReducersList, useAsyncReducer } from 'shared/lib/helpers/hooks/useAsyncReducer';
+
 import cls from './ProfilePage.module.scss'
 
 interface ProfilePageProps {
@@ -16,6 +12,7 @@ const ProfilePage = (props: ProfilePageProps) => {
 	const {
 		className,
 	} = props
+	const { t } = useTranslation()
 
 	return (
 		<div className={clsx(cls.ProfilePage, [className])} >

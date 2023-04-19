@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
-import { BugButton } from 'shared/ui/BugButton/BugButton'
-import { ListBox } from 'shared/ui/ListBox/ListBox'
-import { VStack } from 'shared/ui/Stack/VStack/VStack'
-import { Page } from 'widgets/Page/Page'
+import { BugButton } from '@/shared/ui/BugButton/BugButton'
+import { ListBox } from '@/shared/ui/Popup/ui/ListBox/ListBox'
+import { VStack } from '@/shared/ui/Stack/VStack/VStack'
+import { Page } from '@/widgets/Page/Page'
 
 const MainPage = () => {
 	const { t } = useTranslation()

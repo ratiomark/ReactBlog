@@ -1,6 +1,6 @@
 import { ChangeEvent, FocusEvent, InputHTMLAttributes, KeyboardEvent, memo, useEffect, useRef, useState } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames/classNames'
-import { ValidationErrorText } from 'shared/lib/helpers/validation/validationErrorTexts';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames'
+import { ValidationErrorText } from '@/shared/lib/helpers/validation/validationErrorTexts';
 import { Text } from '../Text/Text';
 import cls from './Input.module.scss'
 

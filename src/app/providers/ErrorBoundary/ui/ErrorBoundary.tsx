@@ -1,5 +1,5 @@
 import { Component, ErrorInfo, ReactNode, Suspense } from 'react'
-import { ErrorDisplay } from 'widgets/ErrorDisplay'
+import { ErrorDisplay } from '@/widgets/ErrorDisplay'
 
 interface Props {
 	children?: ReactNode

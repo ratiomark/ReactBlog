@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { StateSchema, ThunkExtraArg } from 'app/providers/StoreProvider'
-import i18n from 'shared/config/i18n/i18n'
+import { StateSchema, ThunkExtraArg } from '@/app/providers/StoreProvider'
+import i18n from '@/shared/config/i18n/i18n'
 import { getProfileForm } from '../selectors/getProfileForm'
 import { Profile } from '../types/profile'
 

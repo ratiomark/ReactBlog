@@ -2,8 +2,8 @@ import clsx from 'clsx';
 import { ArticleSortField, ArticleSortFieldType } from '../../model/types/article'
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { SortOrderType } from 'shared/types/SortOrderType';
-import { Select, SelectOptions } from 'shared/ui/Select/Select';
+import { SortOrderType } from '@/shared/types/SortOrderType';
+import { Select, SelectOptions } from '@/shared/ui/Select/Select';
 import cls from './ArticleSortSwitcher.module.scss';
 
 interface ArticleSortSwitcherProps {

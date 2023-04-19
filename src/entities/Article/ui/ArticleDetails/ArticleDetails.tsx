@@ -7,18 +7,18 @@ import cls from './ArticleDetails.module.scss';
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/getArticleDetailsData';
 import { fetchArticleById } from '../../model/services/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import { ReducersList, useAsyncReducer } from 'shared/lib/helpers/hooks/useAsyncReducer';
-import { Text } from 'shared/ui/Text/Text';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import IconEye from 'shared/assets/icon/eye-20-20.svg'
-import IconCalendar from 'shared/assets/icon/calendar-20-20.svg'
-import { Icon } from 'shared/ui/Icon/Icon';
+import { ReducersList, useAsyncReducer } from '@/shared/lib/helpers/hooks/useAsyncReducer';
+import { Text } from '@/shared/ui/Text/Text';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import IconEye from '@/shared/assets/icon/eye-20-20.svg'
+import IconCalendar from '@/shared/assets/icon/calendar-20-20.svg'
+import { Icon } from '@/shared/ui/Icon/Icon';
 import { ArticleTextComponent } from '../ArticleTextComponent/ArticleTextComponent';
 import { ArticleImageComponent } from '../ArticleImageComponent/ArticleImageComponent';
 import { ArticleCodeComponent } from '../ArticleCodeComponent/ArticleCodeComponent';
-import { RoutePath } from 'app/providers/router/config/routeConfig/routeConfig';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from '@/app/providers/router/config/routeConfig/routeConfig';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
 
 interface ArticleDetailsProps {
 	className?: string

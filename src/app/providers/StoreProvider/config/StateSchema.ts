@@ -1,17 +1,17 @@
 import { EnhancedStore } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { ArticleDetailsSchema } from 'entities/Article';
-import { CounterSchema } from 'entities/Counter';
-import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUsername';
-import { ProfileSchema } from 'features/EditableProfileCard';
-import { AddNewCommentSchema } from 'features/ArticleDetailsComment';
+import { ArticleDetailsSchema } from '@/entities/Article';
+import { CounterSchema } from '@/entities/Counter';
+import { UserSchema } from '@/entities/User';
+import { LoginSchema } from '@/features/AuthByUsername';
+import { ProfileSchema } from '@/features/EditableProfileCard';
+import { AddNewCommentSchema } from '@/features/ArticleDetailsComment';
 import { IReducerManager } from './reducerManager';
-import { ArticlesPageSchema } from 'features/ArticleList';
-import { UISchema } from 'features/ScrollSave';
-import { ArticleDetailsCommentsSchema } from 'features/ArticleDetailsComment'
-import { ArticleDetailsRecommendationSchema } from 'features/ArticleRecommendation';
-import { rtkApi } from 'shared/api/rtkApi';
+import { ArticlesPageSchema } from '@/features/ArticleList';
+import { UISchema } from '@/features/ScrollSave';
+import { ArticleDetailsCommentsSchema } from '@/features/ArticleDetailsComment'
+import { ArticleDetailsRecommendationSchema } from '@/features/ArticleRecommendation';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 // loginForm делаю не обязательным, таким образом я могу подружать его позже с помощью асинхронна и ТС не будет ругаться на то что я не объявил его в rootReducers
 export interface StateSchema {

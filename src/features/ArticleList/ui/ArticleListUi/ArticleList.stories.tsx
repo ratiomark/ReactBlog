@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Article } from 'entities/Article';
+import { Article } from '@/entities/Article';
 import { ArticleListUi } from './ArticleListUi';
 
 export default {

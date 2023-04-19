@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
+import { TabItem, Tabs } from '@/shared/ui/Tabs/Tabs';
 import cls from './ArticleTabs.module.scss';
 
 interface ArticleTabsProps {

@@ -3,8 +3,8 @@ import { memo } from 'react';
 import {
 	ArticleListArticlesPage,
 	getArticleListArticlesPageError,
-} from 'features/ArticleList'
-import { ArticlesPageFiltersWidget } from 'widgets/ArticlesPageFiltersWidget';
+} from '@/features/ArticleList'
+import { ArticlesPageFiltersWidget } from '@/widgets/ArticlesPageFiltersWidget';
 import { ArticlesPageWrapper } from '../ArticlesPageWrapper/ArticlesPageWrapper';
 
 const ArticlesPage = memo(() => {

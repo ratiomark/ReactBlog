@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage'
+import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage'
 
 export const rtkApi = createApi({
 	// уникальное имя для сервиса, который будет встроенн в стор
@@ -33,3 +33,15 @@ export const rtkApi = createApi({
 	// }),
 	// // // overrideExisting: false,
 // })
+
+// const notificationApi = rtkApi.injectEndpoints({
+// 	endpoints: (build) => ({
+// 		getNotifications: build.query<Notification[], null>({
+// 			query: () => ({
+// 				url: '/notifications',
+// 			})
+// 		})
+// 	}),
+// })
+// // автосгенерированный кух, который использует названия эндпоинта 
+// export const { useGetNotificationsQuery: useNotification } = notificationApi

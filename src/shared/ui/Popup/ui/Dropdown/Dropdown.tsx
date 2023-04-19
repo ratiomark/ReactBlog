@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { Menu } from '@headlessui/react'
 import cls from './Dropdown.module.scss';
 import { Fragment, ReactNode } from 'react';
-import { AbsoluteListDirection } from 'shared/types/ui';
-import { AppLink } from '../AppLink/AppLink';
+import { AbsoluteListDirection } from '@/shared/types/ui';
+import { AppLink } from '../../../AppLink/AppLink';
 
 
 
@@ -39,7 +39,7 @@ export const Dropdown = (props: DropdownProps) => {
 				cls.Dropdown,
 				[className])}
 		>
-			<Menu.Button className={cls.menuButton}>
+			<Menu.Button className={cls.trigger}>
 				{trigger}
 			</Menu.Button>
 

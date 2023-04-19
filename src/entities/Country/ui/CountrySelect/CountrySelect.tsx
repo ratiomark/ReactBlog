@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import { Country } from '../../model/types/country';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ListBox } from 'shared/ui/ListBox/ListBox';
+import { ListBox } from '@/shared/ui/Popup/ui/ListBox/ListBox';
 
 interface CountrySelectProps {
 	className?: string

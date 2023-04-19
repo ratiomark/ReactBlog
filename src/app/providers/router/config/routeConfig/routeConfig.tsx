@@ -1,11 +1,11 @@
-import { AboutPage } from 'pages/AboutPage';
-import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
-import { ArticlesPage } from 'pages/ArticlesPage';
-import { MainPage } from 'pages/MainPage';
-import { ProfilePage } from 'pages/ProfilePage';
+import { AboutPage } from '@/pages/AboutPage';
+import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
+import { ArticlesPage } from '@/pages/ArticlesPage';
+import { MainPage } from '@/pages/MainPage';
+import { ProfilePage } from '@/pages/ProfilePage';
 import { ReactNode } from 'react';
 import { RouteProps } from 'react-router-dom';
-import { Page } from 'widgets/Page/Page';
+import { Page } from '@/widgets/Page/Page';
 
 export type AppRouteProps = RouteProps & {
 	authOnly?: boolean

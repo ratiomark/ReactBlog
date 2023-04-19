@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { FC, memo, ReactNode } from 'react';
 import { LinkProps } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { classNames } from 'shared/lib/helpers/classNames/classNames'
+import { classNames } from '@/shared/lib/helpers/classNames/classNames'
 import cls from './AppLink.module.scss'
 
 // export enum AppLinkTheme {

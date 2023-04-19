@@ -1,9 +1,9 @@
-import { useCustomTranslate } from 'features/LanguageSwitcher'
-import { Langs } from 'features/LanguageSwitcher/ui/LanguageSwitcher'
-import { FC, memo } from 'react'
-import { Button } from 'shared/ui/Button/Button'
+import { useCustomTranslate } from '@/features/LanguageSwitcher'
+import { Langs } from '@/features/LanguageSwitcher/ui/LanguageSwitcher'
+import { ReactNode } from 'react'
+import { Button } from '@/shared/ui/Button/Button'
 
-export const LangSwitcher: FC = ({ children }) => {
+export const LangSwitcher = ({ children }: { children: ReactNode }) => {
 	const { setLang, t, currentLang } = useCustomTranslate()
 	const onToggleLang = () => {
 		setLang(currentLang === Langs.en ? Langs.ru : Langs.en)

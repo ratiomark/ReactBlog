@@ -1,9 +1,9 @@
-import { RoutePath } from 'app/providers/router/config/routeConfig/routeConfig';
+import { RoutePath } from '@/app/providers/router/config/routeConfig/routeConfig';
 import clsx from 'clsx'
 import { t } from 'i18next';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
 import { SideBarItemType } from '../../model/types/items';
 import cls from './SidebarItem.module.scss'
 
@@ -11,6 +11,7 @@ interface SidebarItemProps {
 	item: SideBarItemType,
 	collapsed: boolean
 }
+
 
 export const SidebarItem = memo((props: SidebarItemProps) => {
 	const {

@@ -9,14 +9,14 @@ type CardVariant =
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
 	className?: string
 	children: ReactNode
-	cardVariant?: CardVariant
+	variant?: CardVariant
 }
 
 export const Card = memo((props: CardProps) => {
 	const {
 		className,
 		children,
-		cardVariant = 'normal',
+		variant = 'normal',
 		...otherProps
 	} = props
 
@@ -24,7 +24,7 @@ export const Card = memo((props: CardProps) => {
 		<div
 			className={clsx(
 				cls.Card,
-				cls[cardVariant],
+				cls[variant],
 				[className])
 			}
 			{...otherProps}

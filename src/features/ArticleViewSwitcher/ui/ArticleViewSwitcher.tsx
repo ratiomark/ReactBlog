@@ -1,10 +1,10 @@
 import clsx from 'clsx';
-import { ArticleListView } from 'entities/Article';
+import { ArticleListView } from '@/entities/Article';
 import cls from './ArticleViewSwitcher.module.scss'
-import ListIcon from 'shared/assets/icon/list-24-24.svg';
-import GridIcon from 'shared/assets/icon/tiled-24-24.svg';
-import { Button } from 'shared/ui/Button/Button';
-import { Icon } from 'shared/ui/Icon/Icon';
+import ListIcon from '@/shared/assets/icon/list-24-24.svg';
+import GridIcon from '@/shared/assets/icon/tiled-24-24.svg';
+import { Button } from '@/shared/ui/Button/Button';
+import { Icon } from '@/shared/ui/Icon/Icon';
 
 interface ArticleViewSwitcherProps {
 	className?: string;

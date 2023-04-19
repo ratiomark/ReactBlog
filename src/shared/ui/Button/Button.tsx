@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, memo, ReactNode } from 'react'
-import { classNames } from 'shared/lib/helpers/classNames/classNames'
+import { classNames } from '@/shared/lib/helpers/classNames/classNames'
 import cls from './Button.module.scss'
 
 export const ButtonVariant = {

@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 // import { useAppSelector } from 'app/providers/StoreProvider/config/store';
 
 export const getArticleCommentsIsLoading = (state: StateSchema) => state.articleDetailsComments?.isLoading

@@ -1,6 +1,6 @@
-import { useCustomTranslate } from 'features/LanguageSwitcher'
+import { useCustomTranslate } from '@/features/LanguageSwitcher'
 import { useState, useEffect } from 'react'
-import { classNames } from 'shared/lib/helpers/classNames/classNames'
+import { classNames } from '@/shared/lib/helpers/classNames/classNames'
 import { Button } from '../Button/Button'
 
 interface BugButtonProps {

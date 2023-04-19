@@ -1,14 +1,14 @@
 import clsx from 'clsx';
-import { ArticleTabs, ArticleType } from 'entities/Article';
+import { ArticleTabs, ArticleType } from '@/entities/Article';
 import {
 	getArticlesPageType,
 	fetchArticleList,
 	articlesPageActions
-} from 'features/ArticleList';
+} from '@/features/ArticleList';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/helpers/hooks/useAppDispatch';
-import { TabItem } from 'shared/ui/Tabs/Tabs';
+import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch';
+import { TabItem } from '@/shared/ui/Tabs/Tabs';
 
 
 interface ArticlesPageSearchPanelProps {

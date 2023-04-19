@@ -1,8 +1,8 @@
-import { userActions } from 'entities/User';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
+import { userActions } from '@/entities/User';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 import { fetchNextArticleListArticlesPage } from './fetchNextArticleListArticlesPage';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk';
 import { fetchArticleList } from '../fetchArticleList/fetchArticleList';
 
 jest.mock('../fetchArticleList/fetchArticleList')

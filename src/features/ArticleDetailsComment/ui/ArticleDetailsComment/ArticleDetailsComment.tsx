@@ -3,15 +3,15 @@ import { useSelector } from 'react-redux';
 import { getAddNewCommentError, getAddNewCommentText } from '../../model/selectors/getAddNewComment';
 import { addNewCommentActions, addNewCommentReducer } from '../../model/slice/addNewCommentSlice';
 import { useTranslation } from 'react-i18next';
-import { ReducersList, useAsyncReducer } from 'shared/lib/helpers/hooks/useAsyncReducer';
-import { AddNewComment, CommentList } from 'entities/Comment';
+import { ReducersList, useAsyncReducer } from '@/shared/lib/helpers/hooks/useAsyncReducer';
+import { AddNewComment, CommentList } from '@/entities/Comment';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 import { addNewCommentToArticle } from '../../model/services/addNewCommentToArticle';
 import clsx from 'clsx';
 import cls from './ArticleDetailsComment.module.scss';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text/Text';
 
 interface ArticleDetailsCommentProps {
 	className?: string

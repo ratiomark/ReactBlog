@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { StateSchema, ThunkExtraArg } from 'app/providers/StoreProvider'
-import { Article } from 'entities/Article'
+import { StateSchema, ThunkExtraArg } from '@/app/providers/StoreProvider'
+import { Article } from '@/entities/Article'
 
 // createAsyncThunk третьим аргументом принимает конфиг и там я могу описать поле extra и теперь обращаясь в thunkAPI.extra ТС подхватит то, что я описал в ThunkExtraArg
 export const fetchRecommendations = createAsyncThunk<

@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { Article, ArticleListView } from 'entities/Article';
+import { Article, ArticleListView } from '@/entities/Article';
 import { HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';

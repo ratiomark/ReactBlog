@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider'
+import { StateSchema } from '@/app/providers/StoreProvider'
 import { CounterSchema } from '../../types/counterSchema'
 import { getCounter } from '../getCounter/getCounter'
 import { getCounterValue } from './getCounterValue'

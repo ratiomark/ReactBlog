@@ -4,11 +4,11 @@ import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { getArticleRecommendationIsLoading, getArticleRecommendationError } from '../../model/selectors/articleDetailsRecommendationSelectors';
 import { articleDetailsRecommendationReducer, getArticleRecommendation } from '../../model/slice/articleDetailsRecommendationSlice';
-import { ReducersList, useAsyncReducer } from 'shared/lib/helpers/hooks/useAsyncReducer';
-import { useInitialEffect } from 'shared/lib/helpers/hooks/useInitialEffect';
+import { ReducersList, useAsyncReducer } from '@/shared/lib/helpers/hooks/useAsyncReducer';
+import { useInitialEffect } from '@/shared/lib/helpers/hooks/useInitialEffect';
 import { fetchRecommendations } from '../../model/services/fetchRecommendations';
-import { ArticleListUi } from 'features/ArticleList/ui/ArticleListUi/ArticleListUi';
-import { Text } from 'shared/ui/Text/Text';
+import { ArticleListUi } from '@/features/ArticleList/ui/ArticleListUi/ArticleListUi';
+import { Text } from '@/shared/ui/Text/Text';
 
 interface ArticleRecommendationProps {
 	className?: string;

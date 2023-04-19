@@ -1,15 +1,15 @@
 import clsx from 'clsx'
-import { Country } from 'entities/Country';
-import { CountrySelect } from 'entities/Country/ui/CountrySelect/CountrySelect';
-import { Currency, CurrencySelect } from 'entities/Currency';
-import { Profile } from 'features/EditableProfileCard';
+import { Country } from '@/entities/Country';
+import { CountrySelect } from '@/entities/Country/ui/CountrySelect/CountrySelect';
+import { Currency, CurrencySelect } from '@/entities/Currency';
+import { Profile } from '@/features/EditableProfileCard';
 import { ChangeEvent, KeyboardEvent, ReactNode, } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ValidationErrorText } from 'shared/lib/helpers/validation/validationErrorTexts';
-import { Input } from 'shared/ui/Input/Input';
-import { Loader } from 'shared/ui/Loader/Loader';
-import { VStack } from 'shared/ui/Stack/VStack/VStack';
-import { Text } from 'shared/ui/Text/Text';
+import { ValidationErrorText } from '@/shared/lib/helpers/validation/validationErrorTexts';
+import { Input } from '@/shared/ui/Input/Input';
+import { Loader } from '@/shared/ui/Loader/Loader';
+import { VStack } from '@/shared/ui/Stack/VStack/VStack';
+import { Text } from '@/shared/ui/Text/Text';
 import cls from './ProfileCard.module.scss'
 
 export type ProfileKeys =
@@ -73,7 +73,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 	} = props
 	const { t } = useTranslation('profile')
 
-	if (profileIsLoading) {
+	if (profileIsLoading || !profileForm) {
 		return (
 			<div className={clsx(cls.ProfileCard, cls.isLoading, [className])} >
 				<Loader />
@@ -89,6 +89,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 		)
 	}
 
+	console.log(profileForm)
 	let profileContent
 	if (inputData && canEdit) {
 		profileContent = <>

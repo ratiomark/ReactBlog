@@ -1,11 +1,11 @@
 import clsx from 'clsx';
-import { fetchArticleList, articlesPageActions, getArticlesPageSearch } from 'features/ArticleList';
-import { SearchPanel } from 'features/SearchPanel';
+import { fetchArticleList, articlesPageActions, getArticlesPageSearch } from '@/features/ArticleList';
+import { SearchPanel } from '@/features/SearchPanel';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/helpers/hooks/useAppDispatch';
-import { useDebounce } from 'shared/lib/helpers/hooks/useDebounce';
+import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch';
+import { useDebounce } from '@/shared/lib/helpers/hooks/useDebounce';
 import cls from './ArticlesPageSearchPanel.module.scss';
 
 interface ArticlesPageSearchPanelProps {

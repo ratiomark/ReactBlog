@@ -3,7 +3,7 @@ import { articlesPageReducer, getArticles } from '../../model/slice/articlePageS
 import { useSelector } from 'react-redux'
 import { ArticleListUi } from '../ArticleListUi/ArticleListUi'
 import { memo } from 'react'
-import { ReducersList, useAsyncReducer } from 'shared/lib/helpers/hooks/useAsyncReducer'
+import { ReducersList, useAsyncReducer } from '@/shared/lib/helpers/hooks/useAsyncReducer'
 
 // const reducers: ReducersList = {
 // 	articlesPage: articlesPageReducer
@@ -13,6 +13,7 @@ const reducers: ReducersList = {
 }
 export const ArticleListArticlesPage = memo(() => {
 	useAsyncReducer({ reducers, removeAfterUnmount: false })
+	
 	const articlesDetailsPage = useSelector(getArticles.selectAll)
 	const errorDetailsPage = useSelector(getArticleListArticlesPageError)
 	const isLoadingDetailsPage = useSelector(getArticleListArticlesPageIsLoading)

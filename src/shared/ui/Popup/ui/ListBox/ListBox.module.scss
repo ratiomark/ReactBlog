@@ -11,9 +11,11 @@
 }
 
 .ListBoxListOptions {
+  background-color: var(--card-bg);
   position: absolute;
-  z-index: 10000;
-  background-color: var(--list-box-bg);
+  z-index: 10001;
+  border-radius: 3px;
+  border: 1px solid var(--primary-color);
   min-width: fit-content;
 }
 

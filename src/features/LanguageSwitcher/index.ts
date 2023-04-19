@@ -1,1 +1,1 @@
-export { useCustomTranslate } from 'features/LanguageSwitcher/ui/LanguageSwitcher';
+export { useCustomTranslate } from './ui/LanguageSwitcher';

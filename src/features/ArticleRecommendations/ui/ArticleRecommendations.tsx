@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { memo } from 'react';
-import { ArticleListUi } from 'features/ArticleList/ui/ArticleListUi/ArticleListUi';
-import { Text } from 'shared/ui/Text/Text';
+import { ArticleListUi } from '@/features/ArticleList/ui/ArticleListUi/ArticleListUi';
+import { Text } from '@/shared/ui/Text/Text';
 import cls from './ArticleRecommendations.module.scss'
 import { useArticleRecommendationListQuery } from '../model/api/articleRecommendationsApi';
 
@@ -14,7 +14,7 @@ export const ArticleRecommendations = memo((props: ArticleRecommendationProps) =
 		className,
 	} = props
 
-	const { isError, isLoading, data: articles } = useArticleRecommendationListQuery(4)
+	const { error, isLoading, data: articles } = useArticleRecommendationListQuery(4)
 
 	return (
 		<div className={clsx(cls.articleRecommendation, [className])}>
@@ -22,7 +22,7 @@ export const ArticleRecommendations = memo((props: ArticleRecommendationProps) =
 			<ArticleListUi
 				articles={articles}
 				isLoading={isLoading}
-				error={isError ? 'возникла ошибка при запросе статей' : undefined}
+				error={error ? 'возникла ошибка при запросе статей' : undefined}
 				view={'recommendations'}
 				target='_blank'
 			/>

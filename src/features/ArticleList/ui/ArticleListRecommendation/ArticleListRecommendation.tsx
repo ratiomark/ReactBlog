@@ -6,8 +6,8 @@ import { ArticleListUi } from '../ArticleListUi/ArticleListUi';
 import { fetchRecommendations } from '../../model/services/fetchRecommendations/fetchRecommendations';
 import { articleDetailsRecommendationReducer, getArticleRecommendation } from '../../model/slice/articleDetailsRecommendationSlice';
 import { getArticleRecommendationIsLoading, getArticleRecommendationError } from '../../model/selectors/articleListRecommendationSelectors';
-import { useInitialEffect } from 'shared/lib/helpers/hooks/useInitialEffect';
-import { ReducersList, useAsyncReducer } from 'shared/lib/helpers/hooks/useAsyncReducer';
+import { useInitialEffect } from '@/shared/lib/helpers/hooks/useInitialEffect';
+import { ReducersList, useAsyncReducer } from '@/shared/lib/helpers/hooks/useAsyncReducer';
 
 interface ArticleRecommendationProps {
 	className?: string;

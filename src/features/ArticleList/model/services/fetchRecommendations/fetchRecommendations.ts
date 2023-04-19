@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { StateSchema, ThunkExtraArg } from 'app/providers/StoreProvider'
+import { StateSchema, ThunkExtraArg } from '@/app/providers/StoreProvider'
 import axios from 'axios'
-import { Article } from 'entities/Article'
-import { CommentType } from 'entities/Comment'
-import i18n from 'shared/config/i18n/i18n'
+import { Article } from '@/entities/Article'
+import { CommentType } from '@/entities/Comment'
+import i18n from '@/shared/config/i18n/i18n'
 
 interface FetchArticleByIdProps {
 	id: string

@@ -1,0 +1,17 @@
+.Popover {
+  position: relative;
+  width: fit-content;
+}
+
+.trigger {
+  all: unset;
+  cursor: pointer;
+}
+
+.menuPopover {
+  background: var(--card-bg);
+  position: absolute;
+  z-index: 10000;
+  border-radius: 3px;
+  padding: 15px;
+}

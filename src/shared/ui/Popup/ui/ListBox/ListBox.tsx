@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 import cls from './ListBox.module.scss';
 import { Listbox as HListbox } from '@headlessui/react'
 import { ElementType, Fragment, ReactNode, } from 'react';
-import { Button } from '../Button/Button';
-import { VStack, HStack } from '../Stack';
-import { FlexAlign, FlexGap } from '../Stack/Flex/Flex';
-import { AbsoluteListDirection } from 'shared/types/ui';
+import { AbsoluteListDirection } from '@/shared/types/ui';
+import { Button } from '@/shared/ui/Button/Button';
+import { VStack, HStack } from '@/shared/ui/Stack';
+import { FlexAlign, FlexGap } from '@/shared/ui/Stack/Flex/Flex';
 
 
 

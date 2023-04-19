@@ -1,13 +1,13 @@
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails } from '@/entities/Article';
 import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { ArticleDetailsComment } from 'features/ArticleDetailsComment';
-import { Page } from 'widgets/Page/Page';
+import { ArticleDetailsComment } from '@/features/ArticleDetailsComment';
+import { Page } from '@/widgets/Page/Page';
 // import { ArticleRecommendation } from 'features/ArticleRecommendation';
 // import { ArticleListRecommendation } from 'features/ArticleList';
 // import { ArticleRecommendation } from 'features/ArticleRecommendation';
-import { ArticleRecommendations } from 'features/ArticleRecommendations';
+import { ArticleRecommendations } from '@/features/ArticleRecommendations';
 
 
 const ArticleDetailsPage = memo(() => {

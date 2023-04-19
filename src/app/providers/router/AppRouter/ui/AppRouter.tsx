@@ -1,7 +1,7 @@
 import { Suspense, useCallback, useMemo } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { AppRouteProps, routeConfig } from 'app/providers/router/config/routeConfig/routeConfig'
-import { LoaderWidget } from 'widgets/LoaderWidget/LoaderWidget'
+import { AppRouteProps, routeConfig } from '@/app/providers/router/config/routeConfig/routeConfig'
+import { LoaderWidget } from '@/widgets/LoaderWidget/LoaderWidget'
 import { ProtectedRoute } from './ProtectedRoute'
 
 export const AppRouter = () => {

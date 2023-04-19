@@ -1,6 +1,6 @@
-import { useCustomTranslate } from 'features/LanguageSwitcher'
-import { classNames } from 'shared/lib/helpers/classNames/classNames'
-import { Button } from 'shared/ui/Button/Button'
+import { useCustomTranslate } from '@/features/LanguageSwitcher'
+import { classNames } from '@/shared/lib/helpers/classNames/classNames'
+import { Button } from '@/shared/ui/Button/Button'
 import cls from './ErrorDisplay.module.scss'
 
 interface ErrorDisplayProps {

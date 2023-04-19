@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { ThunkExtraArg } from 'app/providers/StoreProvider'
+import { ThunkExtraArg } from '@/app/providers/StoreProvider'
 import axios from 'axios'
-import i18n from 'shared/config/i18n/i18n'
+import i18n from '@/shared/config/i18n/i18n'
 import { Article } from '../types/article'
 
 interface FetchArticleByIdProps {

@@ -1,12 +1,12 @@
 import clsx from 'clsx';
-import { ArticleSortFieldType, ArticleSortSwitcher } from 'entities/Article';
-import { getArticlesPageOrder, getArticlesPageSort } from 'features/ArticleList';
-import { fetchArticleList } from 'features/ArticleList';
-import { articlesPageActions } from 'features/ArticleList';
+import { ArticleSortFieldType, ArticleSortSwitcher } from '@/entities/Article';
+import { getArticlesPageOrder, getArticlesPageSort } from '@/features/ArticleList';
+import { fetchArticleList } from '@/features/ArticleList';
+import { articlesPageActions } from '@/features/ArticleList';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/helpers/hooks/useAppDispatch';
-import { SortOrderType } from 'shared/types/SortOrderType';
+import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch';
+import { SortOrderType } from '@/shared/types/SortOrderType';
 
 interface ArticlesPageSearchPanelProps {
 	className?: string

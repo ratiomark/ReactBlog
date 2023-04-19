@@ -1,13 +1,13 @@
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 import cls from './ArticleListItem.module.scss';
-import { Text } from 'shared/ui/Text/Text';
-import { Icon } from 'shared/ui/Icon/Icon';
-import { Card } from 'shared/ui/Card/Card';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Button } from 'shared/ui/Button/Button';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { ArticleListView } from 'entities/Article';
+import { Text } from '@/shared/ui/Text/Text';
+import { Icon } from '@/shared/ui/Icon/Icon';
+import { Card } from '@/shared/ui/Card/Card';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Button } from '@/shared/ui/Button/Button';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { ArticleListView } from '@/entities/Article';
 
 interface ArticleListItemProps {
 	className?: string

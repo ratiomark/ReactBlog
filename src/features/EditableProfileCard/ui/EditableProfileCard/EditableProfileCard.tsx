@@ -1,8 +1,8 @@
 import clsx from 'clsx'
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import { ProfileCard } from 'entities/Profile';
-import { getUserAuthData } from 'entities/User';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { ProfileCard } from '@/entities/Profile';
+import { getUserAuthData } from '@/entities/User';
 import { getInputErrorsState } from '../../model/selectors/getInputErrors';
 import { getInputErrorsData } from '../../model/selectors/getInputErrorsData';
 import { getProfileError } from '../../model/selectors/getProfileError';
@@ -15,13 +15,14 @@ import { profileReducer, profileActions } from '../../model/slice/profileSlice';
 import { ChangeEvent, KeyboardEvent, useCallback, useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { ReducersList, useAsyncReducer } from 'shared/lib/helpers/hooks/useAsyncReducer';
-import { validateAge } from 'shared/lib/helpers/validation/validateAge';
-import { validateFirstName } from 'shared/lib/helpers/validation/validateFirstName';
-import { validateLastName } from 'shared/lib/helpers/validation/validateLastName';
+import { ReducersList, useAsyncReducer } from '@/shared/lib/helpers/hooks/useAsyncReducer';
+import { validateAge } from '@/shared/lib/helpers/validation/validateAge';
+import { validateFirstName } from '@/shared/lib/helpers/validation/validateFirstName';
+import { validateLastName } from '@/shared/lib/helpers/validation/validateLastName';
 import { EditableProfileCardButtons } from '../EditableProfileCardButtons/EditableProfileCardButtons';
-import { inputData } from 'entities/Profile';
+import { inputData } from '@/entities/Profile';
 import cls from './EditableProfileCard.module.scss'
+import { Loader } from '@/shared/ui/Loader/Loader';
 
 // export type ProfileKeys =
 // 	| 'firstname'
@@ -55,6 +56,7 @@ interface EditableProfileCardProps {
 const reducers: ReducersList = {
 	profile: profileReducer
 }
+
 export const EditableProfileCard = (props: EditableProfileCardProps) => {
 	const {
 		className,
@@ -160,6 +162,10 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 	const onCancelProfileChanges = useCallback(() => {
 		dispatch(profileActions.cancelEditProfileData())
 	}, [dispatch])
+
+	// if (profileIsLoading) {
+	// 	return <Loader />
+	// }
 
 	const ProfileEditButtons = (
 		<EditableProfileCardButtons

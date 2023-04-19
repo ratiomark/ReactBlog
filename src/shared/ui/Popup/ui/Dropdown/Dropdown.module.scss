@@ -3,7 +3,7 @@
   width: fit-content;
 }
 
-.menuButton {
+.trigger {
   all: unset;
   cursor: pointer;
 }
@@ -12,7 +12,7 @@
   background-color: var(--card-bg);
   position: absolute;
   z-index: 10001;
-  border-radius: 5px;
+  border-radius: 3px;
   border: 1px solid var(--primary-color);
   min-width: fit-content;
 }

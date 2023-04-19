@@ -1,14 +1,13 @@
-import { ThemeSwitcher } from 'features/ThemeSwitcher'
+import { ThemeSwitcher } from '@/features/ThemeSwitcher'
 import { memo, useMemo, useState } from 'react'
-import { classNames } from 'shared/lib/helpers/classNames/classNames'
-import { Button } from 'shared/ui/Button/Button'
+import { classNames } from '@/shared/lib/helpers/classNames/classNames'
+import { Button } from '@/shared/ui/Button/Button'
 import cls from './Sidebar.module.scss'
 import { LangSwitcher } from '../LangSwitcher/LangSwitcher'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { getSidebarItems } from '../../model/selectors/getSidebarItems'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 interface SidebarProps {
 	className?: string

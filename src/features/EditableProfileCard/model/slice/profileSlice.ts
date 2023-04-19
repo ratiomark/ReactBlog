@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { InputErrorData } from 'shared/lib/helpers/validation/validationErrorTexts'
+import { InputErrorData } from '@/shared/lib/helpers/validation/validationErrorTexts'
 import { fetchProfileData } from '../services/fetchProfileData'
 import { updateProfileData } from '../services/updateProfileData'
 import { Profile, ProfileSchema } from '../types/profile'

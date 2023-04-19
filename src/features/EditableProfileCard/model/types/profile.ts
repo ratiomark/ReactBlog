@@ -1,6 +1,6 @@
-import { Country } from 'entities/Country'
-import { Currency } from 'entities/Currency'
-import { InputErrorData } from 'shared/lib/helpers/validation/validationErrorTexts'
+import { Country } from '@/entities/Country'
+import { Currency } from '@/entities/Currency'
+import { InputErrorData } from '@/shared/lib/helpers/validation/validationErrorTexts'
 
 export interface Profile {
 	id: string

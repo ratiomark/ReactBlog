@@ -1,8 +1,8 @@
 import { Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/helpers/classNames/classNames'
-import { Loader } from 'shared/ui/Loader/Loader';
-import { Modal } from 'shared/ui/Modal/Modal';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames'
+import { Loader } from '@/shared/ui/Loader/Loader';
+import { Modal } from '@/shared/ui/Modal/Modal';
 import { LoginForm } from '../LoginForm/LoginForm.lazy';
 import cls from './LoginModal.module.scss'
 

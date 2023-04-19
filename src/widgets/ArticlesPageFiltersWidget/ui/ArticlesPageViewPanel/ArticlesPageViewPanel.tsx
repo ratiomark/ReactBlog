@@ -1,11 +1,12 @@
 import clsx from 'clsx';
-import { getArticlesPageView } from 'features/ArticleList';
-import { fetchArticleList } from 'features/ArticleList';
-import { articlesPageActions } from 'features/ArticleList';
-import { ArticleViewSwitcher } from 'features/ArticleViewSwitcher';
+import { ArticleListView } from '@/entities/Article';
+import { getArticlesPageView } from '@/features/ArticleList';
+import { fetchArticleList } from '@/features/ArticleList';
+import { articlesPageActions } from '@/features/ArticleList';
+import { ArticleViewSwitcher } from '@/features/ArticleViewSwitcher';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/helpers/hooks/useAppDispatch';
+import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch';
 import cls from './ArticlesPageSearchPanel.module.scss';
 
 interface ArticlesPageSearchPanelProps {
@@ -24,7 +25,7 @@ export const ArticlesPageViewPanel = memo((props: ArticlesPageSearchPanelProps) 
 		dispatch(fetchArticleList({ replace: true }))
 	}, [dispatch])
 
-	const onChangeView = useCallback((view) => {
+	const onChangeView = useCallback((view: ArticleListView) => {
 		dispatch(articlesPageActions.setView(view))
 		// dispatch(articlesPageActions.setPage(1))
 		// fetchArticles()
