@@ -66,7 +66,7 @@ export const ListBox = (props: ListBoxProps) => {
 				disabled={readonly}
 				as={as}
 			>
-				<HListbox.Button aria-disabled={readonly} className={cls.trigger}>
+				<HListbox.Button as={'div'} aria-disabled={readonly} className={cls.trigger}>
 					<Button
 						className={clsx(cls.ListBoxButton)}
 						disabled={readonly}

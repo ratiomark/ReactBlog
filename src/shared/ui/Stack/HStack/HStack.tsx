@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flex, FlexOwnProps, } from '../Flex/Flex';
@@ -19,7 +18,7 @@ export const HStack = (props: HStackProps) => {
 
 	return (
 		<Flex
-			className={clsx([className])}
+			className={className}
 			{...otherProps}
 		>
 			{children}

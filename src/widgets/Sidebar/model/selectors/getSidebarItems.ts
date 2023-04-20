@@ -1,6 +1,8 @@
 import AboutIcon from '@/shared/assets/icon/order.svg'
 import MainIcon from '@/shared/assets/icon/main.svg'
 import MainIconCopy from '@/shared/assets/icon/main.svg'
+import ProfileIcon from '@/shared/assets/icon/profile.svg'
+import BookIcon from '@/shared/assets/icon/book.svg'
 import { RoutePath } from '@/app/providers/router/config/routeConfig/routeConfig'
 import { createSelector } from '@reduxjs/toolkit'
 import { getUserAuthData } from '@/entities/User'
@@ -27,12 +29,12 @@ export const getSidebarItems = createSelector(
 				{
 					path: RoutePath.profile + userData.id,
 					text: 'PROFILE PAGE',
-					Icon: MainIconCopy,
+					Icon: ProfileIcon,
 				},
 				{
 					path: RoutePath.articles,
 					text: 'ARTICLES',
-					Icon: MainIconCopy,
+					Icon: BookIcon,
 				},
 			)
 		}

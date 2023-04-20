@@ -1,8 +1,7 @@
 import clsx from 'clsx';
 import { FC, memo, ReactNode } from 'react';
-import { LinkProps } from 'react-router-dom';
+import { LinkProps, To } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { classNames } from '@/shared/lib/helpers/classNames/classNames'
 import cls from './AppLink.module.scss'
 
 // export enum AppLinkTheme {
@@ -41,6 +40,7 @@ interface AppLinkProps extends LinkProps {
 	theme?: AppLinkTheme;
 	children: ReactNode;
 	withoutOpacity?: boolean
+	to: To
 }
 
 export const AppLink = memo((props: AppLinkProps) => {

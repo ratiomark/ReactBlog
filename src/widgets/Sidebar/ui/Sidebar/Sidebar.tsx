@@ -30,14 +30,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 			/>
 		))
 	}, [sidebarItemsList, collapsed])
-	// const SideBarItemsRendered = useMemo(() => SidebarItemsList.map(item => (
-	// 	<SidebarItem
-	// 		item={item}
-	// 		collapsed={collapsed}
-	// 		key={item.path}
-	// 	/>
-	// 	// eslint-disable-next-line
-	// )), [collapsed, currentLang])
+
 
 	return (
 		<menu data-testid='sidebar' className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
