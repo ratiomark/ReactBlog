@@ -1,4 +1,4 @@
-import { useState, useRef, MutableRefObject, useCallback, useEffect } from "react"
+import { useState, useRef, MutableRefObject, useCallback, useEffect } from 'react'
 
 interface UseModalProps {
 	onClose?: () => void
@@ -7,9 +7,11 @@ interface UseModalProps {
 }
 
 export const useModal = (props: UseModalProps) => {
-	const { onClose, animationDelay, isOpen} = props
+	const { onClose, animationDelay, isOpen } = props
 	const [isMounted, setIsMounted] = useState(false)
 	const [isClosing, setIsClosing] = useState(false)
+	// const timerRef = useRef<ReturnType<typeof setTimeout>>()
+	// VAR: Почему не работает верхний вариант?
 	const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>
 
 	const onCloseHandler = useCallback(() => {
@@ -20,7 +22,7 @@ export const useModal = (props: UseModalProps) => {
 				setIsClosing(false)
 			}, animationDelay)
 		}
-	}, [onClose])
+	}, [onClose, animationDelay])
 
 	const onKeyDown = useCallback((e: KeyboardEvent) => {
 		if (e.key === 'Escape') {

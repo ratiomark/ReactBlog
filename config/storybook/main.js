@@ -4,9 +4,16 @@ module.exports = {
 	],
 	'addons': [
 		'@storybook/addon-links',
-		'@storybook/addon-essentials',
+		// вот тут я отключаю бекграунд, чтобы работали темы
+		{
+			name: '@storybook/addon-essentials',
+			options: {
+				background: false
+			}
+		},
 		'@storybook/addon-interactions',
 		'storybook-addon-mock',
+		'storybook-addon-themes'
 
 	],
 	'framework': '@storybook/react',

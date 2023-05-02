@@ -1,20 +1,23 @@
 import { useTranslation } from 'react-i18next'
-import { BugButton } from '@/shared/ui/BugButton/BugButton'
 import { ListBox } from '@/shared/ui/Popup/ui/ListBox/ListBox'
 import { VStack } from '@/shared/ui/Stack/VStack/VStack'
-import { Page } from '@/widgets/Page/Page'
+import { Page } from '@/widgets/Page'
+import { RatingCard } from '@/entities/Rating'
+
+
+const items = [
+	{ value: '1', content: '1', disabled: true },
+	{ value: '2', content: '2' },
+	{ value: '3', content: '3' },
+]
 
 const MainPage = () => {
 	const { t } = useTranslation()
 	return (
-		<Page>
+		<Page data-testid='MainPage'>
 			<VStack>
 				<ListBox
-					items={[
-						{ value: '1', content: '1', disabled: true },
-						{ value: '2', content: '2' },
-						{ value: '3', content: '3' },
-					]}
+					items={items}
 					onChange={() => { }}
 					defaultValue='кнопка попка'
 				/>
@@ -22,6 +25,7 @@ const MainPage = () => {
 			<div>
 				{t('main page')}
 			</div>
+			<RatingCard rate={0} />
 		</Page>
 	)
 }

@@ -1,3 +1,5 @@
+export { ArticleListUi } from './ui/ArticleListUi/ArticleListUi';
+
 export { ArticleListArticlesPage } from './ui/ArticleListArticlesPage/ArticleListArticlesPage';
 
 export { fetchArticleList } from './model/services/fetchArticleList/fetchArticleList';

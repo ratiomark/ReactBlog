@@ -1,5 +1,5 @@
-import { Spring } from "@react-spring/web";
-import { createContext, ReactNode, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { Spring } from '@react-spring/web';
+import { createContext, ReactNode, useContext, useEffect, useMemo, useRef, useState } from 'react';
 
 type SpringType = typeof import('@react-spring/web');
 type GestureType = typeof import('@use-gesture/react');

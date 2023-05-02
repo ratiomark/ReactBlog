@@ -1,18 +1,19 @@
 import clsx from 'clsx';
-import { useTranslation } from 'react-i18next';
 import { Text } from '@/shared/ui/Text/Text';
 import { Icon } from '@/shared/ui/Icon/Icon';
 import { Card } from '@/shared/ui/Card/Card';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import IconEye from '@/shared/assets/icon/eye-20-20.svg'
 import { HTMLAttributeAnchorTarget } from 'react';
-import { RoutePath } from '@/app/providers/router/config/routeConfig/routeConfig';
+import { obtainRouteArticlesDetails } from '@/app/providers/router/config/routeConfig/routeConfig';
 import { Article, ArticleListView } from '@/entities/Article';
 import { ArticleTextBlock } from '@/entities/Article'
 import { ArticleTextComponent } from '@/entities/Article'
 import cls from './ArticleListItem.module.scss';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { HStack } from '@/shared/ui/Stack';
+import { AppImage } from '@/shared/ui/AppImage/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
 interface ArticleListItemProps {
 	className?: string
@@ -47,18 +48,23 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
 					cls.ArticleListItem,
 					cls[view],
 					[className])}
-				to={RoutePath.articles_details + article.id}
+				to={obtainRouteArticlesDetails(article.id)}
 				target={target}
 			>
 				<Card className={cls.card}>
-					<HStack>
+					<HStack max>
 						<Avatar size={30} src={article.user.avatar} />
 						<Text text={article.user.username} className={cls.userName} />
 						<Text text={article.createdAt} className={cls.articleDateCreation} />
 					</HStack>
 					<Text text={article.title} className={cls.articleTitle} />
 					{types}
-					<img src={article.img} alt={article.title} className={cls.articleImage} />
+					<AppImage
+						fallback={<Skeleton width={'100%'} height={'200px'} />}
+						src={article.img}
+						alt={article.title}
+						className={cls.articleImage}
+					/>
 					{textBlock && (
 						<ArticleTextComponent block={textBlock} className={cls.textBlock} />
 					)}
@@ -77,12 +83,17 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
 				cls.ArticleListItem,
 				cls[view],
 				[className])}
-			to={RoutePath.articles_details + article.id}
+			to={obtainRouteArticlesDetails(article.id)}
 			target={target}
 		>
 			<Card>
 				<div className={cls.imageWrapper}>
-					<img src={article.img} alt={article.title} className={cls.articleImage} />
+					<AppImage
+						fallback={<Skeleton width='100%' height='100%' />}
+						src={article.img}
+						alt={article.title}
+						className={cls.articleImage}
+					/>
 					<Text text={article.createdAt} className={cls.articleDateCreation} />
 				</div>
 				<div className={cls.infoWrapper}>

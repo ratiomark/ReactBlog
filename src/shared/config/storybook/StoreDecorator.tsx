@@ -6,8 +6,8 @@ import { loginReducer } from '@/features/AuthByUsername'
 import { ReducersList } from '@/shared/lib/helpers/hooks/useAsyncReducer'
 import { articleDetailsReducer } from '@/entities/Article'
 import { addNewCommentReducer } from '@/features/ArticleDetailsComment'
-import { articleDetailsCommentsReducer } from '@/features/ArticleDetailsComment/model/slice/articleDetailsCommentsSlice'
-import { articlesPageReducer } from '@/features/ArticleList/model/slice/articlePageSlice'
+import { articleDetailsCommentsReducer } from '@/features/ArticleDetailsComment'
+import { articlesPageReducer } from '@/features/ArticleList'
 // import { articlesPageReducer } from 'pages/ArticlesPage/model/slice/articlePageSlice'
 /* eslint-disable*/
 

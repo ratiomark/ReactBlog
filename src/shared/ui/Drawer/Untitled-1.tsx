@@ -40,7 +40,7 @@ export const Drawer = (props: DrawerProps) => {
 
 	const openDrawer = useCallback(() => {
 		api.start({y: 0, immediate: false})
-	}, [])
+	}, [api])
 
 
 	const mods: Record<string, boolean | undefined> = {

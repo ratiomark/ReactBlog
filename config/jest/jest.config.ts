@@ -38,7 +38,9 @@ export default {
 	moduleNameMapper: {
 		'\\.s?css$': 'identity-obj-proxy',
 		'\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
-		'axios': 'axios/dist/node/axios.cjs'
+		// 'axios': 'axios/dist/node/axios.cjs',
+		// алиас для "@/", преобразует пути, чтобы джест понимал их
+		'^@/(.*)$': '<rootDir>/src/$1',
 	},
 	setupFilesAfterEnv: ['<rootDir>config/jest/jestSetup.ts'],
 	// moduleNameMapper: {
@@ -72,7 +74,7 @@ export default {
 				// место сохранения отчета
 				'publicPath': '<rootDir>/reports/unit-test',
 				'filename': 'report.html',
-				'openReport': true,
+				'openReport': false,
 				// опция делает так, что в папке оказывается только один html файл
 				// 'inlineSource': true,
 			}

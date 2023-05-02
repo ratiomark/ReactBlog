@@ -1,14 +1,14 @@
-import clsx from "clsx"
-import { NotificationList } from "@/entities/Notification";
-import { Button } from "@/shared/ui/Button/Button";
-import { Icon } from "@/shared/ui/Icon/Icon";
-import cls from "./NotificationButtonNavBar.module.scss"
+import clsx from 'clsx'
+import { NotificationList } from '@/entities/Notification';
+import { Button } from '@/shared/ui/Button/Button';
+import { Icon } from '@/shared/ui/Icon/Icon';
+import cls from './NotificationButtonNavBar.module.scss'
 import NotificationIcon from '@/shared/assets/icon/bell.svg'
-import { Popover } from "@/shared/ui/Popup";
-import { useMobile } from "@/shared/lib/helpers/hooks/useMobile";
-import { Drawer } from "@/shared/ui/Drawer/Drawer";
-import { useState } from "react";
-import { AnimationProvider } from "@/shared/lib/helpers/providersAndComponents/AnimationProvider";
+import { Popover } from '@/shared/ui/Popup';
+import { useMobile } from '@/shared/lib/helpers/hooks/useMobile';
+import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import { useState } from 'react';
+import { AnimationProvider } from '@/shared/lib/helpers/providersAndComponents/AnimationProvider';
 
 interface NotificationButtonNavBarProps {
 	className?: string;
@@ -31,12 +31,12 @@ export const NotificationButtonNavBar = (props: NotificationButtonNavBarProps) =
 	)
 
 	if (isMobile) {
-		return (<AnimationProvider>
+		return (<>
 			{trigger}
 			<Drawer onClose={onCloseDrawer} isOpen={isDrawerOpen}>
 				<NotificationList className={cls.notifications} />
 			</Drawer>
-		</AnimationProvider>)
+		</>)
 	}
 
 	return (

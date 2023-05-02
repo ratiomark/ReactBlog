@@ -637,6 +637,60 @@
       "userId": "1",
       "text": "asfaefwefw",
       "id": "l_TRCXX"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "121212",
+      "id": "pEF7IV7"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "cvsdvsdvsdvsdvfasfa fsdaf asdf sdf asf awefwef wef",
+      "id": "Ys6U_3J"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "sdfasdf\nsdf\nasdf\nf\nef\nwf\nwef\ne fwef wef \nwef \nwef\n we\nfwe fwefw ef wef we\n fwe\n fw\ne wefwef wefwe f23fr23f23f",
+      "id": "U3BIxSp"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "f sfasd afi jwiof                                                                            kjsdklfjsff sfasd afi jwiof                                                                            kjsdklfjsf\nf sfasd afi jwiof                                                                            kjsdklfjsf\n\n\nf sfasd afi jwiof                                                                            kjsdklfjsff sfasd afi jwiof                                                                            kjsdklfjsff sfasd afi jwiof                                                                            kjsdklfjsf\nf sfasd afi jwiof                                                                            kjsdklfjsf\nf sfasd afi jwiof                                                                            kjsdklfjsf\nf sfasd afi jwiof                                                                            kjsdklfjsfv\n",
+      "id": "_IkgIJL"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "fdaffwefwef\nfwef\nwef\nwe\nfwef\nwef\nwefwefsdfsdfsdfsd\nfa sdf sdf asd f sd ad sasd \ns\n sdsdf f awef awef weaf we we wef we wewef we",
+      "id": "nrd39W7"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "sdfsdfasdfwfefa wef we fwef\nwef wef we\nf we\n fwe\n fwe\n fwe wef wef wef",
+      "id": "CQWtGjX"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "saf asdf aew fwe f\nwee fwe f\nwe\n f\nwe f\nwe fwe",
+      "id": "yjAWHsE"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "sfasdf\nsdf\nasd\nf\nf\nfwf\n",
+      "id": "KY8fBsG"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "\n\n\n\n\nsdf\nsf\nsd\nfs\nfsd\nf\n\n\n\n\n\n\n\n\n\n",
+      "id": "vJRtuTB"
     }
   ],
   "users": [
@@ -644,14 +698,21 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "role": ["ADMIN"],
       "avatar": "https://icon-library.com/images/avatar-icon-png/avatar-icon-png-15.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "role": ["USER"],
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    },
+    {
+      "id": "2",
+      "username": "manager",
+      "password": "123",
+      "role": ["MANAGER"],
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
@@ -712,6 +773,72 @@
       "title": "Уведомление 1",
       "description": "Произошло какое-то событие",
       "userId": "2"
+    }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rate": 3,
+      "feedback": "",
+      "id": "I7ofk1u"
+    },
+    {
+      "userId": "1",
+      "articleId": "9",
+      "rate": 5,
+      "feedback": "asdasdasdasd",
+      "id": "Y7MhPzo"
+    },
+    {
+      "userId": "1",
+      "articleId": "10",
+      "rate": 1,
+      "feedback": "отстой",
+      "id": "II0a75O"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "rate": 3,
+      "feedback": "",
+      "id": "bcPnbbZ"
+    },
+    {
+      "rate": 3,
+      "userId": "1",
+      "articleId": "4",
+      "id": "yi0-zOQ"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "2"
     }
   ]
 }

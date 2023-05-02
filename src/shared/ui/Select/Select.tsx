@@ -2,21 +2,21 @@ import clsx from 'clsx'
 import { ChangeEvent, memo, ReactNode, useMemo } from 'react'
 import cls from './Select.module.scss'
 
-export interface SelectOptions {
-	value: string
+export interface SelectOptions<T extends string> {
+	value: T
 	content: ReactNode
 }
 
-interface SelectProps {
+interface SelectProps<T extends string> {
 	className?: string
-	options?: SelectOptions[]
+	options?: SelectOptions<T>[]
 	label?: string
-	value?: string
-	onChange?: (value: string) => void
+	value?: T
+	onChange?: (value: T) => void
 	readonly?: boolean
 }
 
-export const Select = memo((props: SelectProps) => {
+export const Select = <T extends string>(props: SelectProps<T>) => {
 	const {
 		className,
 		label,
@@ -27,11 +27,12 @@ export const Select = memo((props: SelectProps) => {
 	} = props
 
 	const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-		onChange?.(e.target.value)
+		// нужно привести к T, потому что у html элемента это всегда по умолчанию строка
+		onChange?.(e.target.value as T)
 	}
 
 	const optionList = useMemo(() => {
-		return options?.map(item =>
+		return options?.map((item: SelectOptions<T>) =>
 			<option
 				key={item.value}
 				value={item.value}
@@ -62,5 +63,5 @@ export const Select = memo((props: SelectProps) => {
 			</select>
 		</div>
 	)
-})
-Select.displayName = 'Select'
+}
+// Select.displayName = 'Select'

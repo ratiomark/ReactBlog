@@ -5,11 +5,13 @@ import { Button } from '@/shared/ui/Button/Button';
 import { Input } from '@/shared/ui/Input/Input';
 import { text } from 'stream/consumers';
 import cls from './AddNewComment.module.scss';
+import { TextArea } from '@/shared/ui/Input copy/TextArea';
 
 interface AddNewCommentProps {
 	className?: string
 	text?: string
-	onChange: (event: ChangeEvent<HTMLInputElement>) => void
+	onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void
+	// onChange: (event: ChangeEvent<HTMLInputElement>) => void
 	onSendNewComment?: (event: any) => any
 }
 
@@ -28,10 +30,14 @@ export const AddNewComment = (props: AddNewCommentProps) => {
 			cls.addNewComment,
 			[className])}
 		>
-			<Input
+			<TextArea
 				value={text}
 				onChangeEvent={onChange}
 			/>
+			{/* <Input
+				value={text}
+				onChangeEvent={onChange}
+			/> */}
 			<Button
 				onClick={onSendNewComment}
 			>

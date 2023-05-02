@@ -7,7 +7,7 @@ import { articleDetailsRecommendationReducer, getArticleRecommendation } from '.
 import { ReducersList, useAsyncReducer } from '@/shared/lib/helpers/hooks/useAsyncReducer';
 import { useInitialEffect } from '@/shared/lib/helpers/hooks/useInitialEffect';
 import { fetchRecommendations } from '../../model/services/fetchRecommendations';
-import { ArticleListUi } from '@/features/ArticleList/ui/ArticleListUi/ArticleListUi';
+import { ArticleListUi } from '@/features/ArticleList';
 import { Text } from '@/shared/ui/Text/Text';
 
 interface ArticleRecommendationProps {

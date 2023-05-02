@@ -9,8 +9,9 @@ import { useInfiniteScroll } from '@/shared/lib/helpers/hooks/useInfiniteScroll'
 import { useInitialEffect } from '@/shared/lib/helpers/hooks/useInitialEffect';
 import { useThrottle } from '@/shared/lib/helpers/hooks/useThrottle';
 import cls from './Page.module.scss';
+import { TestProps } from '@/shared/types/TestProps';
 
-interface PageProps {
+interface PageProps extends TestProps {
 	className?: string
 	children?: ReactNode,
 	onScrollEnd?: () => void
@@ -22,7 +23,8 @@ export const Page = memo((props: PageProps) => {
 		className,
 		children,
 		onScrollEnd,
-		isLoading
+		isLoading,
+
 	} = props
 	const dispatch = useAppDispatch()
 	const { pathname } = useLocation()
@@ -59,6 +61,7 @@ export const Page = memo((props: PageProps) => {
 			ref={wrapperRef}
 			className={clsx(cls.Page, [className])}
 			onScroll={onScroll}
+			data-testid={props['data-testid'] ?? 'Page'}
 		>
 			<div className={cls.wrapper}>
 				{children}
@@ -67,5 +70,4 @@ export const Page = memo((props: PageProps) => {
 		</section>
 	)
 })
-Page.displayName = 'Page_Component'
 // Page.displayName = 'Page_Component'

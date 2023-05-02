@@ -1,3 +1,4 @@
+import { buildSlice } from '@/shared/lib/store'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { AddNewCommentSchema } from '../types/AddNewComment'
 
@@ -5,7 +6,7 @@ const initialState: AddNewCommentSchema = {
 	text: ''
 }
 
-const addNewCommentSlice = createSlice({
+const addNewCommentSlice = buildSlice({
 	name: 'addNewComment',
 	initialState,
 	reducers: {
@@ -16,4 +17,5 @@ const addNewCommentSlice = createSlice({
 })
 
 export const { actions: addNewCommentActions } = addNewCommentSlice
+export const { useActions: useAddNewCommentSliceActions } = addNewCommentSlice
 export const { reducer: addNewCommentReducer } = addNewCommentSlice

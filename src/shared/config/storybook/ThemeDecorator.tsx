@@ -1,5 +1,7 @@
 import { Story } from '@storybook/react'
-import { Theme, ThemeProvider } from '@/app/providers/ThemeProvider'
+// eslint-disable-next-line custom-fsd-checker-plugin/layer-import-sequence
+import { ThemeProvider } from '@/app/providers/ThemeProvider'
+import { Theme } from '@/shared/types/Theme';
 // eslint-disable-next-line react/display-name
 // eslint-disable-next-line
 export const ThemeDecorator = (theme: Theme) => (StoryComponent: Story) => (

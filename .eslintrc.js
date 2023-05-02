@@ -5,11 +5,17 @@ module.exports = {
 		node: true,
 		jest: true,
 	},
+	settings: {
+		'react': {
+			'version': 'detect'
+		}
+	},
 	extends: [
 		'eslint:recommended',
 		'plugin:react/recommended',
 		'plugin:@typescript-eslint/recommended',
 		'plugin:i18next/recommended',
+		// "plugin:react-hooks/recommended"
 		// 'custom-fsd-checker-plugin'
 		// 'prettier/@typescript-eslint',
 		// 'prettier',
@@ -28,13 +34,24 @@ module.exports = {
 	plugins: [
 		'react',
 		'@typescript-eslint',
-		'i18next',
 		'react-hooks',
-		'custom-fsd-checker-plugin'
+		'i18next',
+		'custom-fsd-checker-plugin',
 	],
 	rules: {
-
-		'custom-fsd-checker-plugin/path-checker': 'error',
+		// добавляю alias в настройки плагина, чтобы он работал корректно с моим элиасом
+		// 'custom-fsd-checker-plugin/path-checker': 'error',
+		'custom-fsd-checker-plugin/path-checker': ['error', { alias: '@' }],
+		'custom-fsd-checker-plugin/public-api-imports': ['error', {
+			alias: '@',
+			testFiles: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx']
+		}],
+		'custom-fsd-checker-plugin/layer-import-sequence': ['error', {
+			alias: '@',
+			ignoreImportPatterns: ['**/StoreProvider', '**/routeConfig', '**/Page'],
+			ignoreFilesPatterns: ['**/storybook/StoreDecorator.tsx']
+		}],
+		// npm i -D eslint-plugin-custom-fsd-checker-plugin@latest
 		// "prettier/prettier": [2], // Means error
 		// 'code': [1, 80],
 		'react/jsx-indent': [1, 'tab'],
@@ -55,7 +72,8 @@ module.exports = {
 		'@typescript-eslint/no-empty-function': 'warn',
 		'react/require-default-props': 'off',
 		'react/react-in-jsx-scope': 'off',
-		'react/jsx-props-no-spreading': 'warn',
+		'react/jsx-props-no-spreading': 'off',
+		// 'react/jsx-props-no-spreading': 'warn',
 		'react/function-component-definition': 'off',
 		'react/jsx-max-props-per-line': [1, { maximum: 1, when: 'multiline' }],
 		'react-hooks/rules-of-hooks': 'error',

@@ -17,7 +17,8 @@ interface TextProps {
 	text?: string;
 	text_s?: string;
 	variant?: TextVariant;
-	align?: TextAlign
+	align?: TextAlign;
+	saveOriginal?: boolean
 }
 
 export const Text = memo((props: TextProps) => {
@@ -27,17 +28,19 @@ export const Text = memo((props: TextProps) => {
 		text,
 		text_s,
 		variant = TextVariant.primary,
-		align = 'left'
+		align = 'left',
+		saveOriginal = false
 	} = props
 
 
 	return (
 		<div className={clsx(
 			cls.Text,
-			[
-				className,
-				cls[variant],
-				cls[align]])}
+			{ [cls.saveOriginal]: saveOriginal },
+			cls[variant],
+			cls[align],
+			[className]
+		)}
 		>
 			{title && <p className={cls.title}>{title}</p>}
 			{text && <p className={cls.text}>{text}</p>}

@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice, PayloadAction, } from '@reduxjs/toolkit';
-import { User } from '@/entities/User/model/types/user';
 import { loginUserByUserName } from '../services/loginByUserName/loginUserByUserName';
 import { LoginSchema } from '../types/loginSchema';
 

@@ -16,6 +16,11 @@ export default ({ config }: { config: Configuration }) => {
 
 	config!.resolve!.modules!.push(paths.src)
 
+	config!.resolve!.alias = {
+		...config!.resolve!.alias,
+		'@': paths.src
+	}
+
 	config!.resolve!.extensions!.push('.ts', '.tsx')
 
 	const rules = config.module!.rules as RuleSetRule[]

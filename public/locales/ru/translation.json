@@ -23,5 +23,9 @@
     "MANDATORY_INPUT": "Это обязательное поле",
     "HAS_TO_BE_MORE_THAN_3": "Не менее трех символов",
     "STOP_LYING_ABOUT_AGE": "Пожалуйста, укажи настоящий возраст"
-  }
+  },
+  "Close button": "Закрыть",
+  "Send button": "Отправить",
+  "thanks for evaluation": "Спасибо за оценку!",
+  "admin panel": "Админка"
 }

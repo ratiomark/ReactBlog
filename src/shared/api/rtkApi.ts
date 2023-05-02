@@ -26,12 +26,12 @@ export const rtkApi = createApi({
 })
 // А вот так я смогу инджектить энпоинт из другого места
 // const extendedApi = rtkApi.injectEndpoints({
-	// endpoints: (build)=> ({
-			// getPokemonById: build.query<Pokemon, string>({
-			// query: (id) => `pokemon/${id}`
-		// })	
-	// }),
-	// // // overrideExisting: false,
+// endpoints: (build)=> ({
+// getPokemonById: build.query<Pokemon, string>({
+// query: (id) => `pokemon/${id}`
+// })	
+// }),
+// // // overrideExisting: false,
 // })
 
 // const notificationApi = rtkApi.injectEndpoints({

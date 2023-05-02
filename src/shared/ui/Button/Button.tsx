@@ -1,6 +1,7 @@
-import { ButtonHTMLAttributes, memo, ReactNode } from 'react'
+import { ButtonHTMLAttributes, forwardRef, memo, ReactNode } from 'react'
 import { classNames } from '@/shared/lib/helpers/classNames/classNames'
 import cls from './Button.module.scss'
+import clsx from 'clsx'
 
 export const ButtonVariant = {
 	clear: 'clear',
@@ -34,7 +35,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	disabled?: boolean
 }
 
-export const Button = memo((props: ButtonProps) => {
+// VAR: переделал кнопку, сейчас она не обернута в мемо, потому что не ясно как использоваь memo в данном случае
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, forwardedRef) => {
 	const {
 		className,
 		children,
@@ -42,6 +44,7 @@ export const Button = memo((props: ButtonProps) => {
 		square,
 		size,
 		disabled,
+
 		...otherProps
 	} = props
 
@@ -51,20 +54,19 @@ export const Button = memo((props: ButtonProps) => {
 	}
 
 	return (
-		<button className={
-			classNames(
+		<button
+			ref={forwardedRef}
+			className={clsx(
 				cls.Button,
 				mods,
-				[
-					className,
-					cls[variant],
-					size ? cls[size] : '',
-				])}
-			// disabled={disabled}
+				cls[variant],
+				size ? cls[size] : '',
+				[className])}
+
 			{...otherProps}
 		>
 			{children}
 		</button>
 	)
 })
-Button.displayName = 'Button'
+// Button.displayName = 'Button'

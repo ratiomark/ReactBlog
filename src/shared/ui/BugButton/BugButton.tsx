@@ -1,3 +1,4 @@
+// eslint-disable-next-line custom-fsd-checker-plugin/layer-import-sequence
 import { useCustomTranslate } from '@/features/LanguageSwitcher'
 import { useState, useEffect } from 'react'
 import { classNames } from '@/shared/lib/helpers/classNames/classNames'

@@ -3,6 +3,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 export function buildCssLoaders(isDev: boolean){
 	return {
 		test: /\.s[ac]ss$/,
+		exclude: /node_modules/,
 		use: [
 			// Creates `style` nodes from JS strings
 			// Мини Css создает отдельные файлы, но нам это не нужно в режиме разработки

@@ -1,1 +1,1 @@
-export { AvatarDropDownNavBar } from "./ui/AvatarDropDownNavBar";
+export { AvatarDropDownNavBar } from './ui/AvatarDropDownNavBar';

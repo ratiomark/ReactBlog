@@ -1,5 +1,5 @@
 import { useModal } from '@/shared/lib/helpers/hooks/useModal';
-import { useAnimationLibs } from '@/shared/lib/helpers/providersAndComponents/AnimationProvider';
+import { AnimationProvider, useAnimationLibs } from '@/shared/lib/helpers/providersAndComponents/AnimationProvider';
 import clsx from 'clsx';
 import { ReactNode, useCallback, useEffect } from 'react';
 import { Overlay } from '../Overlay/Overlay';
@@ -118,10 +118,18 @@ const DrawerContent = (props: DrawerProps) => {
 	)
 }
 
-export const Drawer = (props: DrawerProps) => {
+const DrawerAsync = (props: DrawerProps) => {
 	const { isLoaded } = useAnimationLibs()
 	if (!isLoaded) {
 		return null
 	}
 	return <DrawerContent {...props} />
+}
+
+export const Drawer = (props: DrawerProps) => {
+	return (
+		<AnimationProvider>
+			<DrawerAsync {...props} />
+		</AnimationProvider>
+	)
 }

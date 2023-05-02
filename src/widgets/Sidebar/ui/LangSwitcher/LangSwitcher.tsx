@@ -1,5 +1,5 @@
 import { useCustomTranslate } from '@/features/LanguageSwitcher'
-import { Langs } from '@/features/LanguageSwitcher/ui/LanguageSwitcher'
+import { Langs } from '@/features/LanguageSwitcher'
 import { ReactNode } from 'react'
 import { Button } from '@/shared/ui/Button/Button'
 

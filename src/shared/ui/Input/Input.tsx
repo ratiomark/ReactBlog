@@ -79,7 +79,7 @@ export const Input = memo((props: InputProps) => {
 				// onFocus={onFocus}
 				onBlur={onBlurHandler}
 				disabled={readonly}
-				onKeyPress={onKeyPress}
+				onKeyDown={onKeyPress}
 				{...otherProps}
 			/>
 			{/* {validationErrors} */}

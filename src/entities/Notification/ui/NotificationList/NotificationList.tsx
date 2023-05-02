@@ -23,9 +23,10 @@ export const NotificationList = (props: NotificationProps) => {
 	if (isError) return <p>ОШИБКА</p>
 	if (isLoading) {
 		return (
-			<VStack className={clsx(
-				cls.notification,
-				[className])}
+			<VStack
+				className={clsx(
+					cls.notification,
+					[className])}
 				gap='gap_16'
 				max
 			>
@@ -36,9 +37,10 @@ export const NotificationList = (props: NotificationProps) => {
 	}
 
 	return (
-		<VStack className={clsx(
-			cls.notification,
-			[className])}
+		<VStack
+			className={clsx(
+				cls.notification,
+				[className])}
 			gap='gap_16'
 			max
 		>

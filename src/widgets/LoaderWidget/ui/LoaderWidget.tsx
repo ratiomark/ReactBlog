@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames'
 import { Loader } from '@/shared/ui/Loader/Loader';
-import { Page } from '@/widgets/Page/Page';
+import { Page } from '@/widgets/Page';
 import cls from './LoaderWidget.module.scss'
 
 interface LoaderWidgetProps {

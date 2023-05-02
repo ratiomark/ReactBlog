@@ -1,3 +1,7 @@
+.Text {
+  // max-width: 100%;
+}
+
 .title {
   font: var(--font-l);
   color: var(--primary-color);
@@ -12,6 +16,10 @@
   font-size: 16px;
   line-height: 1;
   color: var(--secondary-color);
+}
+
+.saveOriginal {
+  white-space: pre-wrap;
 }
 
 .error {

@@ -1,4 +1,3 @@
-import { RoutePath } from '@/app/providers/router/config/routeConfig/routeConfig';
 import clsx from 'clsx';
 import { memo } from 'react';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
@@ -8,6 +7,7 @@ import { HStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text/Text';
 import { Comment } from '../../model/types/comment';
 import cls from './CommentCard.module.scss';
+import { obtainRouteProfile } from '@/app/providers/router/config/routeConfig/routeConfig';
 
 interface CommentCardProps {
 	className?: string
@@ -36,11 +36,14 @@ export const CommentCard = memo((props: CommentCardProps) => {
 		</>)
 	} else {
 		content = (<>
-			<AppLink to={RoutePath.profile + comment.user.id} className={cls.commentHeader}>
+			<AppLink to={obtainRouteProfile(comment.user.id)} className={cls.commentHeader}>
 				<Avatar size={50} src={comment.user.avatar} />
 				<Text text={comment.user.username} className={cls.commentUserName} />
 			</AppLink>
-			<Text text={comment.text} className={cls.commentText} />
+			{comment.text.split('\n').map((line, index) => (
+				<Text text={line} saveOriginal key={index} className={cls.commentText} />
+			))}
+			{/* <Text text={comment.text} className={cls.commentText} /> */}
 		</>)
 	}
 

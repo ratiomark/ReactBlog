@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import { Country } from '@/entities/Country';
-import { CountrySelect } from '@/entities/Country/ui/CountrySelect/CountrySelect';
+import { CountrySelect } from '@/entities/Country';
 import { Currency, CurrencySelect } from '@/entities/Currency';
 import { Profile } from '@/features/EditableProfileCard';
 import { ChangeEvent, KeyboardEvent, ReactNode, } from 'react';
@@ -127,7 +127,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
 			onChange={onChangeCountry}
 			value={countryValue}
 			readonly={readonly}
-		/></>)
+		/>
+	</>)
 
 	return (
 		<div className={clsx(cls.ProfileCard, [className])} >

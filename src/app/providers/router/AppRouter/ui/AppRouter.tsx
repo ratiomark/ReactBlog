@@ -1,17 +1,16 @@
 import { Suspense, useCallback, useMemo } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { AppRouteProps, routeConfig } from '@/app/providers/router/config/routeConfig/routeConfig'
-import { LoaderWidget } from '@/widgets/LoaderWidget/LoaderWidget'
+import { AppRouteProps, routeConfig } from '../../config/routeConfig/routeConfig'
+import { LoaderWidget } from '@/widgets/LoaderWidget'
 import { ProtectedRoute } from './ProtectedRoute'
 
 export const AppRouter = () => {
 
 	const renderWithWrapper = useCallback((route: AppRouteProps) => {
-		const { path, authOnly, element, wrapper: Wrapper } = route
-		// const Wrapper = wrapper
+		const { path, authOnly, element, wrapper: Wrapper, roles } = route
+
 		const finalElement = (
 			<Suspense fallback={<LoaderWidget />}>
-				{/* {element} */}
 				{Wrapper
 					? <Wrapper>{element}</Wrapper>
 					: element
@@ -23,7 +22,7 @@ export const AppRouter = () => {
 				key={path}
 				path={path}
 				element={authOnly
-					? <ProtectedRoute>{finalElement}</ProtectedRoute>
+					? <ProtectedRoute roles={roles}>{finalElement}</ProtectedRoute>
 					: finalElement
 				}
 			/>)

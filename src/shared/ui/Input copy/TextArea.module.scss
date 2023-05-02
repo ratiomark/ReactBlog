@@ -1,0 +1,21 @@
+.Input {
+  outline: none;
+  color: var(--secondary-color);
+  font: var(--font-family-main);
+  padding: 10px;
+
+  // background-color: var(--bg-color);
+
+  // outline: 1px greenyellow;
+  width: 100%;
+  border: none;
+
+  // height: 100%;
+  resize: vertical;
+  height: fit-content;
+}
+
+.hasErrors {
+  margin-bottom: 5px;
+  margin-top: 10px;
+}

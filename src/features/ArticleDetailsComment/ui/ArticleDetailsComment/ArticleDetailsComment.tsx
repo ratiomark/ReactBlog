@@ -1,7 +1,7 @@
 import { ChangeEvent, memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { getAddNewCommentError, getAddNewCommentText } from '../../model/selectors/getAddNewComment';
-import { addNewCommentActions, addNewCommentReducer } from '../../model/slice/addNewCommentSlice';
+import { useAddNewCommentError, useAddNewCommentText } from '../../model/selectors/getAddNewComment';
+import { useAddNewCommentSliceActions, addNewCommentReducer } from '../../model/slice/addNewCommentSlice';
 import { useTranslation } from 'react-i18next';
 import { ReducersList, useAsyncReducer } from '@/shared/lib/helpers/hooks/useAsyncReducer';
 import { AddNewComment, CommentList } from '@/entities/Comment';
@@ -31,8 +31,9 @@ export const ArticleDetailsComment = memo((props: ArticleDetailsCommentProps) =>
 
 	const comments = useSelector(getArticleComments.selectAll)
 	const commentsIsLoading = useSelector(getArticleCommentsIsLoading)
-	const commentText = useSelector(getAddNewCommentText)
-	const commentError = useSelector(getAddNewCommentError)
+	const commentText = useAddNewCommentText()
+	const commentError = useAddNewCommentError()
+	const { setCommentText } = useAddNewCommentSliceActions()
 	const { dispatch } = useAsyncReducer({ reducers: reducers })
 	const { t } = useTranslation()
 
@@ -44,9 +45,9 @@ export const ArticleDetailsComment = memo((props: ArticleDetailsCommentProps) =>
 	}, [id])
 
 
-	const onChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-		dispatch(addNewCommentActions.setCommentText(event.target.value))
-	}, [dispatch])
+	const onChange = useCallback((event: ChangeEvent<HTMLTextAreaElement>) => {
+		setCommentText(event.target.value)
+	}, [setCommentText])
 
 	const onSendHandler = useCallback(() => {
 		dispatch(addNewCommentToArticle())

@@ -1,6 +1,6 @@
 import { TemplateCreator } from './createTemplate'
-import { Theme } from '@/app/providers/ThemeProvider'
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator' 
+import { Theme } from '@/shared/types/Theme';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator'
 
 export const appThemeCreator: TemplateCreator<Theme, any> = (theme) => (template) => {
 	if (!template.decorators) template.decorators = []

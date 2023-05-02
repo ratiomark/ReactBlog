@@ -15,7 +15,7 @@ const ProfilePage = (props: ProfilePageProps) => {
 	const { t } = useTranslation()
 
 	return (
-		<div className={clsx(cls.ProfilePage, [className])} >
+		<div data-testid='ProfilePage' className={clsx(cls.ProfilePage, [className])} >
 			{t('PROFILE PAGE')}
 			<EditableProfileCard />
 		</div>

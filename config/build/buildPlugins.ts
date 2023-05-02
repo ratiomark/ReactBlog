@@ -10,17 +10,13 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 
 export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstance[] {
 	const { paths, isDev, apiUrl, project } = options
-
+	const isProd = !isDev
 	const plugins = [
 		// HtmlWebpackPlugin упрощает создание HTML файлов путем подстановки в них собранных webpack’ом сборок. Это очень удобно, особенно для тех сборок, которые включают hash в название выходного файла сборки, который меняется каждую компиляцию.Работает как для js файлов, так и для стилей
 		new HtmlWebpackPlugin({
 			template: paths.html
 		}),
 		new webpack.ProgressPlugin(),
-		new MiniCssExtractPlugin({
-			filename: 'css/[name].[contenthash:8].css',
-			chunkFilename: 'css/[name].[contenthash:8].css'
-		}),
 		// new MiniCssExtractPlugin({
 		// 	filename: "css/style.[hash:8].css",
 		// 	chunkFilename: "css/[id].style.[hash:8].css",
@@ -31,6 +27,7 @@ export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstan
 			__API__: JSON.stringify(apiUrl),
 			__PROJECT__: JSON.stringify(project),
 		}),
+
 
 		new CopyPlugin({
 			patterns: [
@@ -53,6 +50,19 @@ export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstan
 			},
 		})
 	]
+
+	if (isProd) {
+		plugins.push(new MiniCssExtractPlugin({
+			filename: 'css/[name].[contenthash:8].css',
+			chunkFilename: 'css/[name].[contenthash:8].css'
+		}))
+
+		plugins.push(new CopyPlugin({
+			patterns: [
+				{ from: paths.locales, to: paths.buildLocales }
+			]
+		}))
+	}
 
 	if (isDev) {
 		// HotModuleReplacementPlugin нужен для того, чтобы HotModuleReplacementPlugin отвечает за перезагрузку страницы при изменении кода.

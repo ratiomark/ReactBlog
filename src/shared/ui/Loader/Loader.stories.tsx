@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Theme } from '@/app/providers/ThemeProvider'
+import { Theme } from '@/shared/types/Theme';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator'
 import { Loader } from './Loader'
 

@@ -26,15 +26,17 @@ export const ArticleSortSwitcher = (props: ArticleSortSwitcherProps) => {
 	} = props
 
 	const { t } = useTranslation('articles-page')
-	const onSortChangeHandle = useCallback((sort: string) => {
-		onSortChange(sort as ArticleSortFieldType)
-	}, [onSortChange])
 
-	const onOrderChangeHandler = useCallback((order: string) => {
-		onOrderChange(order as SortOrderType)
-	}, [onOrderChange])
+	// эти функции приходилось использовать тогда, когда не было дженерика
+	// const onSortChangeHandle = useCallback((sort: ArticleSortFieldType) => {
+	// 	 onSortChange(sort as ArticleSortFieldType)	
+	// }, [onSortChange])
 
-	const orderOptions = useMemo<SelectOptions[]>(() => ([
+	// const onOrderChangeHandler = useCallback((order: string) => {
+	// 	onOrderChange(order as SortOrderType)
+	// }, [onOrderChange])
+
+	const orderOptions = useMemo<SelectOptions<SortOrderType>[]>(() => ([
 		{
 			value: 'asc',
 			content: t('ascending')
@@ -45,7 +47,7 @@ export const ArticleSortSwitcher = (props: ArticleSortSwitcherProps) => {
 		}
 	]), [t])
 
-	const sortOptions = useMemo<SelectOptions[]>(() => ([
+	const sortOptions = useMemo<SelectOptions<ArticleSortFieldType>[]>(() => ([
 		{
 			value: ArticleSortField.createdAt,
 			content: t('date')
@@ -66,17 +68,17 @@ export const ArticleSortSwitcher = (props: ArticleSortSwitcherProps) => {
 			cls.ArticleSortSwitcher,
 			[className])}
 		>
-			<Select
+			<Select<ArticleSortFieldType>
 				label={t('sort by')}
 				options={sortOptions}
 				value={sort}
-				onChange={onSortChangeHandle}
+				onChange={onSortChange}
 			/>
-			<Select
+			<Select<SortOrderType>
 				label={t('by asc or desc')}
 				options={orderOptions}
 				value={order}
-				onChange={onOrderChangeHandler}
+				onChange={onOrderChange}
 			/>
 		</div>
 	)

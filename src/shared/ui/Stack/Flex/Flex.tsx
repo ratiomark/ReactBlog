@@ -47,7 +47,7 @@ const defaultElement = 'div'
 
 export const Flex =
 	<E extends ElementType = typeof defaultElement>
-		(props: FlexProps<E>) => {
+	(props: FlexProps<E>) => {
 		const {
 			className,
 			justify = 'start',

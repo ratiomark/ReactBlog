@@ -26,12 +26,12 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
 	} = props
 	const { t } = useTranslation()
 
-	const onChangeHandler = useCallback((value: string) => {
-		onChange?.(value as Country)
+	const onChangeHandler = useCallback((value: Country) => {
+		onChange?.(value)
 	}, [onChange])
 
 	return (
-		<ListBox
+		<ListBox<Country>
 			className={className}
 			defaultValue={t('country')}
 			value={value}
@@ -42,6 +42,7 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
 			labelPadding='gap_8'
 			labelPosition='left'
 			listBoxPosition='center'
+			sameWidth
 		/>
 	)
 })
