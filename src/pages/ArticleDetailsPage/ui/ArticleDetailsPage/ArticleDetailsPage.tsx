@@ -3,12 +3,9 @@ import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { ArticleDetailsComment } from '@/features/ArticleDetailsComment';
-import { Page } from '@/widgets/Page';
-// import { ArticleRecommendation } from 'features/ArticleRecommendation';
-// import { ArticleListRecommendation } from 'features/ArticleList';
-// import { ArticleRecommendation } from 'features/ArticleRecommendation';
 import { ArticleRecommendations } from '@/features/ArticleRecommendations';
 import { ArticleRating } from '@/features/ArticleRating';
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
 
 
 const ArticleDetailsPage = memo(() => {
@@ -19,11 +16,18 @@ const ArticleDetailsPage = memo(() => {
 		return <div>{t('article not found')}</div>
 	}
 
+	const articleRating = toggleFeatures({
+		name: 'isArticleRatingEnabled',
+		on: () => 'Значение при активированной фиче',
+		off: () => 'Значение при выключенной фиче'
+	})
+
 	return (
 		<>
 			<ArticleDetails id={id} />
 			<ArticleRecommendations />
-			<ArticleRating articleId={id} />
+			<div>Заглушка для пользователей у которых не активирована фича</div>
+			{articleRating}
 			<ArticleDetailsComment id={id} />
 		</>
 	)

@@ -9,6 +9,7 @@ export function buildDevServer(option: BuildOptions): DevServerConfiguration {
 		hot: true,
 		client: {
 			overlay: true,
+			progress: true,
 		},
 	}
 }

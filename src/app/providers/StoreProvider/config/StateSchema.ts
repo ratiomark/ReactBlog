@@ -24,11 +24,11 @@ export interface StateSchema {
 	// async reducers
 	loginForm?: LoginSchema
 	profile?: ProfileSchema
-	
+
 	articleDetails?: ArticleDetailsSchema
-	
+
 	articleRecommendations?: ArticleDetailsRecommendationSchema
-	
+
 	articleDetailsComments?: ArticleDetailsCommentsSchema
 	addNewComment?: AddNewCommentSchema
 

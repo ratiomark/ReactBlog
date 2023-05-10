@@ -1,32 +1,29 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { ThunkExtraArg } from '@/app/providers/StoreProvider'
-import axios from 'axios'
+import { StateSchema, ThunkExtraArg } from '@/app/providers/StoreProvider'
 import i18n from '@/shared/config/i18n/i18n'
 import { Article } from '../types/article'
 
-interface FetchArticleByIdProps {
-	id: string
-}
-
 // createAsyncThunk третьим аргументом принимает конфиг и там я могу описать поле extra и теперь обращаясь в thunkAPI.extra ТС подхватит то, что я описал в ThunkExtraArg
-export const fetchArticleById = createAsyncThunk<Article, string, { rejectValue: string, extra: ThunkExtraArg }>(
+export const fetchArticleById = createAsyncThunk<Article, string | undefined, { rejectValue: string, extra: ThunkExtraArg, state: StateSchema }>(
 	'articleDetails/fetchArticleById',
-	async (id, thunkAPI) => {
-
+	async (articleId, thunkAPI) => {
+		if (!articleId) throw new Error('Нет articleId')
 		try {
 			// const response = await axios.post('http://localhost:8000/login', { 	username, password })
 			// делаю тоже самое. но через кастомное апи
-			const response = await thunkAPI.extra!.api!.get<Article>(`/articles/${id}`)
+			const response = await thunkAPI.extra!.api!.get<Article>(
+				`/articles/${articleId}`,
+				{ params: { _expand: 'user', } }
+			)
 
 			if (!response.data) {
 				throw new Error()
 			}
-			const responseData = response.data
 
-			return responseData
+			return response.data
 
 		} catch (err) {
-			// slo
+			// VAR: использование i18.t без хука
 			return thunkAPI.rejectWithValue(i18n.t('error on login'))
 		}
 	}

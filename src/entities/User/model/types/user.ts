@@ -1,4 +1,5 @@
 import { FeatureFlags } from '@/shared/types/FeatureFlags'
+import { JsonSettings } from './JsonSettings'
 
 export const UserRole = {
 	ADMIN: 'ADMIN',
@@ -15,6 +16,7 @@ export interface User {
 	avatar?: string
 	role?: UserRole[]
 	features?: Partial<FeatureFlags>
+	jsonSettings?: JsonSettings
 }
 
 // а это интрефейс для стейта, чтобы описать кусок стора?

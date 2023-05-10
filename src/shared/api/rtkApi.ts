@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage'
+import { USER_ID_LS_KEY, USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage'
 
 export const rtkApi = createApi({
 	// уникальное имя для сервиса, который будет встроенн в стор
@@ -8,7 +8,7 @@ export const rtkApi = createApi({
 		baseUrl: __API__,
 		// функция интерцептор, которая ?(будет добавлять соответствующий хедер в наш конфиг)?
 		prepareHeaders: (headers) => {
-			const token = localStorage.getItem(USER_LOCALSTORAGE_KEY) || ''
+			const token = localStorage.getItem(USER_ID_LS_KEY) || ''
 			if (token) {
 				// добавляем поле Authorization в хедеры, потому что наш сервер использует этот заголовок как факт наличия авторизации
 				headers.set('Authorization', token)
@@ -16,7 +16,7 @@ export const rtkApi = createApi({
 			return headers
 		}
 	}),
-	endpoints:(build)=>({})
+	endpoints: (build) => ({})
 	// обычно указывают эндпоинты в том же месте где создают API, но я хочу сделать так, чтобы эндпоинты инджектились асинхроно снаружи, тогда когда это требуется. То есть я разбиваю API на такие же чанки как и асинхронную подгрузку редьюсеров. Обычный вариант ниже
 	// endpoints: (build) => ({
 	// 	getPokemonById: build.query<Pokemon, string>({
@@ -29,7 +29,7 @@ export const rtkApi = createApi({
 // endpoints: (build)=> ({
 // getPokemonById: build.query<Pokemon, string>({
 // query: (id) => `pokemon/${id}`
-// })	
+// })
 // }),
 // // // overrideExisting: false,
 // })
@@ -43,5 +43,5 @@ export const rtkApi = createApi({
 // 		})
 // 	}),
 // })
-// // автосгенерированный кух, который использует названия эндпоинта 
+// // автосгенерированный кух, который использует названия эндпоинта
 // export const { useGetNotificationsQuery: useNotification } = notificationApi

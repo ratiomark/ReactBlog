@@ -11,7 +11,7 @@ const ArticlesPage = memo(() => {
 	const error = useSelector(getArticleListArticlesPageError)
 
 	if (error) return <p>Какая-то ошибка в ArticlesPage при запросе</p>
-
+	
 	return (
 		<ArticlesPageWrapper>
 			<ArticlesPageFiltersWidget />

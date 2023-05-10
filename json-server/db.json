@@ -691,6 +691,12 @@
       "userId": "1",
       "text": "\n\n\n\n\nsdf\nsf\nsd\nfs\nfsd\nf\n\n\n\n\n\n\n\n\n\n",
       "id": "vJRtuTB"
+    },
+    {
+      "articleId": "7",
+      "userId": "2",
+      "text": "sdfasdfsd\nfsafdsafkjwef\nwef\nwef\n we\nf \nwef\n we\n fwe\n \nw \nw e\n w",
+      "id": "dDMOhSw"
     }
   ],
   "users": [
@@ -698,21 +704,54 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": ["ADMIN"],
+      "role": [
+        "ADMIN"
+      ],
+      "features": {
+        "isCounterEnabled": true,
+        "isArticleRatingEnabled": true
+      },
+      "jsonSettings": {
+        "theme": "app_dark_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
+      },
       "avatar": "https://icon-library.com/images/avatar-icon-png/avatar-icon-png-15.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": ["USER"],
+      "role": [
+        "USER"
+      ],
+      "features": {
+        "isCounterEnabled": false,
+        "isArticleRatingEnabled": false
+      },
+      "jsonSettings": {
+        "theme": "app_dark_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
+      },
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     },
     {
       "id": "2",
       "username": "manager",
       "password": "123",
-      "role": ["MANAGER"],
+      "role": [
+        "MANAGER"
+      ],
+      "features": {
+        "isCounterEnabled": true,
+        "isArticleRatingEnabled": false
+      },
+      "jsonSettings": {
+        "theme": "app_dark_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
+      },
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],

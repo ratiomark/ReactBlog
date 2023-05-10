@@ -1,29 +1,29 @@
 import { Suspense, useEffect } from 'react'
-import { classNames } from '@/shared/lib/helpers/classNames/classNames'
 import { AppRouter } from './providers/router/AppRouter'
 import { NavBar } from '@/widgets/NavBar'
 import { Sidebar } from '@/widgets/Sidebar'
-import icon from '@/shared/assets/icon/abyss.jpg'
-import icon2 from '@/shared/assets/icon/768px-Sign-check-icon.png'
 import { LoaderWidget } from '@/widgets/LoaderWidget'
-import { userActions } from '@/entities/User'
 import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch'
 import { useSelector } from 'react-redux'
-import { getUserMounted } from '@/entities/User'
+import { getUserMounted, initAuthData } from '@/entities/User'
 
 
 
 
 export const App = () => {
-	const dispatch = useAppDispatch()
 	const userMounted = useSelector(getUserMounted)
+	const dispatch = useAppDispatch()
 
 	useEffect(() => {
-		dispatch(userActions.initAuthData())
-	}, [dispatch])
+
+		dispatch(initAuthData())
+
+	}, [dispatch, userMounted])
+
+	if (!userMounted) return <LoaderWidget />
 
 	return (
-		<div className={classNames('app', {}, [])}>
+		<div className={'app'}>
 			<Suspense fallback={<LoaderWidget />}>
 				<NavBar />
 				<div className='content-page'>

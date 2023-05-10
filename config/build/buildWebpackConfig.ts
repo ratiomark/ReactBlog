@@ -8,7 +8,7 @@ import { BuildOptions } from './types/config';
 
 export function buildWebpackConfig(options: BuildOptions): Configuration {
 	const { mode, paths, isDev } = options;
-	
+
 	return {
 		mode: mode,
 		// Вот тут есть есть дефолтное значение main. Можно добавить свои энтри поинты entry:{rnd: path}. А когда один аргумент как сейчас, то это автоматом entry: {main: path}
@@ -28,5 +28,11 @@ export function buildWebpackConfig(options: BuildOptions): Configuration {
 		devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
 		// devtool: isDev ? 'inline-source-map' : undefined,
 		devServer: isDev ? buildDevServer(options) : undefined,
+
+		stats: {
+			// https://docs.w3cub.com/webpack/configuration/stats#stats
+			errorDetails: true,
+			children: true
+		},
 	}
 }
