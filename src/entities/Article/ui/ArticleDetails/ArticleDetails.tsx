@@ -8,17 +8,17 @@ import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoadi
 import { fetchArticleById } from '../../model/services/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { ReducersList, useAsyncReducer } from '@/shared/lib/helpers/hooks/useAsyncReducer';
-import { Text } from '@/shared/ui/Text/Text';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Text } from '@/shared/ui/deprecated/Text/Text';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton/Skeleton';
+import { Avatar } from '@/shared/ui/deprecated/Avatar/Avatar';
 import IconEye from '@/shared/assets/icon/eye-20-20.svg'
 import IconCalendar from '@/shared/assets/icon/calendar-20-20.svg'
-import { Icon } from '@/shared/ui/Icon/Icon';
+import { Icon } from '@/shared/ui/deprecated/Icon/Icon';
 import { ArticleTextComponent } from '../ArticleTextComponent/ArticleTextComponent';
 import { ArticleImageComponent } from '../ArticleImageComponent/ArticleImageComponent';
 import { ArticleCodeComponent } from '../ArticleCodeComponent/ArticleCodeComponent';
 import { obtainRouteArticles } from '@/app/providers/router/config/routeConfig/routeConfig';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { AppLink } from '@/shared/ui/deprecated/AppLink/AppLink';
 
 interface ArticleDetailsProps {
 	className?: string

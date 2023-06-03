@@ -1,23 +1,26 @@
 @import "reset";
-@import "variables/global";
 @import "theme/normal";
 @import "theme/dark";
 @import "fonts/fonts";
+@import "variables/global";
 
-body,
-// .app_modal,
+.app,
+.app_modal,
 .app_drawer {
   font: var(--font-m);
   color: var(--primary-color);
 }
 
-li {
-  list-style: none;
-}
-
 .app {
   background: var(--bg-color);
   min-height: 100vh;
+}
+
+.app_redesigned {
+  background: var(--bg-redesigned);
+  min-height: 100vh;
+  font: var(--font-m-redesigned);
+  color: var(--text-redesigned);
 }
 
 .content-page {
@@ -42,6 +45,10 @@ li {
 .top_left {
   right: 0;
   bottom: 100%;
+}
+
+li {
+  list-style: none;
 }
 
 *::-webkit-scrollbar {

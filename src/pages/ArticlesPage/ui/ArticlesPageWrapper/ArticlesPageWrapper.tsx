@@ -10,6 +10,7 @@ import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/helpers/hooks/useInitialEffect';
 import { Page } from '@/widgets/Page';
 import cls from './ArticlesPageWrapper.module.scss'
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface ArticlesPageWrapperProps {
 	children: ReactNode
@@ -29,13 +30,27 @@ export const ArticlesPageWrapper = memo((props: ArticlesPageWrapperProps) => {
 	})
 
 	return (
-		<Page
-			className={cls.ArticlesPageWrapper}
-			onScrollEnd={onLoadNextPart}
-			isLoading={isLoading}
-		>
-			{props.children}
-		</Page>
+		<ToggleFeatures
+			name='isAppRedesigned'
+			off={
+				<Page
+					className={cls.ArticlesPageWrapper}
+					onScrollEnd={onLoadNextPart}
+					isLoading={isLoading}
+				>
+					{props.children}
+				</Page>
+			}
+			on={
+				<Page
+					className={cls.ArticlesPageWrapperRedesigned}
+					onScrollEnd={onLoadNextPart}
+					isLoading={isLoading}
+				>
+					{props.children}
+				</Page>
+			}
+		/>
 	)
 })
 ArticlesPageWrapper.displayName = 'ArticlesPageWrapper'

@@ -1,0 +1,19 @@
+.Popover {
+  position: relative;
+  width: fit-content;
+}
+
+.trigger {
+  all: unset;
+  cursor: pointer;
+}
+
+.menuPopover {
+  background-color: var(--dark-bg-redesigned);
+  position: absolute;
+  z-index: 10000;
+  padding: 15px;
+  overflow: hidden;
+  border-radius: var(--border-radius-redesigned);
+  border: var(--border-main-redesigned);
+}

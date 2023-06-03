@@ -3,8 +3,12 @@ import { ArticleSortField, ArticleSortFieldType } from '../../model/types/articl
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { SortOrderType } from '@/shared/types/SortOrderType';
-import { Select, SelectOptions } from '@/shared/ui/Select/Select';
+import { Select, SelectOptions } from '@/shared/ui/deprecated/Select/Select';
 import cls from './ArticleSortSwitcher.module.scss';
+import { HStack } from '@/shared/ui/deprecated/Stack';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ListBox } from '@/shared/ui/redesigned/Popup';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleSortSwitcherProps {
 	className?: string
@@ -64,22 +68,52 @@ export const ArticleSortSwitcher = (props: ArticleSortSwitcherProps) => {
 
 
 	return (
-		<div className={clsx(
-			cls.ArticleSortSwitcher,
-			[className])}
-		>
-			<Select<ArticleSortFieldType>
-				label={t('sort by')}
-				options={sortOptions}
-				value={sort}
-				onChange={onSortChange}
-			/>
-			<Select<SortOrderType>
-				label={t('by asc or desc')}
-				options={orderOptions}
-				value={order}
-				onChange={onOrderChange}
-			/>
-		</div>
+		<ToggleFeatures
+			name='isAppRedesigned'
+			off={
+				<HStack
+					gap='gap_16'
+					className={clsx(
+						cls.ArticleSortSwitcher,
+						[className])}
+				>
+					<Select<ArticleSortFieldType>
+						label={t('sort by')}
+						options={sortOptions}
+						value={sort}
+						onChange={onSortChange}
+					/>
+					<Select<SortOrderType>
+						label={t('by asc or desc')}
+						options={orderOptions}
+						value={order}
+						onChange={onOrderChange}
+					/>
+				</HStack>
+			}
+
+			on={
+				<VStack
+					gap='gap_8'
+					align='left'
+					className={clsx(
+						cls.ArticleSortSwitcher,
+						[className])}
+				>
+					<ListBox<ArticleSortFieldType>
+						label={t('sort by')}
+						items={sortOptions}
+						value={sort}
+						onChange={onSortChange}
+					/>
+					<ListBox<SortOrderType>
+						// label={t('by asc or desc')}
+						items={orderOptions}
+						value={order}
+						onChange={onOrderChange}
+					/>
+				</VStack>
+			}
+		/>
 	)
 }

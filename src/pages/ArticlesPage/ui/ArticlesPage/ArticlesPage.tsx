@@ -6,17 +6,53 @@ import {
 } from '@/features/ArticleList'
 import { ArticlesPageFiltersWidget } from '@/widgets/ArticlesPageFiltersWidget';
 import { ArticlesPageWrapper } from '../ArticlesPageWrapper/ArticlesPageWrapper';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ArticlesPageFiltersWidgetRedesigned } from '@/widgets/ArticlesPageFiltersWidgetRedesigned';
+import { ArticlesPageViewPanel } from '@/widgets/ArticlesPageFiltersWidgetRedesigned';
+import { StickyContentLayout } from '@/shared/layouts';
+import { ArticleListArticlesPageRedesigned } from '@/features/ArticleList';
 
 const ArticlesPage = memo(() => {
 	const error = useSelector(getArticleListArticlesPageError)
 
 	if (error) return <p>Какая-то ошибка в ArticlesPage при запросе</p>
-	
+
 	return (
-		<ArticlesPageWrapper>
-			<ArticlesPageFiltersWidget />
-			<ArticleListArticlesPage />
-		</ArticlesPageWrapper>
+
+		<ToggleFeatures
+			name='isAppRedesigned'
+			off={
+				<ArticlesPageWrapper>
+					<ArticlesPageFiltersWidget />
+					<ArticleListArticlesPage />
+				</ArticlesPageWrapper>
+			}
+
+			on={
+				<StickyContentLayout
+					left={<ArticlesPageViewPanel />}
+					content={
+						<ArticlesPageWrapper>
+							<ArticleListArticlesPageRedesigned />
+						</ArticlesPageWrapper>
+					}
+					right={<ArticlesPageFiltersWidgetRedesigned />}
+				/>
+
+				// {/* <ArticleListArticlesPage /> */}
+				// {/* <ArticlesPageViewPanel /> */}
+				// <ArticlesPageWrapper>
+				// 	<StickyContentLayout
+				// 		left={<ArticlesPageViewPanel />}
+				// 		content={<ArticleListArticlesPage />}
+				// 		right={<ArticlesPageFiltersWidgetRedesigned />}
+				// 	/>
+
+				// 	{/* <ArticleListArticlesPage /> */}
+				// 	{/* <ArticlesPageViewPanel /> */}
+				// </ArticlesPageWrapper>
+			}
+		/>
 	)
 })
 

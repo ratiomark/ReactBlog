@@ -8,7 +8,7 @@ import { ReducersList, useAsyncReducer } from '@/shared/lib/helpers/hooks/useAsy
 import { useInitialEffect } from '@/shared/lib/helpers/hooks/useInitialEffect';
 import { fetchRecommendations } from '../../model/services/fetchRecommendations';
 import { ArticleListUi } from '@/features/ArticleList';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/deprecated/Text/Text';
 
 interface ArticleRecommendationProps {
 	className?: string;

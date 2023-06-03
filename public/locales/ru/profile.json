@@ -3,5 +3,11 @@
   "edit": "Редактировать",
   "Шапка профиля": "Profile form header",
   "save profile": "Сохранить",
-  "cancel changes in profile": "Отменить"
+  "cancel changes in profile": "Отменить",
+  "input label first name": "Имя",
+  "input label last name": "Фамилия",
+  "input label age": "Возраст",
+  "input label city": "Город",
+  "input label user": "Имя пользователя",
+  "input label avatar": "Аватар"
 }

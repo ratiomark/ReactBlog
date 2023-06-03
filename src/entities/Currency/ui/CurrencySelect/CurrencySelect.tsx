@@ -2,7 +2,10 @@ import clsx from 'clsx'
 import { Currency } from '../../model/types/currency';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ListBox } from '@/shared/ui/Popup/ui/ListBox/ListBox';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popup';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ListBox } from '@/shared/ui/redesigned/Popup';
+
 
 interface CurrencySelectProps {
 	className?: string
@@ -44,18 +47,36 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
 	// 	/>
 
 	return (
-		<ListBox<Currency>
-			className={className}
-			defaultValue={t('currency')}
-			value={value}
-			onChange={onChangeHandler}
-			items={options}
-			readonly={readonly}
-			label={t('currency')}
-			labelPadding='gap_8'
-			labelPosition='left'
-			listBoxPosition='center'
-			sameWidth
+		<ToggleFeatures
+			name='isAppRedesigned'
+			off={
+				<ListBoxDeprecated<Currency>
+					className={className}
+					defaultValue={t('currency')}
+					value={value}
+					onChange={onChangeHandler}
+					items={options}
+					readonly={readonly}
+					label={t('currency')}
+					labelPadding='gap_8'
+					labelPosition='left'
+					listBoxPosition='center'
+					sameWidth
+				/>
+			}
+			on={<ListBox<Currency>
+				className={className}
+				defaultValue={t('currency')}
+				value={value}
+				onChange={onChangeHandler}
+				items={options}
+				readonly={readonly}
+				label={t('currency')}
+				labelPadding='gap_16'
+				labelPosition='top'
+				listBoxPosition='left'
+
+			/>}
 		/>
 
 

@@ -22,7 +22,11 @@ import { validateLastName } from '@/shared/lib/helpers/validation/validateLastNa
 import { EditableProfileCardButtons } from '../EditableProfileCardButtons/EditableProfileCardButtons';
 import { inputData } from '@/entities/Profile';
 import cls from './EditableProfileCard.module.scss'
-import { Loader } from '@/shared/ui/Loader/Loader';
+import { Loader } from '@/shared/ui/deprecated/Loader/Loader';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ProfileCardRedesigned } from '@/entities/Profile';
+import { EditableProfileCardButtonsRedesigned } from '../EditableProfileCardButtons/EditableProfileCardButtonsRedesigned';
+import { useTranslation } from 'react-i18next';
 
 // export type ProfileKeys =
 // 	| 'firstname'
@@ -44,7 +48,7 @@ import { Loader } from '@/shared/ui/Loader/Loader';
 // }
 
 const onKeyPressInputAge = (event: KeyboardEvent<HTMLInputElement>) => {
-	if (isNaN(Number(event.key)) && event.key !== 'Backspace') {
+	if (isNaN(Number(event.key)) && event.key !== 'Backspace' && event.key !== 'Tab') {
 		event.preventDefault();
 	}
 }
@@ -61,7 +65,7 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 	const {
 		className,
 	} = props
-
+	const { t } = useTranslation('profile')
 	const { dispatch } = useAsyncReducer({ reducers: reducers, removeAfterUnmount: false })
 	const { id: profileId } = useParams<{ id: string }>()
 	const authData = useSelector(getUserAuthData)
@@ -80,7 +84,7 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 	}, [dispatch, profileId])
 
 
-	const onValidateFirstname = useCallback((inputValue: string) => {
+	const onValidateFirstName = useCallback((inputValue: string) => {
 		const errors = validateFirstName(inputValue)
 		dispatch(profileActions.setInputErrors({ 'firstname': errors }))
 		dispatch(profileActions.checkInputErrors())
@@ -92,7 +96,7 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 		dispatch(profileActions.updateProfileForm({ [name]: value }))
 	}, [dispatch, profileHasInputErrors])
 
-	const onValidateLastname = useCallback((inputValue: string) => {
+	const onValidateLastName = useCallback((inputValue: string) => {
 		const errors = validateLastName(inputValue)
 		dispatch(profileActions.setInputErrors({ 'lastname': errors }))
 		dispatch(profileActions.checkInputErrors())
@@ -118,34 +122,40 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 		return [
 			{
 				name: 'firstname',
-				onValidate: onValidateFirstname,
-				inputErrors: profileInputErrorsData?.firstname
+				onValidate: onValidateFirstName,
+				inputErrors: profileInputErrorsData?.firstname,
+				label: t('input label first name')
 			},
 			{
 				name: 'lastname',
-				onValidate: onValidateLastname,
-				inputErrors: profileInputErrorsData?.lastname
+				onValidate: onValidateLastName,
+				inputErrors: profileInputErrorsData?.lastname,
+				label: t('input label last name')
 			},
 			{
 				name: 'age',
 				onValidate: onValidateAge,
 				onKeyPress: onKeyPressInputAge,
-				inputErrors: profileInputErrorsData?.age
+				inputErrors: profileInputErrorsData?.age,
+				label: t('input label age')
 			},
 			{
 				name: 'city',
+				label: t('input label city')
 			},
 			{
 				name: 'username',
 				// onValidate: onValidateAge,
 				// onKeyPress: onKeyPressInputAge,
-				inputErrors: profileInputErrorsData?.username
+				inputErrors: profileInputErrorsData?.username,
+				label: t('input label user')
 			},
 			{
 				name: 'avatar',
+				label: t('input label avatar')
 			},
 		]
-	}, [onValidateFirstname, onValidateLastname, onValidateAge, profileInputErrorsData])
+	}, [onValidateFirstName, t, onValidateLastName, onValidateAge, profileInputErrorsData])
 
 	const onEditProfile = useCallback(() => {
 		dispatch(profileActions.setReadonly(false))
@@ -176,26 +186,58 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 			onSaveProfile={onSaveProfile}
 			onCancelProfileChanges={onCancelProfileChanges}
 		/>)
+	const ProfileEditButtonsRedesigned = (
+		<EditableProfileCardButtonsRedesigned
+			canEdit={canEdit}
+			readonly={profileReadonly}
+			hasInputErrors={profileHasInputErrors}
+			onEditProfile={onEditProfile}
+			onSaveProfile={onSaveProfile}
+			onCancelProfileChanges={onCancelProfileChanges}
+		/>)
 
 	return (
 		<div className={clsx(cls.EditableProfileCard, [className])} >
-			<ProfileCard
-				profileForm={profileForm}
-				profileError={profileError}
-				profileIsLoading={profileIsLoading}
-				inputData={inputData}
-				hasInputErrors={profileHasInputErrors}
-				onChangeHandler={onChangeHandler}
-				onChangeCurrency={onChangeCurrency}
-				currencyValue={profileForm?.currency}
-				onChangeCountry={onChangeCountry}
-				countryValue={profileForm?.country}
-				readonly={profileReadonly}
-				canEdit={canEdit}
-				onEditProfile={onEditProfile}
-				onSaveProfile={onSaveProfile}
-				onCancelProfileChanges={onCancelProfileChanges}
-				ProfileEditButtons={ProfileEditButtons}
+			<ToggleFeatures
+				name='isAppRedesigned'
+				off={
+					<ProfileCard
+						profileForm={profileForm}
+						profileError={profileError}
+						profileIsLoading={profileIsLoading}
+						inputData={inputData}
+						hasInputErrors={profileHasInputErrors}
+						onChangeHandler={onChangeHandler}
+						onChangeCurrency={onChangeCurrency}
+						currencyValue={profileForm?.currency}
+						onChangeCountry={onChangeCountry}
+						countryValue={profileForm?.country}
+						readonly={profileReadonly}
+						canEdit={canEdit}
+						onEditProfile={onEditProfile}
+						onSaveProfile={onSaveProfile}
+						onCancelProfileChanges={onCancelProfileChanges}
+						ProfileEditButtons={ProfileEditButtons}
+					/>
+				}
+				on={<ProfileCardRedesigned
+					profileForm={profileForm}
+					profileError={profileError}
+					profileIsLoading={profileIsLoading}
+					inputData={inputData}
+					hasInputErrors={profileHasInputErrors}
+					onChangeHandler={onChangeHandler}
+					onChangeCurrency={onChangeCurrency}
+					currencyValue={profileForm?.currency}
+					onChangeCountry={onChangeCountry}
+					countryValue={profileForm?.country}
+					readonly={profileReadonly}
+					canEdit={canEdit}
+					onEditProfile={onEditProfile}
+					onSaveProfile={onSaveProfile}
+					onCancelProfileChanges={onCancelProfileChanges}
+					ProfileEditButtons={ProfileEditButtonsRedesigned}
+				/>}
 			/>
 		</div>
 	)

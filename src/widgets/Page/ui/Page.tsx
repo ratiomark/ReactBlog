@@ -10,6 +10,7 @@ import { useInitialEffect } from '@/shared/lib/helpers/hooks/useInitialEffect';
 import { useThrottle } from '@/shared/lib/helpers/hooks/useThrottle';
 import cls from './Page.module.scss';
 import { TestProps } from '@/shared/types/TestProps';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface PageProps extends TestProps {
 	className?: string
@@ -43,7 +44,11 @@ export const Page = memo((props: PageProps) => {
 
 	useInfiniteScroll({
 		callback: onScrollEnd,
-		wrapperRef,
+		wrapperRef: toggleFeatures({
+			name: 'isAppRedesigned',
+			off: () => undefined,
+			on: () => wrapperRef
+		}),
 		triggerRef,
 		isLoading
 	})
@@ -55,11 +60,16 @@ export const Page = memo((props: PageProps) => {
 		}))
 	})
 
+	const pageClass = toggleFeatures({
+		name: 'isAppRedesigned',
+		off: () => cls.Page,
+		on: () => cls.Page_redesigned,
+	})
 
 	return (
-		<section
+		<main
 			ref={wrapperRef}
-			className={clsx(cls.Page, [className])}
+			className={clsx(pageClass, className)}
 			onScroll={onScroll}
 			data-testid={props['data-testid'] ?? 'Page'}
 		>
@@ -67,7 +77,7 @@ export const Page = memo((props: PageProps) => {
 				{children}
 			</div>
 			{onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
-		</section>
+		</main>
 	)
 })
-// Page.displayName = 'Page_Component'
+Page.displayName = 'PageComponent'

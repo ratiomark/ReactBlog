@@ -1,0 +1,42 @@
+.app_orange_theme {
+  --bg-color: #faf4fb;
+  --inverted-bg-color: #bd5012;
+  --primary-color: #9a1a0e;
+  --secondary-color: #d01f0e;
+  --inverted-primary-color: #dbd5dc;
+  --inverted-secondary-color: #faf4fb;
+
+  // redesigned
+  --dark-bg-redesigned: #fff3d6;
+  --bg-redesigned: #f0c048;
+  --light-bg-redesigned: #f2d791;
+  --text-redesigned: #1b1311;
+  --hint-redesigned: #b8b2a2;
+  --cancel-redesigned: #ff5e5e;
+  --save-redesigned: #52fa81;
+  --icon-redesigned: #4875f0;
+  --accent-redesigned: #1d59ff;
+
+  // border-redesigned
+  --border-main-redesigned: 1px solid var(--accent-redesigned);
+  --border-focus-redesigned: 1px solid var(--icon-redesigned);
+  --border-input-redesigned: 1px solid var(--icon-redesigned);
+  --border-input-focus-redesigned: 1px solid var(--accent-redesigned);
+  --border-success-redesigned: 1px solid var(--save-redesigned);
+  --border-cancel-redesigned: 1px solid var(--cancel-redesigned);
+
+  // --border-input-redesigned: 1px solid #74a2b2;
+
+  // skeleton
+  --skeleton-color: #fff;
+  --skeleton-shadow: rgba(0 0 0 / 20%);
+
+  // code
+  --code-bg: #fff;
+
+  // card
+  --card-bg: #d5d5d7;
+
+  // listbox
+  --listbox-bg: #d5d5d7;
+}

@@ -8,7 +8,7 @@ import {
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch';
-import { TabItem } from '@/shared/ui/Tabs/Tabs';
+import { TabItem } from '@/shared/ui/deprecated/Tabs/Tabs';
 
 
 interface ArticlesPageSearchPanelProps {

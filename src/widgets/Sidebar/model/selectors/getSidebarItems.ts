@@ -1,12 +1,18 @@
-import AboutIcon from '@/shared/assets/icon/order.svg'
-import MainIcon from '@/shared/assets/icon/main.svg'
-import MainIconCopy from '@/shared/assets/icon/main.svg'
-import ProfileIcon from '@/shared/assets/icon/profile.svg'
-import BookIcon from '@/shared/assets/icon/book.svg'
+import AboutIconDeprecated from '@/shared/assets/icon/about-20-20.svg'
+import MainIconDeprecated from '@/shared/assets/icon/main-20-20.svg'
+import ProfileIconDeprecated from '@/shared/assets/icon/profile-20-20.svg'
+import ArticleIconDeprecated from '@/shared/assets/icon/article-20-20.svg'
 import { createSelector } from '@reduxjs/toolkit'
 import { getUserAuthData } from '@/entities/User'
 import { SideBarItemType } from '../types/items'
 import { obtainRouteAbout, obtainRouteArticles, obtainRouteMain, obtainRouteProfile } from '@/app/providers/router/config/routeConfig/routeConfig'
+
+import MainIcon from '@/shared/assets/icons_redesigned/home.svg';
+import ArticleIcon from '@/shared/assets/icons_redesigned/article.svg';
+import AboutIcon from '@/shared/assets/icons_redesigned/Info.svg';
+import ProfileIcon from '@/shared/assets/icons_redesigned/avatar.svg';
+import { toggleFeatures } from '@/shared/lib/features'
+
 // createSelector принимает массив(или просто набор селекторов через запятую) селекторов и функцию преобразования. Если передаю массив, то каждое вычисленное значение селектора будет доступно в аргументах функции по порядку в котором были указаны в массиве
 export const getSidebarItems = createSelector(
 	[getUserAuthData],
@@ -15,12 +21,20 @@ export const getSidebarItems = createSelector(
 			{
 				path: obtainRouteMain(),
 				text: 'main page',
-				Icon: MainIcon,
+				Icon: toggleFeatures({
+					name: 'isAppRedesigned',
+					off: () => MainIconDeprecated,
+					on: () => MainIcon,
+				}),
 			},
 			{
 				path: obtainRouteAbout(),
 				text: 'About us',
-				Icon: AboutIcon,
+				Icon: toggleFeatures({
+					name: 'isAppRedesigned',
+					off: () => AboutIconDeprecated,
+					on: () => AboutIcon,
+				}),
 			},
 		]
 		// ссылки только для авторизованных пользователей
@@ -29,12 +43,20 @@ export const getSidebarItems = createSelector(
 				{
 					path: obtainRouteProfile(userData.id),
 					text: 'PROFILE PAGE',
-					Icon: ProfileIcon,
+					Icon: toggleFeatures({
+						name: 'isAppRedesigned',
+						off: () => ProfileIconDeprecated,
+						on: () => ProfileIcon,
+					}),
 				},
 				{
 					path: obtainRouteArticles(),
 					text: 'ARTICLES',
-					Icon: BookIcon,
+					Icon: toggleFeatures({
+						name: 'isAppRedesigned',
+						off: () => ArticleIconDeprecated,
+						on: () => ArticleIcon,
+					}),
 				},
 			)
 		}

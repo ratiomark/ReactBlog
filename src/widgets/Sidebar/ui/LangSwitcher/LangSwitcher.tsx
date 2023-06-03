@@ -1,19 +1,49 @@
 import { useCustomTranslate } from '@/features/LanguageSwitcher'
 import { Langs } from '@/features/LanguageSwitcher'
 import { ReactNode } from 'react'
-import { Button } from '@/shared/ui/Button/Button'
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button/Button'
+import { ToggleFeatures } from '@/shared/lib/features'
+import { Button } from '@/shared/ui/redesigned/Button/Button'
 
-export const LangSwitcher = ({ children }: { children: ReactNode }) => {
+interface LangSwitcherProps {
+	className?: string
+	short?: boolean
+}
+
+export const LangSwitcher = (props: LangSwitcherProps) => {
+	const {
+		className,
+		short
+	} = props
 	const { setLang, t, currentLang } = useCustomTranslate()
+
+
 	const onToggleLang = () => {
 		setLang(currentLang === Langs.en ? Langs.ru : Langs.en)
 	}
+
 	return (
-		<Button
-			onClick={onToggleLang}
-			variant='backgroundInverted'
-		>
-			{children === 'button lang change' ? t('button lang change') : t('button lang short')}
-		</Button>
+		<ToggleFeatures
+			name='isAppRedesigned'
+			off={
+				<ButtonDeprecated
+					onClick={onToggleLang}
+					variant='backgroundInverted'
+					className={className}
+				>
+					{short ? t('button lang short') : t('button lang change')}
+				</ButtonDeprecated>
+			}
+
+			on={
+				<Button
+					variant='clear'
+					onClick={onToggleLang}
+				>
+					{short ? t('button lang short') : t('button lang change')}
+				</Button>
+			}
+		/>
+
 	)
 }

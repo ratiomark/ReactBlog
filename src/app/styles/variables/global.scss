@@ -1,19 +1,59 @@
 :root {
   --font-family-main: Inter, "Times New Roman", serif;
+  --font-family-text-redesigned: "Nunito Sans", sans-serif;
+  --font-family-header-redesigned: "Roboto", sans-serif;
+
+  // s
+  --font-size-s: 12px;
+  --font-line-s: 20px;
+  --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
+
+  // m
   --font-size-m: 16px;
   --font-line-m: 24px;
   --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+
+  // l
   --font-size-l: 24px;
   --font-line-l: 32px;
   --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+
+  // xl
   --font-size-xl: 32px;
   --font-line-xl: 40px;
   --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
 
+  // typography redesigned
+  // s
+  --font-s-redesigned: var(--font-size-s) / var(--font-line-s) var(--font-family-text-redesigned);
+
+  // m
+  --font-size-m-redesigned: 16px;
+  --font-line-m-redesigned: 22px;
+  --font-m-redesigned: var(--font-size-m-redesigned) / var(--font-line-m-redesigned) var(--font-family-text-redesigned);
+
+  // l
+
+  --font-l-redesigned: var(--font-size-l) / var(--font-line-l) var(--font-family-header-redesigned);
+
+  // xl
+  --font-xl-redesigned: var(--font-size-xl) / var(--font-line-xl) var(--font-family-header-redesigned);
+
+  // headings
+
+  --font-size-header-l-redesigned: 24px;
+  --font-line-height-header-l-redesigned: 28px;
+  --font-l-header-redesigned: var(--font-size-header-l-redesigned) / var(--font-line-height-header-l-redesigned) var(--font-family-header-redesigned);
+
+  // xl header
+  --font-size-header-xl-redesigned: 32px;
+  --font-line-height-header-xl-redesigned: 38px;
+  --font-xl-header-redesigned: var(--font-size-header-xl-redesigned) / var(--font-line-height-header-xl-redesigned) var(--font-family-header-redesigned);
+
   // Sizes
   --navbar-height: 50px;
   --sidebar-collapsed: 80px;
-  --side-bar-width: 300px;
+  --sidebar-width: 300px;
 
   // Buttons sizes
   // --button-m: 40px;
@@ -28,4 +68,21 @@
 
   // opacity
   --opacity-disabled: 0.7;
+
+  // border
+  --border-radius-redesigned: 8px;
+  --border-radius-16-redesigned: 16px;
+  --border-radius-34-redesigned: 34px;
+  --border-radius-48-redesigned: 48px;
+
+  // padding
+  --padding-main-redesigned: 8px 16px;
+  --padding-0-top-16-side: 0 16px;
+  --padding-0-top-16-right-8-left-side: 0 16px 0 8px;
+  --padding-0-top-16-right-16-left-side: 0 16px;
+  --padding-2-top-8-left-16-right: 2px 16px 2px 8px;
+  --padding-2-top-16-side: 2px 16px;
+  --padding-3-top-16-side: 3px 16px;
+  --padding-3-top-8-left-16-right: 3px 16px 3px 8px;
+  --padding-5-top-16-side: 5px 16px;
 }

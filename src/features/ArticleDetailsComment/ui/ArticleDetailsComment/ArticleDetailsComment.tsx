@@ -11,7 +11,7 @@ import { articleDetailsCommentsReducer, getArticleComments } from '../../model/s
 import { addNewCommentToArticle } from '../../model/services/addNewCommentToArticle';
 import clsx from 'clsx';
 import cls from './ArticleDetailsComment.module.scss';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/deprecated/Text/Text';
 
 interface ArticleDetailsCommentProps {
 	className?: string

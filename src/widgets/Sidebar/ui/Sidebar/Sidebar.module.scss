@@ -1,57 +1,107 @@
 .Sidebar {
   height: calc(100vh - var(--navbar-height));
-  padding-top: var(--navbar-height);
-  z-index: 100;
-
-  // height: calc(100vh - var(--navbar-height));
-  width: var(--side-bar-width);
+  width: var(--sidebar-width);
   background: var(--inverted-bg-color);
   position: relative;
-  transition: all 0.3s;
+  transition: width 0.3s;
+  overflow: hidden;
 
-  // position: fixed;
-}
+  .switchers {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 
-.toggleSidebar {
-  right: -40px;
-  bottom: 40px;
-  position: absolute;
-}
+  .lang {
+    margin-left: 20px;
+  }
 
-.switchers {
-  position: absolute;
-  bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
-  gap: 15px;
-  align-items: center;
-  width: calc(100% - 0px);
-}
-
-// .items {
-//   display: flex;
-//   flex-direction: column;
-//   gap: 15px;
-//   padding: 15px;
-// }
-.items {
-  // margin-top: 20px;
-  margin-left: 30px;
-  display: flex;
-  flex-direction: column;
-}
-
-// .item {
-//     margin-top: 10px;
-//     display: flex;
-//     align-items: center;
-// }
-
-.collapsed {
-  width: var(--sidebar-collapsed);
+  .collapseBtn {
+    position: absolute;
+    right: -32px;
+    bottom: 32px;
+    z-index: 10;
+  }
 
   .items {
-    overflow: hidden;
+    margin-top: 20px;
+    margin-left: 30px;
+  }
+}
+
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+
+  .switchers {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lang {
+    margin-left: 0;
+  }
+}
+
+.SidebarRedesigned {
+  background: var(--light-bg-redesigned);
+  width: 220px;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-redesigned);
+
+  .appLogo {
+    padding-top: 20px;
+  }
+
+  .items {
+    margin-top: 40px;
+  }
+
+  .collapseBtn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    z-index: 10;
+    transform: rotate(90deg);
+  }
+
+  .switchers {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 16px;
+  }
+}
+
+.collapsedRedesigned {
+  width: 50px;
+  justify-self: left;
+
+  .switchers {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .items {
+    display: flex;
+    align-items: center;
+
+    span {
+      display: none;
+    }
+  }
+
+  .lang {
+    margin-left: 0;
+  }
+
+  .collapseBtn {
+    transform: rotate(-90deg);
+    left: 11px;
   }
 }

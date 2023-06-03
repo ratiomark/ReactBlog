@@ -1,0 +1,37 @@
+.Dropdown {
+  position: relative;
+  width: fit-content;
+}
+
+.trigger {
+  all: unset;
+  cursor: pointer;
+}
+
+.menu {
+  background-color: var(--card-bg);
+  position: absolute;
+  z-index: 10001;
+  border-radius: 3px;
+  border: 1px solid var(--primary-color);
+  min-width: fit-content;
+}
+
+.menuItem {
+  padding: 8px 16px;
+  border: none;
+  background-color: none;
+  outline: none;
+  width: 100%;
+  color: var(--primary-color);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.active {
+  background-color: var(--inverted-primary-color);
+}
+
+.disabled {
+  opacity: 0.4;
+}

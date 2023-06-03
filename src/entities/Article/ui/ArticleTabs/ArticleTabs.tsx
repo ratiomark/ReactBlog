@@ -1,8 +1,10 @@
 import clsx from 'clsx';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TabItem, Tabs } from '@/shared/ui/Tabs/Tabs';
+import { TabItem, Tabs as TabsDeprecated } from '@/shared/ui/deprecated/Tabs/Tabs';
 import cls from './ArticleTabs.module.scss';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Tabs } from '@/shared/ui/redesigned/Tabs/Tabs';
 
 interface ArticleTabsProps {
 	className?: string
@@ -39,16 +41,27 @@ export const ArticleTabs = memo((props: ArticleTabsProps) => {
 	], [])
 
 	return (
-		<div className={clsx(
-			cls.ArticleTabs,
-			[className])}
-		>
-			<Tabs
-				tabs={typeTabs}
-				value={value}
-				onTabClick={onArticleTabClick}
-			/>
-		</div>
+		<ToggleFeatures
+			name='isAppRedesigned'
+			off={
+				<TabsDeprecated
+					tabs={typeTabs}
+					value={value}
+					onTabClick={onArticleTabClick}
+					className={className}
+				/>
+			}
+			on={
+				<Tabs
+					direction='column'
+					align='start'
+					tabs={typeTabs}
+					value={value}
+					onTabClick={onArticleTabClick}
+					className={className}
+				/>
+			}
+		/>
 	)
 })
 ArticleTabs.displayName = 'ArticleTabs'

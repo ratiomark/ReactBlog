@@ -106,7 +106,7 @@ files.forEach(sourceFile => {
 				// текущий ребенок является идентификатором и текст внутри === toggleFeatures
 				if (child.isKind(SyntaxKind.Identifier) && child.getText() === toggleFeatureName) {
 					// null
-					replaceToggleFunction(node)
+					return replaceToggleFunction(node)
 				}
 			})
 		} else if (node.isKind(SyntaxKind.JsxSelfClosingElement) && node.getTagNameNode().getText() === toggleFeatureComponentName) {

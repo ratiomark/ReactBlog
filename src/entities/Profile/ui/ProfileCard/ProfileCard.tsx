@@ -2,15 +2,19 @@ import clsx from 'clsx'
 import { Country } from '@/entities/Country';
 import { CountrySelect } from '@/entities/Country';
 import { Currency, CurrencySelect } from '@/entities/Currency';
-import { Profile } from '@/features/EditableProfileCard';
+
 import { ChangeEvent, KeyboardEvent, ReactNode, } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ValidationErrorText } from '@/shared/lib/helpers/validation/validationErrorTexts';
-import { Input } from '@/shared/ui/Input/Input';
-import { Loader } from '@/shared/ui/Loader/Loader';
-import { VStack } from '@/shared/ui/Stack/VStack/VStack';
-import { Text } from '@/shared/ui/Text/Text';
+import { Input } from '@/shared/ui/deprecated/Input/Input';
+import { Loader } from '@/shared/ui/deprecated/Loader/Loader';
+
+import { Text } from '@/shared/ui/deprecated/Text/Text';
 import cls from './ProfileCard.module.scss'
+
+// eslint-disable-next-line custom-fsd-checker-plugin/layer-import-sequence
+import { Profile } from '@/features/EditableProfileCard';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 
 export type ProfileKeys =
 	| 'firstname'
@@ -29,6 +33,7 @@ export interface inputData {
 	inputErrors?: ValidationErrorText[]
 	onValidate?: OnValidate1 | OnValidate2
 	onKeyPress?: (event: KeyboardEvent<HTMLInputElement>) => void;
+	label?: string
 }
 
 interface ProfileCardProps {
@@ -111,7 +116,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 			{inputTemplate.map((item) => <Input
 				value={String(profileForm![item])}
 				key={item}
-				readonly={true}
+				readonly={readonly}
 				className={cls.input}
 			/>)}
 		</>

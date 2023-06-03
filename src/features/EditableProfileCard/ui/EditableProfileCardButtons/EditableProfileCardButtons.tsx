@@ -1,8 +1,9 @@
 import clsx from 'clsx'
 import { useTranslation } from 'react-i18next'
-import { Button, ButtonSize, ButtonVariant } from '@/shared/ui/Button/Button'
-import { HStack } from '@/shared/ui/Stack'
+import { Button, ButtonSize, ButtonVariant } from '@/shared/ui/deprecated/Button/Button'
+
 import cls from './EditableProfileCardButtons.module.scss'
+import { HStack } from '@/shared/ui/deprecated/Stack'
 
 interface EditableProfileCardButtonsProps {
 	className?: string

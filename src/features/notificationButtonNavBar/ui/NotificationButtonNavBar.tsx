@@ -1,14 +1,20 @@
 import clsx from 'clsx'
 import { NotificationList } from '@/entities/Notification';
-import { Button } from '@/shared/ui/Button/Button';
-import { Icon } from '@/shared/ui/Icon/Icon';
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button/Button';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon/Icon';
 import cls from './NotificationButtonNavBar.module.scss'
-import NotificationIcon from '@/shared/assets/icon/bell.svg'
-import { Popover } from '@/shared/ui/Popup';
+import NotificationIconDeprecated from '@/shared/assets/icon/bell.svg'
+import NotificationIcon from '@/shared/assets/icons_redesigned/notification.svg'
+
 import { useMobile } from '@/shared/lib/helpers/hooks/useMobile';
-import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import { Drawer } from '@/shared/ui/deprecated/Drawer/Drawer';
 import { useState } from 'react';
 import { AnimationProvider } from '@/shared/lib/helpers/providersAndComponents/AnimationProvider';
+import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popup';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Icon } from '@/shared/ui/redesigned/Icon/Icon';
+import { Popover } from '@/shared/ui/redesigned/Popup';
+
 
 interface NotificationButtonNavBarProps {
 	className?: string;
@@ -25,9 +31,17 @@ export const NotificationButtonNavBar = (props: NotificationButtonNavBarProps) =
 	const onOpenDrawer = () => setIsDrawerOpen(true)
 
 	const trigger = (
-		<Button onClick={onOpenDrawer} variant='clear'>
-			<Icon Svg={NotificationIcon} inverted />
-		</Button>
+		<ToggleFeatures name='isAppRedesigned'
+			off={
+				<ButtonDeprecated onClick={onOpenDrawer} variant='clear'>
+					<IconDeprecated Svg={NotificationIconDeprecated} inverted />
+				</ButtonDeprecated>
+			}
+			on={
+				<Icon clickable Svg={NotificationIcon} onClick={onOpenDrawer} />
+			}
+		/>
+
 	)
 
 	if (isMobile) {
@@ -40,12 +54,27 @@ export const NotificationButtonNavBar = (props: NotificationButtonNavBarProps) =
 	}
 
 	return (
-		<Popover
-			className={className}
-			listDirection='bottom_left'
-			trigger={trigger}
-		>
-			<NotificationList className={cls.notifications} />
-		</Popover>
+		<ToggleFeatures name='isAppRedesigned'
+			off={
+				<PopoverDeprecated
+					className={className}
+					listDirection='bottom_left'
+					trigger={trigger}
+				>
+					<NotificationList className={cls.notifications} />
+				</PopoverDeprecated>
+			}
+
+			on={
+				<Popover
+					className={className}
+					listDirection='bottom_left'
+					trigger={trigger}
+				>
+					<NotificationList className={cls.notifications} />
+				</Popover>
+			}
+		/>
+
 	)
 }

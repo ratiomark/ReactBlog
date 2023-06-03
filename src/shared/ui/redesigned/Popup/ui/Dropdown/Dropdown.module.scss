@@ -1,0 +1,38 @@
+.Dropdown {
+  position: relative;
+  width: fit-content;
+}
+
+.trigger {
+  all: unset;
+  cursor: pointer;
+}
+
+.menu {
+  background-color: var(--dark-bg-redesigned);
+  position: absolute;
+  z-index: 10001;
+  min-width: fit-content;
+  overflow: hidden;
+  border-radius: var(--border-radius-redesigned);
+  border: var(--border-main-redesigned);
+}
+
+.menuItem {
+  padding: 8px 16px;
+  border: none;
+  background-color: none;
+  outline: none;
+  width: 100%;
+  color: var(--text-redesigned);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.active {
+  background-color: var(--light-bg-redesigned);
+}
+
+.disabled {
+  opacity: 0.4;
+}

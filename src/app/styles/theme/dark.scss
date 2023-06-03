@@ -6,6 +6,25 @@
   --inverted-primary-color: #1b61f8;
   --inverted-secondary-color: #5e81ea;
 
+  // redesigned
+  --dark-bg-redesigned: #090f11;
+  --bg-redesigned: #0c1214;
+  --light-bg-redesigned: #151c1f;
+  --text-redesigned: #dbdbdb;
+  --hint-redesigned: #555;
+  --cancel-redesigned: #d95757;
+  --save-redesigned: #6cd98b;
+  --icon-redesigned: #74a2b2;
+  --accent-redesigned: #5ed3f3;
+
+  // border-redesigned
+  --border-main-redesigned: 1px solid var(--accent-redesigned);
+  --border-focus-redesigned: 1px solid var(--icon-redesigned);
+  --border-input-redesigned: 1px solid var(--icon-redesigned);
+  --border-input-focus-redesigned: 1px solid var(--accent-redesigned);
+  --border-success-redesigned: 1px solid var(--save-redesigned);
+  --border-cancel-redesigned: 1px solid var(--cancel-redesigned);
+
   // skeleton
   --skeleton-color: #1515ad;
   --skeleton-shadow: #2b2be8;

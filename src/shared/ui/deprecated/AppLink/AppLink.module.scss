@@ -1,0 +1,31 @@
+.AppLink {
+  text-decoration: none;
+}
+
+//   // color: red;
+
+//   /* Запрещаем перенос слов */
+//   // overflow: hidden;
+//   &:hover {
+//     opacity: 0.75;
+//   }
+// }
+.withOpacity {
+  transition: 0.2s all;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+.primary {
+  color: var(--primary-color);
+}
+
+.inverted {
+  color: var(--inverted-primary-color);
+}
+
+.red {
+  color: red;
+}

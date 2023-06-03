@@ -1,11 +1,11 @@
 import clsx from 'clsx';
 import { ChangeEvent, MouseEvent, MouseEventHandler } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button } from '@/shared/ui/Button/Button';
-import { Input } from '@/shared/ui/Input/Input';
+import { Button } from '@/shared/ui/deprecated/Button/Button';
+import { Input } from '@/shared/ui/deprecated/Input/Input';
 import { text } from 'stream/consumers';
 import cls from './AddNewComment.module.scss';
-import { TextArea } from '@/shared/ui/Input copy/TextArea';
+import { TextArea } from '@/shared/ui/deprecated/TextArea/TextArea';
 
 interface AddNewCommentProps {
 	className?: string

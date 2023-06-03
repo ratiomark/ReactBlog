@@ -1,6 +1,8 @@
-export { ArticleListUi } from './ui/ArticleListUi/ArticleListUi';
+export { ArticleListArticlesPageRedesigned } from './ui/redesigned/ArticleListArticlesPageRedesigned/ArticleListArticlesPageRedesigned';
 
-export { ArticleListArticlesPage } from './ui/ArticleListArticlesPage/ArticleListArticlesPage';
+export { ArticleListUi } from './ui/deprecated/ArticleListUi/ArticleListUi';
+
+export { ArticleListArticlesPage } from './ui/deprecated/ArticleListArticlesPage/ArticleListArticlesPage';
 
 export { fetchArticleList } from './model/services/fetchArticleList/fetchArticleList';
 
@@ -19,5 +21,5 @@ export { initArticleListArticlesPage } from './model/services/initArticleListArt
 
 export { getArticleListArticlesPageError, getArticleListArticlesPageIsLoading } from './model/selectors/articleListArticlesPageSelectors';
 
-export { ArticleListRecommendation } from './ui/ArticleListRecommendation/ArticleListRecommendation';
+export { ArticleListRecommendation } from './ui/deprecated/ArticleListRecommendation/ArticleListRecommendation';
 export type { ArticlesPageSchema } from './model/types/articlesPageSchema'

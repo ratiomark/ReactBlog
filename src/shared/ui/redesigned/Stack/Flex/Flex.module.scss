@@ -1,0 +1,104 @@
+.Flex {
+  display: flex;
+  width: fit-content;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.max {
+  min-width: 100%;
+}
+
+.justify {
+  &__start {
+    justify-content: flex-start;
+  }
+
+  &__center {
+    justify-content: center;
+  }
+
+  &__end {
+    justify-content: flex-end;
+  }
+
+  &__between {
+    justify-content: space-between;
+  }
+}
+
+.align {
+  &__start {
+    align-items: flex-start;
+  }
+
+  &__center {
+    align-items: center;
+  }
+
+  &__end {
+    align-items: flex-end;
+  }
+
+  &__left {
+    align-items: left;
+  }
+
+  &__right {
+    align-items: right;
+  }
+}
+
+.gap {
+  &_2 {
+    gap: 2px;
+  }
+
+  &_4 {
+    gap: 4px;
+  }
+
+  &_8 {
+    gap: 8px;
+  }
+
+  &_10 {
+    gap: 10px;
+  }
+
+  &_12 {
+    gap: 12px;
+  }
+
+  &_16 {
+    gap: 16px;
+  }
+
+  &_20 {
+    gap: 20px;
+  }
+
+  &_32 {
+    gap: 32px;
+  }
+}
+
+.direction__column {
+  flex-direction: column;
+}
+
+// 	| 'start'
+// 	| 'center'
+// 	| 'end'
+// 	| 'between'
+
+// export type FlexAlign =
+// 	| 'start'
+// 	| 'end'
+// 	| 'center'
+
+// export type FlexDirection =
+// 	| 'row'
+// 	| 'column'

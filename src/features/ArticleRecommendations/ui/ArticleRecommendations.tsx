@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { memo } from 'react';
 import { ArticleListUi } from '@/features/ArticleList';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/deprecated/Text/Text';
 import cls from './ArticleRecommendations.module.scss'
 import { useArticleRecommendationListQuery } from '../model/api/articleRecommendationsApi';
 

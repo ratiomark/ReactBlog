@@ -1,16 +1,16 @@
 import { useMobile } from '@/shared/lib/helpers/hooks/useMobile';
-import { Button } from '@/shared/ui/Button/Button';
-import { Card } from '@/shared/ui/Card/Card';
-import { Drawer } from '@/shared/ui/Drawer/Drawer';
-import { Input } from '@/shared/ui/Input/Input';
-import { Modal } from '@/shared/ui/Modal/Modal';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { StarRating } from '@/shared/ui/StarRating/StarRating';
-import { Text } from '@/shared/ui/Text/Text';
+import { Button } from '@/shared/ui/deprecated/Button/Button';
+import { Card } from '@/shared/ui/deprecated/Card/Card';
+import { Drawer } from '@/shared/ui/deprecated/Drawer/Drawer';
+import { Input } from '@/shared/ui/deprecated/Input/Input';
+import { Modal } from '@/shared/ui/deprecated/Modal/Modal';
+import { StarRating } from '@/shared/ui/deprecated/StarRating/StarRating';
+import { Text } from '@/shared/ui/deprecated/Text/Text';
 import clsx from 'clsx'
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import cls from './RatingCard.module.scss'
+import { VStack, HStack } from '@/shared/ui/deprecated/Stack';
 
 interface RatingCardProps {
 	className?: string;

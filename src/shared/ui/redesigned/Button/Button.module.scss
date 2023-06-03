@@ -1,0 +1,135 @@
+.addonLeft svg,
+.addonRight svg {
+  color: var(--hint-redesigned);
+}
+
+.Button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: var(--text-redesigned);
+
+  &:hover {
+    color: var(--accent-redesigned);
+
+    .addonLeft svg,
+    .addonRight svg {
+      color: var(--accent-redesigned);
+    }
+  }
+
+  // border: 1px solid red;
+}
+
+.addonLeft,
+.addonRight {
+  display: flex;
+}
+
+.addonRight {
+  padding-left: 8px;
+}
+
+.paddingDefault {
+  padding: var(--padding-main-redesigned);
+}
+
+.paddingWithBothAddon,
+.paddingWithRightAddon {
+  padding: var(--padding-3-top-16-side);
+}
+
+.paddingWithLeftAddon {
+  padding: var(--padding-3-top-8-left-16-right);
+}
+
+.clear {
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.outline {
+  border: var(--border-main-redesigned);
+  color: var(--text-redesigned);
+  background: none;
+}
+
+.success {
+  border: var(--border-success-redesigned);
+  background: none;
+
+  &:hover {
+    color: var(--save-redesigned);
+
+    .addonLeft svg,
+    .addonRight svg {
+      color: var(--accent-redesigned);
+    }
+  }
+}
+
+.cancel {
+  border: var(--border-cancel-redesigned);
+  background: none;
+
+  &:hover {
+    color: var(--cancel-redesigned);
+
+    .addonLeft svg,
+    .addonRight svg {
+      color: var(--cancel-redesigned);
+    }
+  }
+}
+
+.filled {
+  background-color: var(--light-bg-redesigned);
+  border: none;
+  outline: none;
+}
+
+.borderRadius_16 {
+  border-radius: var(--border-radius-16-redesigned);
+}
+
+.borderRadius_34 {
+  border-radius: var(--border-radius-34-redesigned);
+}
+
+.square {
+  padding: 0;
+}
+
+.disabled {
+  opacity: 0.4;
+}
+
+.square.size_m {
+  width: 200px;
+  width: var(--font-line-m);
+  height: var(--font-line-m);
+}
+
+.square.size_l {
+  width: var(--font-line-l);
+  height: var(--font-line-l);
+}
+
+.square.size_xl {
+  width: var(--font-line-xl);
+  height: var(--font-line-xl);
+}
+
+.size_m {
+  font: var(--font-m-redesigned);
+}
+
+.size_l {
+  font: var(--font-l-redesigned);
+}
+
+.size_xl {
+  font: var(--font-xl-redesigned);
+}

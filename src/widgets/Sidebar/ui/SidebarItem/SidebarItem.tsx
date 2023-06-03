@@ -1,7 +1,11 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
+import { AppLink as AppLinkDeprecated, AppLinkTheme } from '@/shared/ui/deprecated/AppLink/AppLink';
 import { SideBarItemType } from '../../model/types/items';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { AppLink } from '@/shared/ui/redesigned/AppLink/AppLink';
+import { Icon } from '@/shared/ui/redesigned/Icon/Icon';
+import clsx from 'clsx';
 import cls from './SidebarItem.module.scss'
 
 interface SidebarItemProps {
@@ -17,16 +21,40 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
 	} = props
 	const { t, i18n } = useTranslation()
 	return (
-		<div className={cls.item}>
-			<AppLink
-				className={cls.item}
-				theme={AppLinkTheme.inverted}
-				to={item.path}
-			>
-				<item.Icon className={cls.icon} />
-				<span className={collapsed ? cls.link_collapsed : cls.link}>{t(`${item.text}`)}</span>
-			</AppLink>
-		</div>
+		<ToggleFeatures
+			name='isAppRedesigned'
+			off={
+				<AppLinkDeprecated
+					className={clsx(
+						cls.item,
+						{ [cls.collapsed]: collapsed },
+					)}
+					theme={AppLinkTheme.inverted}
+					to={item.path}
+				>
+					<item.Icon className={cls.icon} />
+					<span className={cls.link}>{t(item.text)}</span>
+				</AppLinkDeprecated>
+			}
+
+			on={
+
+				<AppLink
+					className={clsx(
+						cls.itemRedesigned,
+						{ [cls.collapsedRedesigned]: collapsed }
+					)}
+					activeClassName={cls.active}
+					additionalActiveClassName={collapsed ? cls.activeWhenCollapsed : ''}
+					to={item.path}
+				>
+					<Icon Svg={item.Icon} />
+					<span className={cls.link}>{t(item.text)}</span>
+				</AppLink>
+			}
+		/>
+
+
 	)
 })
 SidebarItem.displayName = 'SidebarItem'

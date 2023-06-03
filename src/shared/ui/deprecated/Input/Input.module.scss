@@ -1,0 +1,17 @@
+.Input {
+  outline: none;
+  color: var(--secondary-color);
+  font: var(--font-family-main);
+  padding: 5px;
+
+  // background-color: var(--bg-color);
+
+  // outline: 1px greenyellow;
+  width: 100%;
+  border: none;
+}
+
+.hasErrors {
+  margin-bottom: 5px;
+  margin-top: 10px;
+}

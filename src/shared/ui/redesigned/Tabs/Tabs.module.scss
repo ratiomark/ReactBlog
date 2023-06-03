@@ -1,0 +1,17 @@
+.Tabs {
+  // display: flex;
+  // gap: 8px;
+  // align-items: center;
+}
+
+.tabItem {
+  cursor: pointer;
+}
+
+.selectedItem {
+  padding: var(--padding-main-redesigned);
+}
+
+// .tabActive {
+//   background-color: var(--inverted-bg-color);
+// }

@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { ArticleCodeBlock } from '../../model/types/article';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Code } from '@/shared/ui/Code/Code';
+import { Code } from '@/shared/ui/deprecated/Code/Code';
 import cls from './ArticleCodeComponent.module.scss';
 
 interface ArticleCodeComponentProps {

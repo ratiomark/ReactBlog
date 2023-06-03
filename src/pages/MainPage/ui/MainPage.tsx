@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
-import { ListBox } from '@/shared/ui/Popup/ui/ListBox/ListBox'
-import { VStack } from '@/shared/ui/Stack/VStack/VStack'
 import { Page } from '@/widgets/Page'
 import { RatingCard } from '@/entities/Rating'
+import { ListBox } from '@/shared/ui/deprecated/Popup'
+import { VStack } from '@/shared/ui/deprecated/Stack'
 
 
 const items = [

@@ -1,6 +1,6 @@
 import { useCustomTranslate } from '@/features/LanguageSwitcher'
-import { classNames } from '@/shared/lib/helpers/classNames/classNames'
-import { Button } from '@/shared/ui/Button/Button'
+import { Button } from '@/shared/ui/deprecated/Button/Button'
+import clsx from 'clsx'
 import cls from './ErrorDisplay.module.scss'
 
 interface ErrorDisplayProps {
@@ -14,7 +14,7 @@ export const ErrorDisplay = ({ className }: ErrorDisplayProps) => {
 	}
 
 	return (
-		<div className={classNames(cls.ErrorDisplay, {}, [className])}>
+		<div className={clsx(cls.ErrorDisplay, [className])}>
 			<h2>{t('error happened')}</h2>
 			<Button
 				variant='outline'

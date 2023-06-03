@@ -11,7 +11,8 @@ export function useInfiniteScroll({ callback, wrapperRef, triggerRef, isLoading 
 	const observer = useRef<IntersectionObserver | null>(null);
 
 	useEffect(() => {
-		const wrapperElement = wrapperRef?.current;
+		// если не передать wrapper, то в по дефолту будет использовать вьюпорт браузера
+		const wrapperElement = wrapperRef?.current || null;
 		const triggerElement = triggerRef.current;
 
 		if (callback && !isLoading) {

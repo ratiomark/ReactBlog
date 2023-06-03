@@ -1,10 +1,10 @@
 import { Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/helpers/classNames/classNames'
-import { Loader } from '@/shared/ui/Loader/Loader';
-import { Modal } from '@/shared/ui/Modal/Modal';
+import { Loader } from '@/shared/ui/deprecated/Loader/Loader';
+import { Modal } from '@/shared/ui/deprecated/Modal/Modal';
 import { LoginForm } from '../LoginForm/LoginForm.lazy';
 import cls from './LoginModal.module.scss'
+import clsx from 'clsx';
 
 interface LoginModalProps {
 	className?: string;
@@ -22,7 +22,7 @@ export const LoginModal = (props: LoginModalProps) => {
 	const { t } = useTranslation()
 
 	return (
-		<Modal className={classNames(cls.LoginModal, {}, [className])}
+		<Modal className={clsx(cls.LoginModal,  [className])}
 			isOpen={isOpen}
 			lazy
 			onClose={onClose}

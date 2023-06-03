@@ -2,7 +2,10 @@ import clsx from 'clsx'
 import { Country } from '../../model/types/country';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ListBox } from '@/shared/ui/Popup/ui/ListBox/ListBox';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popup';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ListBox } from '@/shared/ui/redesigned/Popup';
+
 
 interface CountrySelectProps {
 	className?: string
@@ -31,19 +34,40 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
 	}, [onChange])
 
 	return (
-		<ListBox<Country>
-			className={className}
-			defaultValue={t('country')}
-			value={value}
-			onChange={onChangeHandler}
-			items={options}
-			readonly={readonly}
-			label={t('country')}
-			labelPadding='gap_8'
-			labelPosition='left'
-			listBoxPosition='center'
-			sameWidth
+		<ToggleFeatures
+			name='isAppRedesigned'
+			off={
+				<ListBoxDeprecated<Country>
+					className={className}
+					defaultValue={t('country')}
+					value={value}
+					onChange={onChangeHandler}
+					items={options}
+					readonly={readonly}
+					label={t('country')}
+					labelPadding='gap_8'
+					labelPosition='left'
+					listBoxPosition='center'
+					sameWidth
+				/>
+			}
+			on={
+				<ListBox<Country>
+					className={className}
+					defaultValue={t('country')}
+					value={value}
+					onChange={onChangeHandler}
+					items={options}
+					readonly={readonly}
+					label={t('country')}
+					labelPadding='gap_16'
+					labelPosition='top'
+					listBoxPosition='left'
+					sameWidth
+				/>
+			}
 		/>
+
 	)
 })
 CountrySelect.displayName = 'CountrySelect'

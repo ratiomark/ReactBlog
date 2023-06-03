@@ -28,9 +28,9 @@ export const ThemeProvider = ({ children, initialTheme }: ThemeProviderProps) =>
 		setTheme: setTheme,
 	}), [theme])
 
-	useEffect(() => {
-		document.body.className = theme
-	}, [theme])
+	// useEffect(() => {
+		// document.body.className = theme
+	// }, [theme])
 
 	return (
 		<ThemeContext.Provider value={defaultProps}>

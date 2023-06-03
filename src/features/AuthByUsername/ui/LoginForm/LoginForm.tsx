@@ -8,17 +8,17 @@ import { loginActions, loginReducer } from '../../Model/slice/loginSlice'
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { classNames } from '@/shared/lib/helpers/classNames/classNames'
-import { Button } from '@/shared/ui/Button/Button'
-import { Input } from '@/shared/ui/Input/Input'
+import { Button } from '@/shared/ui/deprecated/Button/Button'
+import { Input } from '@/shared/ui/deprecated/Input/Input'
 import cls from './LoginForm.module.scss'
 import { loginUserByUserName } from '../../Model/services/loginByUserName/loginUserByUserName'
-import { Text, TextVariant } from '@/shared/ui/Text/Text'
+import { Text, TextVariant } from '@/shared/ui/deprecated/Text/Text'
 
 import {
 	ReducersList,
 	useAsyncReducer,
 } from '@/shared/lib/helpers/hooks/useAsyncReducer'
+import clsx from 'clsx'
 
 export interface LoginFormProps {
 	className?: string
@@ -64,7 +64,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 	}, [onSuccess, dispatch, username, password])
 
 	return (
-		<div className={classNames(cls.LoginForm, {}, [className])}>
+		<div className={clsx(cls.LoginForm, [className])}>
 			<Text text={t('login form in modal')} />
 
 			<div className={cls.inputWrapper}>

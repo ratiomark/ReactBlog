@@ -1,0 +1,136 @@
+.InputWrapper {
+  // padding: var(--padding-main-redesigned);
+
+  border: var(--border-input-redesigned);
+
+  // border: var(--border-input-focus-redesigned);
+  border-radius: var(--border-radius-48-redesigned);
+
+  &.paddingWithRightAddon {
+    padding: var(--padding-0-top-16-right-16-left-side);
+  }
+
+  &.paddingWithBothAddon,
+  &.paddingWithLeftAddon {
+    padding: var(--padding-0-top-16-right-8-left-side);
+  }
+
+  &.hasErrors {
+    margin-bottom: 5px;
+    border: 1px solid var(--cancel-redesigned);
+
+    .addonLeft svg,
+    .addonRight svg {
+      color: var(--cancel-redesigned);
+    }
+  }
+
+  &.focused:not(.hasErrors) {
+    border: var(--border-input-focus-redesigned);
+
+    .addonLeft svg,
+    .addonRight svg {
+      color: var(--accent-redesigned);
+    }
+  }
+}
+
+.inputInWrapper {
+  outline: none;
+  width: 100%;
+  color: var(--text-redesigned);
+  background: none;
+  border: none;
+
+  &::placeholder {
+    color: var(--hint-redesigned);
+  }
+
+  // &:focus {
+  // border: var(--border-main-redesigned);
+  // }
+}
+
+.addonLeft,
+.addonRight {
+  display: flex;
+}
+
+.addonRight {
+  padding-left: 8px;
+}
+
+// .paddingDefault {
+//   padding: var(--padding-main-redesigned);
+// }
+
+.Input {
+  outline: none;
+  width: 100%;
+  color: var(--text-redesigned);
+  background: none;
+  padding: var(--padding-main-redesigned);
+  border: var(--border-input-redesigned);
+  border-radius: var(--border-radius-48-redesigned);
+
+  &::placeholder {
+    color: var(--hint-redesigned);
+  }
+
+  &.focused:not(.hasErrors) {
+    border: var(--border-input-focus-redesigned);
+  }
+
+  &.hasErrors {
+    margin-bottom: 5px;
+    border: 1px solid var(--cancel-redesigned);
+  }
+
+  &.readonly {
+    opacity: 0.7;
+    user-select: none;
+  }
+}
+
+// .hasErrors {
+//   margin-bottom: 5px;
+//   border: 1px solid var(--cancel-redesigned);
+
+//   // margin-top: 10px;
+// }
+
+// .inputError {
+//   max-height: 0;
+//   transition: max-height 0.5s ease-out;
+//   overflow: hidden;
+
+//   // background: #d5d5d5;
+// }
+
+// .inputErrorActive {
+//   max-height: 500px;
+//   transition: max-height 0.75s ease-in;
+// }
+
+// .focused {
+// border: 1px solid var(--accent-redesigned);
+
+// .addonLeft svg,
+// .addonRight svg {
+// color: var(--accent-redesigned);
+// }
+// }
+
+// .readonly {
+//   opacity: 0.7;
+//   border: none;
+// }
+
+// .paddingWithBothAddon,
+// .paddingWithRightAddon {
+//   padding: var(--padding-3-top-16-side);
+// }
+
+// .paddingWithLeftAddon {
+//   padding: var(--padding-3-top-8-left-16-right);
+// }

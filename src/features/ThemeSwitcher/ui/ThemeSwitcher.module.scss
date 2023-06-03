@@ -3,16 +3,20 @@
 }
 
 .dark {
-  fill: rgb(104 79 243);
+  // fill: rgb(104 79 243);
 
-  // fill: var(--primary-color);
+  fill: var(--primary-color);
 
   // fill: var(--inverted-secondary-color);
   // fill: var(--secondary-color);
 }
 
-.light {
-  fill: mediumaquamarine;
-
-  // fill: var(--inverted-secondary-color);
+.themeIcon {
+  fill: var(--primary-color);
 }
+
+// .light {
+// fill: mediumaquamarine;
+
+// fill: var(--inverted-secondary-color);
+// }

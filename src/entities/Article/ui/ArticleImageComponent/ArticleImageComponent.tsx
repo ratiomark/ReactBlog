@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { ArticleImageBlock } from '../../model/types/article';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/deprecated/Text/Text';
 import cls from './ArticleImageComponent.module.scss';
 
 interface ArticleImageComponentProps {

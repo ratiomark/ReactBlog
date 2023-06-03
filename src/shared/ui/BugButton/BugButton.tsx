@@ -2,7 +2,7 @@
 import { useCustomTranslate } from '@/features/LanguageSwitcher'
 import { useState, useEffect } from 'react'
 import { classNames } from '@/shared/lib/helpers/classNames/classNames'
-import { Button } from '../Button/Button'
+import { Button } from '../deprecated/Button/Button'
 
 interface BugButtonProps {
 	className?: string
