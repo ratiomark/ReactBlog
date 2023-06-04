@@ -1,3 +1,4 @@
+/* stylelint-disable value-no-vendor-prefix */
 .ArticleListItem {
   text-decoration: none;
 }
@@ -14,10 +15,6 @@
     max-height: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-
-  .articleTitle {
-    // margin-top: 9px;
   }
 
   .articleImage {
@@ -49,7 +46,7 @@
   .description {
     display: -webkit-box;
     -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;  
+    -webkit-box-orient: vertical;
     overflow: hidden;
   }
 
@@ -67,60 +64,74 @@
   width: 100%;
   transition: all 0.2s;
   cursor: pointer;
+  border-radius: 20px;
 
-  .imageWrapper {
-    width: 220px;
-    height: 220px;
-    position: relative;
+  .card {
+    width: 249px;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 20px;
   }
+
+  // .imageWrapper {
+  //   width: 220px;
+  //   height: 220px;
+  //   position: relative;
+  // }
 
   .articleImage {
     width: 100%;
-    height: 100%;
+    max-height: 141px;
     object-fit: cover;
   }
 
+  .articleTitle {
+    height: 88px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
   .articleDateCreation {
-    position: absolute;
-    top: 0;
-    right: 0;
-    opacity: 0;
-    transition: opacity 0.2s;
-    padding: 0 5px;
-    background-color: white;
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+    // opacity: 0;
+    // transition: opacity 0.2s;
+    // padding: 0 5px;
+    // background-color: white;
 
     // color: red;
     // border-radius: 3px;
   }
 
   .infoWrapper {
-    padding-top: 8px;
-    padding-bottom: 5px;
-    display: flex;
-    align-items: center;
-
-    // justify-content: space-between;
-
-    // justify-content: center;
+    padding: 8px 8px 16px;
   }
 
-  .articleTypes p {
-    width: 130px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  .icon {
+    width: 24px;
+    height: 24px;
   }
+
+  // .articleTypes p {
+  //   width: 130px;
+  //   white-space: nowrap;
+  //   overflow: hidden;
+  //   text-overflow: ellipsis;
+  // }
 
   .views {
-    margin-left: auto;
+    // margin-right: auto;
   }
 
-  .articleTitle p {
-    width: 200px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+  // .articleTitle p {
+  //   width: 200px;
+  //   white-space: nowrap;
+  //   overflow: hidden;
+  //   text-overflow: ellipsis;
+  // }
 }
 
 .recommendations {
@@ -132,7 +143,7 @@
   }
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 
     .articleDateCreation {
       opacity: 1;
@@ -140,12 +151,12 @@
   }
 }
 
-.grid {
-  &:hover {
-    transform: scale(1.1);
+// .grid {
+//   &:hover {
+//     transform: scale(1.1);
 
-    .articleDateCreation {
-      opacity: 1;
-    }
-  }
-}
+//     .articleDateCreation {
+//       opacity: 1;
+//     }
+//   }
+// }

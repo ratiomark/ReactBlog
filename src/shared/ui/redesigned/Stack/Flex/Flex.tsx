@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ComponentProps, ElementType, ReactNode } from 'react';
+import { ComponentProps, ElementType, ReactNode, memo } from 'react';
 import cls from './Flex.module.scss';
 
 export type FlexJustify =
@@ -44,11 +44,11 @@ export type FlexOwnProps<E extends ElementType = ElementType> = {
 export type FlexProps<E extends ElementType> = FlexOwnProps<E> &
 	Omit<ComponentProps<E>, keyof FlexOwnProps>
 
+
 const defaultElement = 'div'
 
-export const Flex =
-	<E extends ElementType = typeof defaultElement>
-		(props: FlexProps<E>) => {
+export const Flex = memo(
+	<E extends ElementType = typeof defaultElement>(props: FlexProps<E>) => {
 		const {
 			className,
 			justify = 'start',
@@ -80,4 +80,39 @@ export const Flex =
 				{children}
 			</TagName>
 		)
-	}
+	})
+Flex.displayName = 'Flex'
+// export const Flex =
+// 	<E extends ElementType = typeof defaultElement>(props: FlexProps<E>) => {
+// 		const {
+// 			className,
+// 			justify = 'start',
+// 			align = 'center',
+// 			direction = 'row',
+// 			wrap,
+// 			max,
+// 			gap,
+// 			children,
+// 			as: TagName = defaultElement,
+// 			...otherProps
+// 		} = props
+
+// 		return (
+// 			<TagName
+// 				className={clsx(
+// 					cls.Flex,
+// 					cls[`justify__${justify}`],
+// 					cls[`align__${align}`],
+// 					cls[`direction__${direction}`],
+// 					gap ? cls[gap] : null,
+// 					{
+// 						[cls.wrap]: wrap,
+// 						[cls.max]: max,
+// 					},
+// 					className)}
+// 				{...otherProps}
+// 			>
+// 				{children}
+// 			</TagName>
+// 		)
+// 	}

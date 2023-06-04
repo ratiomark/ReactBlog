@@ -20,6 +20,7 @@ export const addNewCommentToArticle = createAsyncThunk<CommentType, void, { reje
 		const article = getArticleDetailsData(getState())
 
 		if (!commentText || !userData || !article) {
+
 			return rejectWithValue('no data')
 		}
 
@@ -35,7 +36,7 @@ export const addNewCommentToArticle = createAsyncThunk<CommentType, void, { reje
 			if (!responseData) {
 				throw new Error()
 			}
-			
+
 			const newComment: CommentType = {
 				id: responseData.id,
 				user: userData,

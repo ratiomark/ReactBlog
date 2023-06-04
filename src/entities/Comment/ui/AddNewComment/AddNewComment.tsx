@@ -34,10 +34,6 @@ export const AddNewComment = (props: AddNewCommentProps) => {
 				value={text}
 				onChangeEvent={onChange}
 			/>
-			{/* <Input
-				value={text}
-				onChangeEvent={onChange}
-			/> */}
 			<Button
 				onClick={onSendNewComment}
 			>

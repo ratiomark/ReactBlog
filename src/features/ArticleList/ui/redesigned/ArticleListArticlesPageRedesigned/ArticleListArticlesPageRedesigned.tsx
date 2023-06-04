@@ -18,7 +18,7 @@ export const ArticleListArticlesPageRedesigned = memo(() => {
 	const articlesDetailsPage = useSelector(getArticles.selectAll)
 	const errorDetailsPage = useSelector(getArticleListArticlesPageError)
 	const isLoadingDetailsPage = useSelector(getArticleListArticlesPageIsLoading)
-	const view = useSelector(getArticlesPageView) ?? 'list'
+	const view = useSelector(getArticlesPageView)
 	return (
 		<ArticleListUiRedesigned
 			articles={articlesDetailsPage}

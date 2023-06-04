@@ -4,6 +4,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import cls from './ArticleTextComponent.module.scss';
 import { Text } from '@/shared/ui/redesigned/Text/Text';
+import { Heading } from '@/shared/ui/redesigned/Typography';
 
 interface ArticleTextComponentProps {
 	className?: string
@@ -12,20 +13,15 @@ interface ArticleTextComponentProps {
 
 export const ArticleTextComponentRedesigned = memo((props: ArticleTextComponentProps) => {
 	const {
-		className,
 		block
 	} = props
 	const { paragraphs, title } = block
-	const { t } = useTranslation()
 
 	return (
-		<div className={clsx(
-			cls.articleTextComponent,
-			[className])}
-		>
-			{title && <Text title={title} className={cls.title} />}
+		<>
+			{title && <Heading title={title} className={cls.title} />}
 			{paragraphs.map((text, index) => <Text text={text} key={index} className={cls.paragraph} />)}
-		</div>
+		</>
 	);
 })
 ArticleTextComponentRedesigned.displayName = 'ArticleTextComponent'

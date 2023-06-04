@@ -1,7 +1,9 @@
+export { ArticleListRecommendationRedesigned } from './ui/redesigned/ArticleListRecommendationRedesigned/ArticleListRecommendationRedesigned';
+
+
 export { ArticleListArticlesPageRedesigned } from './ui/redesigned/ArticleListArticlesPageRedesigned/ArticleListArticlesPageRedesigned';
 
 export { ArticleListUi } from './ui/deprecated/ArticleListUi/ArticleListUi';
-
 export { ArticleListArticlesPage } from './ui/deprecated/ArticleListArticlesPage/ArticleListArticlesPage';
 
 export { fetchArticleList } from './model/services/fetchArticleList/fetchArticleList';

@@ -8,6 +8,7 @@ import { Page } from '@/widgets/Page';
 import { AdminPanelPage } from '@/pages/AdminPanelPage';
 import { UserRole } from '@/entities/User';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
+import { SettingsPage } from '@/pages/SettingsPage';
 
 export type AppRouteProps = RouteProps & {
 	authOnly?: boolean
@@ -23,6 +24,7 @@ export const AppRoutes = {
 	articles_details: 'articles_details',
 	admin_panel: 'admin_panel',
 	forbidden_page: 'forbidden_page',
+	settings_page: 'settings_page',
 	PAGE_NOT_FOUND: 'PAGE_NOT_FOUND',
 } as const;
 
@@ -52,6 +54,7 @@ export const obtainRouteArticles = () => '/articles'
 export const obtainRouteArticlesDetails = (id: string | number) => `/articles/${id}`
 export const obtainRouteAdminPanel = () => '/admin'
 export const obtainForbiddenPage = () => '/forbidden'
+export const obtainSettingsPage = () => '/settings'
 
 
 export const routeConfig: Record<AppRoutes, AppRouteProps> = {
@@ -89,7 +92,12 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
 		wrapper: Page,
 		roles: ['ADMIN', 'MANAGER']
 	},
-
+	settings_page: {
+		path: obtainSettingsPage(),
+		element: <SettingsPage />,
+		authOnly: true,
+		wrapper: Page,
+	},
 	forbidden_page: {
 		path: obtainForbiddenPage(),
 		element: <ForbiddenPage />

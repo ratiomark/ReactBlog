@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { memo } from 'react';
+// eslint-disable-next-line custom-fsd-checker-plugin/layer-import-sequence
 import { ArticleListUi } from '@/features/ArticleList';
 import { Text } from '@/shared/ui/deprecated/Text/Text';
 import cls from './ArticleRecommendations.module.scss'

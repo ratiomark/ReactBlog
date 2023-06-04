@@ -1,3 +1,5 @@
+export { ArticleDetailsCommentRedesigned } from './ui/ArticleDetailsComment/ArticleDetailsCommentRedesigned';
+
 export { articleDetailsCommentsReducer } from './model/slice/articleDetailsCommentsSlice';
 
 export { addNewCommentReducer } from './model/slice/addNewCommentSlice';

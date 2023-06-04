@@ -1,3 +1,5 @@
+export { ArticleDetailsRedesigned } from './ui/ArticleDetails/ArticleDetailsRedesigned';
+
 export { ArticleTabs } from './ui/ArticleTabs/ArticleTabs';
 
 export { ArticleSortSwitcher } from './ui/ArticleSortSwitcher/ArticleSortSwitcher';

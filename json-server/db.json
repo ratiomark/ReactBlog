@@ -289,6 +289,30 @@
       "userId": "2",
       "text": "sdfasdfsd\nfsafdsafkjwef\nwef\nwef\n we\nf \nwef\n we\n fwe\n \nw \nw e\n w",
       "id": "dDMOhSw"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "safwfeffaw ef wef wefwef",
+      "id": "0JpEBYV"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "fafwefwe",
+      "id": "txSi_Ys"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Блочные элементы всегда берут 100% ширины родителя, им не нужно задавать 100%\ninline-block позволяет использовать на элементе падинги и маржины, так как будто это display: block, но при этом элемент остается в строчном потоке\ndisplay: inline  - дефолт для span и ссылок, по этой причине их можно засунуть внутрь параграфа и верстка не сломается все будет работать как будто это один текст. ",
+      "id": "iZWjiCG"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Блочные элементы всегда берут 100% ширины родителя, им не нужно задавать 100%\n\ninline-block позволяет использовать на элементе падинги и маржины, так как будто это display: block, но при этом элемент остается в строчном потоке\n\ndisplay: inline  - дефолт для span и ссылок, по этой причине их можно засунуть внутрь параграфа и верстка не сломается все будет работать как будто это один текст. ",
+      "id": "6811OFl"
     }
   ],
   "users": [
@@ -354,7 +378,7 @@
       "first": "jghwer",
       "lastname": "aminchenko",
       "age": "12",
-      "currency": "eur",
+      "currency": "usd",
       "country": "USA",
       "city": "Moscow",
       "username": "admin213",
